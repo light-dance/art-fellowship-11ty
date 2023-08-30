@@ -1,0 +1,15 @@
+{
+	"baseURL": "https://www.artfellowship.space",
+	"name": "Art Fellowship Practice",
+	"description": "foo",
+	"author": false,
+	"twitter": "",
+	"favicon": "",
+	"image": "",
+	"fathom": {
+		"use": false,
+		"url": "",
+		"id": ""
+	},
+	"feed": false
+}
