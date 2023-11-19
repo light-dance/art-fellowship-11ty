@@ -1,18 +1,24 @@
 :root {
 	--background: hsl(48, 26%, 96%);
 	--text-color: hsla(0, 0%, 16%, 1);
-	--link-color: hsla(208, 92%, 28%, 1);
+	--link-color: hsla(208, 92%, 28%, 1);	
 }
 @media (prefers-color-scheme: dark) {
 	:root {
-		--background: hsla(183, 5%, 21%, 1);
-		--text-color: hsla(0, 0%, 85%, 1);
-		--link-color: hsla(208, 83%, 61%, 1);
+		
 	}
 }
+$background: hsl(48, 26%, 96%);
+
 html, body {
 	background-color: var(--background);
 	color: var(--text-color);
+}
+
+nav.more {
+	width: 100%;
+	height: 2px;
+	background: hsl(51, 9%, 85%);
 }
 
 
@@ -21,57 +27,88 @@ html, body {
 	flex-direction: column;
 	align-items: center;
 	
-	> h1 {
-		font-family: 'Source Serif Display';
-		font-weight: 700;
-		font-size: 4.6rem;
-		text-align: center;
-	}
-	> h2 {
-		font-family: 'Source Serif Text';
-		font-weight: 300;
-		font-size: 4rem;
-		letter-spacing: -0.015em;
-		text-align: center;
-		color: hsl(220, 100%, 56%);
-		background: linear-gradient(to bottom, 
-			hsl(244, 100%, 32%) 0%, 
-			hsl(213, 84%, 51%) 28%, 
-			hsl(278, 100%, 78%) 89%);
-		background-clip: text;
-		-webkit-background-clip: text;
-		text-fill-color: transparent;
-		-webkit-text-fill-color: transparent;
-	}
-	> h2::selection {
-		background: hsl(245, 78%, 91%);
-		text-fill-color: hsl(0, 0%, 100%);
-		-webkit-text-fill-color: hsl(0, 0%, 100%);
-		// background: linear-gradient(to top, 
-			// hsl(213, 75%, 69%) 28%, 
-			// hsl(267, 88%, 90%) 89%);
+	text-rendering: geometricPrecision;
+	
+	* {
+		z-index: 1;
 	}
 	
-	> div {
-		max-width: 28rem;
+	#logo {
+		padding: 0.83rem 0.5rem;
+	}
+	
+	div.strong-copy {
+		padding: 3.55rem 1rem 2.6rem;
+		> h1 {
+			font-family: 'Source Serif Display';
+			font-weight: 700;
+			font-size: 4.45rem;
+			text-align: center;
+			letter-spacing: -0.013em;
+			
+			&::selection {
+				background: hsl(0, 0%, 73%);
+				color: hsl(0, 0%, 95%);
+				text-fill-color: hsl(0, 0%, 95%);
+				-webkit-text-fill-color: hsl(0, 0%, 95%);
+			}
+		}
+		> h2 {
+			padding-top: 0.62rem;
+			height: 6rem;
+			font-family: 'Source Serif Text';
+			font-weight: 300;
+			font-size: 4.3rem;
+			letter-spacing: -0.015em;
+			text-align: center;
+			color: hsl(220, 100%, 56%);
+			background: linear-gradient(to bottom, 
+				hsl(244, 100%, 32%) 6%, 
+				hsl(213, 84%, 51%) 32%, 
+				hsl(278, 100%, 78%) 92%);
+			background-clip: text;
+			-webkit-background-clip: text;
+			text-fill-color: transparent;
+			-webkit-text-fill-color: transparent;
+			
+			&::selection {
+				background: hsl(245, 78%, 91%);
+				color: hsl(0, 0%, 100%);
+				text-fill-color: hsl(0, 0%, 100%);
+				-webkit-text-fill-color: hsl(0, 0%, 100%);
+			}
+		}
+	}
+	
+	
+	div.cta {
+		max-width: 34rem;
 		text-align: center;
 		h1 {
+			font-size: 1.7rem;
+			font-weight: 600;
 			line-height: 1.8;
 		}
+		p {
+			font-size: 1.14rem;
+			letter-spacing: -0.012em;
+			font-weight: 400;
+			line-height: 1.4;
+		}
 		details {
-			margin-top: 1rem;
+			margin-top: 1.3rem;
 			summary {
 				display: flex;
 				justify-content: center;
 				z-index: 9;
 				p {
 					width: fit-content;
-					background: hsl(39, 7%, 58%);
-					padding: 0.4rem 1.3rem;
-					border-radius: 0.6rem;
+					background: hsl(39, 3%, 44%);
+					padding: 0.37rem 1.5rem;
+					border-radius: 10rem;
 					color: hsl(0, 0%, 100%);
 					font-weight: 600;
-					font-size: 1.2rem;
+					font-size: 1.4rem;
 					transition: background 250ms;
 				}
 			}
@@ -120,5 +157,36 @@ html, body {
 				
 			}
 		}
+	}
+	
+	div.art-scroll {
+		width: 100%;
+		display: flex;
+		overflow-x: scroll;
+		gap: 1.4rem;
+		div.item {
+			height: 15rem;
+			width: 20rem;
+			flex-shrink: 0;
+			border-radius: 0.2rem;
+			background: linear-gradient(to bottom, 
+				hsla(202, 45%, 22%, 1) 0%, 
+				hsla(233, 51%, 37%, 1) 100%);
+		}
+	}
+	
+	.bg {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		z-index: 0;
+	}
+	.gradient {
+		background: linear-gradient(to bottom,
+			$background 50%,
+			hsla(48, 44%, 89%, 1) 80%
+		);
 	}
 }

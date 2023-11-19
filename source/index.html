@@ -7,20 +7,31 @@ style: '/css/pages/index.css'
 		{% include "partials/_head.njk" %}
 	</head>
 	<body>
+		<nav class="more">
+			<button id="nav-drawer"></button>
+		</nav>
+		
 		<div id="hero">
 			<div id="logo">
-				
+				<picture>
+					<source srcset="{% asset "/images/logo.svg" %}">
+					<source srcset="{% asset "/images/logo.webp" %}">
+					<img src="{% asset "/images/logo.png" %}" alt="Art Fellowship Logo">
+					
+				</picture>
 			</div>
 			
-			<h1>Reconnect.</h1>
-			<h2>New Relationship with Art</h2>
+			<div class="strong-copy">
+				<h1>Expanding Awareness Together</h1>
+				<h2>Relate and Renew Through Art</h2>
+			</div>
 			
-			<div>
-				<h1>Join a Practice</h1>
-				<p>Facilitated sessions are available to those new to the practice. Returning participants can find a group here</p>
+			<div class="cta">
+				<h1>Join the Practice</h1>
+				<p>Facilitated sessions provide guidance and structure for new participants. Returning participants can easily find a group.</p>
 				<details>
 					<summary>
-						<p>Sign Up</p>
+						<p>Get Started</p>
 						<div class="overlay"></div>
 					</summary>
 					<div class="content">
@@ -37,6 +48,21 @@ style: '/css/pages/index.css'
 					</div>
 				</details>
 			</div>
+			
+			<div class="art-scroll">
+				<div class="main"></div>
+				
+				<div class="item"></div>
+				<div class="item"></div>
+				<div class="item"></div>
+				<div class="item"></div>
+				<div class="item"></div>
+				<div class="item"></div>
+				<div class="item"></div>
+				<div class="item"></div>
+			</div>
+			
+			<div class="bg gradient"></div>
 		</div>
 	</body>
 </html>
