@@ -17,12 +17,86 @@ html, body {
 
 nav.more {
 	width: 100%;
-	height: 2px;
-	background: hsl(51, 9%, 85%);
+	position: relative;
+	z-index: 2;
+
+	details {
+		summary {
+			ul {
+				display: flex;
+				flex-direction: row;
+				align-items: center;
+				justify-content: center;
+				gap: 1.1rem;
+				overflow-x: scroll;
+				
+				width: 100%;
+				height: 3px;
+				background: hsl(51, 9%, 85%);
+				transition: all 400ms;
+				li {
+					display: none;
+					max-height: 0;
+					opacity: 0;
+					flex-shrink: 0;
+				}
+			}
+			.btn {
+				width: 100%;
+				max-width: 69rem;
+				height: clamp(1.5rem, 5vw, 1.8rem);
+				padding: 0 0.5rem;
+				margin: 0.8rem auto 0;
+			}
+			picture, img {
+				height: 100%;
+				transition: filter 200ms;
+				&:hover {
+					filter: brightness(0.6);
+					cursor: pointer;
+				}
+			}
+		}
+		summary::-webkit-details-marker {
+			display: none;
+		}
+		&[open] {
+			ul {
+				height: 4.65rem;
+				padding: 0 0.5rem;
+				background: hsl(51, 5%, 90%);
+				li { 
+					display: block; 
+					max-height: unset;
+					opacity: 1;
+					background: hsl(0, 0%, 21%);
+					background: linear-gradient(to bottom, 
+						hsl(212, 37%, 23%),
+						hsl(247, 16%, 7%)
+					);
+					border-radius: 10rem;
+					padding: 0.3rem 0.9rem;
+					font-weight: 500;
+					color: hsl(191, 100%, 98%);
+					font-size: 1.1rem;
+					cursor: pointer;
+				}
+				li:hover {
+					background: hsl(212, 99%, 57%);
+					font-style: italic;
+				}
+			}
+			picture, img {
+				filter: brightness(0.8);
+			}
+		}
+	}
 }
 
 
 #hero {
+	margin-top: calc(clamp(1.5rem, 5vw, 1.8rem) * -1);
+	min-height: 100vh;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -34,7 +108,13 @@ nav.more {
 	}
 	
 	#logo {
-		padding: 0.83rem 0.5rem;
+		max-width: 100%;
+		width: clamp(14rem, 70vw, 20rem);
+		padding-left: 0.4rem;
+		padding-right: 0.4rem;
+		picture, img {
+			width: 100%;
+		}
 	}
 	
 	div.strong-copy {
@@ -42,7 +122,8 @@ nav.more {
 		> h1 {
 			font-family: 'Source Serif Display';
 			font-weight: 700;
-			font-size: 4.45rem;
+			font-size: clamp(2.2rem, 6vw, 4.45rem);
+			line-height: 1.2;
 			text-align: center;
 			letter-spacing: -0.013em;
 			
@@ -59,6 +140,7 @@ nav.more {
 			font-family: 'Source Serif Text';
 			font-weight: 300;
 			font-size: 4.3rem;
+			font-size: 3.8rem;
 			letter-spacing: -0.015em;
 			text-align: center;
 			color: hsl(220, 100%, 56%);
@@ -159,19 +241,27 @@ nav.more {
 		}
 	}
 	
-	div.art-scroll {
+	div.art-marquee {
 		width: 100%;
-		display: flex;
-		overflow-x: scroll;
-		gap: 1.4rem;
-		div.item {
-			height: 15rem;
-			width: 20rem;
-			flex-shrink: 0;
-			border-radius: 0.2rem;
-			background: linear-gradient(to bottom, 
-				hsla(202, 45%, 22%, 1) 0%, 
-				hsla(233, 51%, 37%, 1) 100%);
+		div.main {
+			display: none;
+		}
+		div.scroll {
+			width: 100%;
+			max-width: 100%;
+			display: flex;
+			overflow-x: scroll;
+			gap: 1.4rem;
+			
+			div.item {
+				height: 15rem;
+				width: 20rem;
+				flex-shrink: 0;
+				border-radius: 0.2rem;
+				background: linear-gradient(to bottom, 
+					hsla(202, 45%, 22%, 1) 0%, 
+					hsla(233, 51%, 37%, 1) 100%);
+			}
 		}
 	}
 	
@@ -188,5 +278,57 @@ nav.more {
 			$background 50%,
 			hsla(48, 44%, 89%, 1) 80%
 		);
+	}
+}
+
+article.problem-statement {
+	max-width: 42rem;
+	margin: auto;
+	padding: 1rem 0.5rem;
+	
+	p {
+		font-family: 'Inter Var', 'Inter V', 'Inter';
+		font-size: 2.42rem;
+		font-weight: 700;
+		padding: 0.29rem 0;
+		color: hsl(193, 5%, 37%);
+	}
+	div {
+		padding: 1.9rem 0;
+	}
+}
+
+#about {
+	.transition {
+		height: 37rem;
+		margin-top: -8rem;
+		background: linear-gradient(to bottom, 
+			hsla(48, 26%, 96%, 1) 0%, 
+			hsla(256, 50%, 90%, 1) 10%, 
+			hsla(256, 93%, 84%, 1) 21%, 
+			hsla(221, 94%, 75%, 1) 32%, 
+			hsla(209, 99%, 67%, 1) 43%, 
+			hsla(213, 99%, 68%, 1) 57%, 
+			hsla(212, 100%, 70%, 1) 68%, 
+			hsla(48, 26%, 96%, 1) 100%
+		);
+		padding-top: 11rem;
+		h1 {
+			// padding-top: 11rem;
+			text-align: center;
+			font-size: 6.7rem;
+			font-weight: 600;
+			letter-spacing: -0.015em;
+			
+			background: linear-gradient(to bottom, 
+				#E5F6F9 12%,
+				#E3E9FE 46%, 
+				#E1E1FF 89%
+			);
+			background-clip: text;
+			-webkit-background-clip: text;
+			text-fill-color: transparent;
+			-webkit-text-fill-color: transparent;
+		}
 	}
 }

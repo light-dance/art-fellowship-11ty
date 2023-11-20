@@ -7,8 +7,29 @@ style: '/css/pages/index.css'
 		{% include "partials/_head.njk" %}
 	</head>
 	<body>
-		<nav class="more">
-			<button id="nav-drawer"></button>
+		<nav class="more">			
+			<details>
+				<summary>
+					<ul>
+						<li>Sign In</li>
+						<li>Cheat Sheet Guide</li>
+						<li>FAQ's</li>
+						<li>Practice Design</li>
+						<li>How to Practice</li>
+						<li>Find Artwork</li>
+						<li>Submit Artwork</li>
+					</ul>
+					
+					<div class="btn">
+						<picture>
+							<source srcset="{% asset "/images/more.svg" %}">
+							<source srcset="{% asset "/images/more.webp" %}">
+							<img src="{% asset "/images/more.png" %}" alt="Hamburger menu button">
+						</picture>
+					</div>
+					
+				</summary>
+			</details>
 		</nav>
 		
 		<div id="hero">
@@ -17,13 +38,23 @@ style: '/css/pages/index.css'
 					<source srcset="{% asset "/images/logo.svg" %}">
 					<source srcset="{% asset "/images/logo.webp" %}">
 					<img src="{% asset "/images/logo.png" %}" alt="Art Fellowship Logo">
-					
 				</picture>
 			</div>
 			
 			<div class="strong-copy">
 				<h1>Expanding Awareness Together</h1>
 				<h2>Relate and Renew Through Art</h2>
+			</div>
+			
+			<div class="mini-cards">
+				<div class="left">
+					<div class="item"></div>
+					<div class="item"></div>
+				</div>
+				<div class="right">
+					<div class="item"></div>
+					<div class="item"></div>
+				</div>
 			</div>
 			
 			<div class="cta">
@@ -49,20 +80,75 @@ style: '/css/pages/index.css'
 				</details>
 			</div>
 			
-			<div class="art-scroll">
-				<div class="main"></div>
-				
-				<div class="item"></div>
-				<div class="item"></div>
-				<div class="item"></div>
-				<div class="item"></div>
-				<div class="item"></div>
-				<div class="item"></div>
-				<div class="item"></div>
-				<div class="item"></div>
+			<div class="art-marquee">
+				<div class="main">
+					<p>About the Practice</p>
+					<picture aria-hidden="true">
+						<source srcset="{% asset "/images/down-arrow.svg" %}">
+						<source srcset="{% asset "/images/down-arrow.webp" %}">
+						<img src="{% asset "/images/down-arrow.png" %}" alt="" aria-hidden="true">
+					</picture>
+				</div>
+				<div class="scroll">
+					<div class="item"></div>
+					<div class="item"></div>
+					<div class="item"></div>
+					<div class="item"></div>
+					<div class="item"></div>
+					<div class="item"></div>
+					<div class="item"></div>
+					<div class="item"></div>
+				</div>				
 			</div>
 			
 			<div class="bg gradient"></div>
 		</div>
+		
+		<article class="problem-statement">
+			<div>
+				<p>Throughout history, art expanded humanity's awareness, transforming and connecting us.</p>
+				<p>Art was communal. Everyone participated. People were connected <em>by</em> and <em>through</em> art.</p>
+			</div>
+			
+			<div>
+				<p>Today many of us are disconnected: from art, from our bodies, and from each other. We're disconnected from our creativity and artistic voice.</p>
+				<p>Our connections have been severed by a culture that values critique over meaningful experience.</p>
+				<p>Our awareness has been hijacked and diluted.</p>
+			</div>
+			
+			<div>
+				<p>Art fellowship is an opportunity to reconnect. Through communitas, ritual, and intentional practice, we can open  back up to wonder and insight</p>
+			</div>
+		</article>
+		
+		<div id="about">
+			<div class="transition">
+				<h1>How It Works</h1>
+			</div>
+			
+			<section class="overall-structure">
+				
+			</section>
+			
+			<section class="benefits">
+				
+			</section>
+			
+			<section class="round-structure">
+				
+			</section>
+		</div>
+		
+		<div class="cta">
+			
+		</div>
+		
+		<div class="more-cards">
+			
+		</div>
+		
+		<footer>
+			
+		</footer>
 	</body>
 </html>
