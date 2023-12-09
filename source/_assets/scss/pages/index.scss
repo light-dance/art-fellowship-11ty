@@ -1,16 +1,18 @@
 :root {
 	--background: hsl(48, 26%, 96%);
 	--text-color: hsla(0, 0%, 16%, 1);
-	--link-color: hsla(208, 92%, 28%, 1);	
+	--link-color: hsla(208, 92%, 28%, 1);
+	
+	--overscroll-top: hsl(51, 9%, 85%);
 }
 @media (prefers-color-scheme: dark) {
 	:root {
-		
+		--background: hsl(48, 26%, 96%);
 	}
 }
 $background: hsl(48, 26%, 96%);
 
-html, body {
+html, body, div.wrapper {
 	background-color: var(--background);
 	color: var(--text-color);
 }
@@ -36,7 +38,6 @@ nav.more {
 				transition: all 400ms;
 				li {
 					display: none;
-					max-height: 0;
 					opacity: 0;
 					flex-shrink: 0;
 				}
@@ -93,13 +94,14 @@ nav.more {
 	}
 }
 
-
 #hero {
 	margin-top: calc(clamp(1.5rem, 5vw, 1.8rem) * -1);
-	min-height: 100vh;
+	min-height: calc(100vh - clamp(1.5rem, 5vw, 1.8rem));
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	
+	border: 1px solid red;
 	
 	text-rendering: geometricPrecision;
 	
@@ -118,15 +120,17 @@ nav.more {
 	}
 	
 	div.strong-copy {
-		padding: 3.55rem 1rem 2.6rem;
+		padding: 4.3rem 1rem 2.6rem;
 		> h1 {
 			font-family: 'Source Serif Display';
 			font-weight: 700;
-			font-size: clamp(2.2rem, 6vw, 4.45rem);
-			line-height: 1.2;
+			font-size: clamp(3.4rem, 6vw, 4.45rem);
+			line-height: 1.18;
 			text-align: center;
 			letter-spacing: -0.013em;
-			
+			@media (max-width: 60rem) {
+				padding-bottom: 1.3rem;
+			}
 			&::selection {
 				background: hsl(0, 0%, 73%);
 				color: hsl(0, 0%, 95%);
@@ -136,11 +140,10 @@ nav.more {
 		}
 		> h2 {
 			padding-top: 0.62rem;
-			height: 6rem;
+			padding-bottom: 0.5rem;
 			font-family: 'Source Serif Text';
 			font-weight: 300;
-			font-size: 4.3rem;
-			font-size: 3.8rem;
+			font-size: clamp(2.6rem, 6vw, 4.3rem);
 			letter-spacing: -0.015em;
 			text-align: center;
 			color: hsl(220, 100%, 56%);
@@ -152,7 +155,6 @@ nav.more {
 			-webkit-background-clip: text;
 			text-fill-color: transparent;
 			-webkit-text-fill-color: transparent;
-			
 			&::selection {
 				background: hsl(245, 78%, 91%);
 				color: hsl(0, 0%, 100%);
@@ -162,87 +164,159 @@ nav.more {
 		}
 	}
 	
-	
-	div.cta {
-		max-width: 34rem;
-		text-align: center;
-		h1 {
-			font-size: 1.7rem;
-			font-weight: 600;
-			line-height: 1.8;
+	.content {
+		position: relative;
+		z-index: 10;
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		
+		.cards {
+			border: 1px solid red;
+			z-index: 1;
+			div {
+				width: 13rem;
+				height: 5rem;
+				background: #FFFFFF;
+				border-radius: 1.8rem;
+				border: 1px solid rgba(255,255,255,0.46);
+				box-shadow: 0 2px 5px 1px rgba(0,0,0,0.03);
+			}
 		}
-		p {
-			font-size: 1.14rem;
-			letter-spacing: -0.012em;
-			font-weight: 400;
-			line-height: 1.4;
-		}
-		details {
-			margin-top: 1.3rem;
-			summary {
-				display: flex;
-				justify-content: center;
-				z-index: 9;
-				p {
-					width: fit-content;
-					background: hsl(39, 3%, 44%);
-					padding: 0.37rem 1.5rem;
-					border-radius: 10rem;
-					color: hsl(0, 0%, 100%);
-					font-weight: 600;
-					font-size: 1.4rem;
-					transition: background 250ms;
+		.cta {
+			z-index: 12;
+			border: 1px solid blue;
+			max-width: 32rem;
+			text-align: center;
+			h1 {
+				font-size: 1.7rem;
+				font-weight: 600;
+				line-height: 1.8;
+			}
+			p {
+				font-size: 1.14rem;
+				letter-spacing: -0.012em;
+				font-weight: 400;
+				line-height: 1.4;
+			}
+			details {
+				margin-top: 1.3rem;
+				summary {
+					display: flex;
+					justify-content: center;
+					z-index: 9;
+					p {
+						width: fit-content;
+						background: hsl(39, 3%, 44%);
+						padding: 0.37rem 1.5rem;
+						border-radius: 10rem;
+						color: hsl(0, 0%, 100%);
+						font-weight: 600;
+						font-size: 1.4rem;
+						transition: background 250ms;
+					}
+					p:hover {
+						background: hsl(0, 0%, 0%);
+						cursor: pointer;
+					}
 				}
-			}
-			div.overlay {
-				background: hsla(0, 0%, 0%, 0);
-				transition: background 200ms;
-			}
-			div.content {
-				position: relative;
-				z-index: 3;
-				background: hsl(0, 0%, 0%);
-				border-radius: 1rem;
-				color: hsl(0, 0%, 94%);
-				svg {
-					height: 1rem;
-					width: 1rem;
-					display: inline-block;
-					color: hsl(0, 0%, 94%);
-					fill: currentColor;
-				}
-			}
-			summary::-webkit-details-marker {
-				display: none;
-			}
-		}
-		details summary p:hover {
-			background: hsl(0, 0%, 0%);
-			cursor: pointer;
-		}
-		details[open] {
-			summary {
 				div.overlay {
+					background: hsla(0, 0%, 0%, 0);
+					transition: background 200ms, backdrop-filter 200ms, -webkit-backdrop-filter 200ms;
+				}
+				div.content {
 					position: fixed;
-					width: 100vw;
-					height: 100vh;
-					top: 0;
-					left: 0;
-					// background: hsl(0, 0%, 10%);
-					z-index: 1;
+					top: 100%;
+					left: 50%;
+					transform: translateX(-50%);
+					transition: all 180ms;
+					// left: calc(50vw - 50%);
+					
+					min-height: 80vh;
+					width: 100%;
+					max-width: 47rem;
+					
+					display: block;
+					
+					margin: auto;
+					
+					background: linear-gradient(to bottom, 
+						hsl(0, 0%, 96%),
+						hsl(235, 45%, 94%)
+					);
+					border-radius: 1rem;
+					color: hsl(0, 0%, 0%);
+					box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+					
+					div.title {
+						background: hsla(0, 0%, 100%, 1);
+						border-radius: 1rem 1rem 0 0;
+						border-bottom: 2px solid hsla(0, 0%, 0%, 0.07);
+						h1 {
+							text-align: center;
+							font-weight: 700;
+							font-size: 1.8rem;
+							width: 100%;
+							padding: 0.9rem 0.7rem 0.5rem;
+							color: hsl(221, 100%, 58%);
+							background: linear-gradient(to bottom, 
+								hsl(221, 100%, 54%) 20%, 
+								hsl(243, 100%, 85%) 80%);
+							background-clip: text;
+							-webkit-background-clip: text;
+							text-fill-color: transparent;
+							-webkit-text-fill-color: transparent;
+							span {
+								font-family: 'Source Serif Text';
+								font-weight: 300;
+								letter-spacing: -0.015em;
+							}
+						}
+					}
+					
+					
+					svg {
+						height: 1rem;
+						width: 1rem;
+						display: inline-block;
+						color: hsl(0, 0%, 94%);
+						fill: currentColor;
+					}
 				}
-				p {
-					border-radius: 0.6rem 0.6rem 0 0;
+				summary::-webkit-details-marker {
+					display: none;
 				}
-			}
-			div.content {
-				
+				&[open] {
+					summary {
+						div.overlay {
+							position: fixed;
+							width: 100vw;
+							height: 100vh;
+							top: 0;
+							left: 0;
+							background: hsla(0, 0%, 10%, 0.25);
+							backdrop-filter: blur(0.25rem);
+							-webkit-backdrop-filter: blur(0.25rem);
+						}
+						p {
+							border-radius: 0.6rem 0.6rem 0 0;
+						}
+					}
+					div.content {
+						top: 5rem;
+					}
+				}
 			}
 		}
 	}
 	
 	div.art-marquee {
+		position: relative;
+		z-index: 1;
 		width: 100%;
+		flex-grow: 1;
+		display: flex;
+		align-items: flex-end;
 		div.main {
 			display: none;
 		}
