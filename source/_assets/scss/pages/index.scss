@@ -84,7 +84,6 @@ nav.more {
 				}
 				li:hover {
 					background: hsl(212, 99%, 57%);
-					font-style: italic;
 				}
 			}
 			picture, img {
@@ -124,7 +123,7 @@ nav.more {
 		> h1 {
 			font-family: 'Source Serif Display';
 			font-weight: 700;
-			font-size: clamp(3.4rem, 6vw, 4.45rem);
+			font-size: clamp(3.4rem, 6vw, 4.4rem);
 			line-height: 1.18;
 			text-align: center;
 			letter-spacing: -0.013em;
@@ -143,7 +142,7 @@ nav.more {
 			padding-bottom: 0.5rem;
 			font-family: 'Source Serif Text';
 			font-weight: 300;
-			font-size: clamp(2.6rem, 6vw, 4.3rem);
+			font-size: clamp(2.6rem, 6vw, 4.38rem);
 			letter-spacing: -0.015em;
 			text-align: center;
 			color: hsl(220, 100%, 56%);
@@ -167,27 +166,59 @@ nav.more {
 	.content {
 		position: relative;
 		z-index: 10;
+		
 		display: flex;
 		flex-direction: row;
 		flex-wrap: wrap;
+		justify-content: space-between;
+		
+		width: 100%;
+		max-width: 67rem;
 		
 		.cards {
-			border: 1px solid red;
 			z-index: 1;
+			
+			display: flex;
+			flex-direction: column;
+			gap: 2rem;
+			
+			flex-grow: 1;
 			div {
-				width: 13rem;
-				height: 5rem;
+				width: 14.3rem;
+				height: 4.9rem;
 				background: #FFFFFF;
 				border-radius: 1.8rem;
-				border: 1px solid rgba(255,255,255,0.46);
-				box-shadow: 0 2px 5px 1px rgba(0,0,0,0.03);
+				border: 1px solid hsla(0, 0%, 100%, 0.46);
+				box-shadow: 0 2px 5px 1px hsla(0, 0%, 0%, 0.03);
+				transition: all 250ms;
+			}
+			div:hover {
+				transform: scale(1.1);
+				border: 2px solid hsla(0, 0%, 100%, 0.6);
+				box-shadow: 0 2px 6px 2px hsla(0, 0%, 0%, 0.06);
+				transform: rotate(0) !important;
+			}
+			&.left div:nth-of-type(1) {
+				transform: rotate(-5deg);
+			}
+			&.left div:nth-of-type(2) {
+				transform: rotate(1deg);
+				margin-left: 4rem;
+			}
+			&.right div:nth-of-type(1) {
+				transform: rotate(-1deg);
+				margin-left: 2rem;
+			}
+			&.right div:nth-of-type(2) {
+				transform: rotate(6deg);
 			}
 		}
 		.cta {
 			z-index: 12;
-			border: 1px solid blue;
-			max-width: 32rem;
 			text-align: center;
+			max-width: 30rem;
+			margin-left: -4rem;
+			margin-right: -4rem;
 			h1 {
 				font-size: 1.7rem;
 				font-weight: 600;
@@ -213,7 +244,7 @@ nav.more {
 						color: hsl(0, 0%, 100%);
 						font-weight: 600;
 						font-size: 1.4rem;
-						transition: background 250ms;
+						transition: all 250ms;
 					}
 					p:hover {
 						background: hsl(0, 0%, 0%);
@@ -229,26 +260,23 @@ nav.more {
 					top: 100%;
 					left: 50%;
 					transform: translateX(-50%);
-					transition: all 180ms;
-					// left: calc(50vw - 50%);
-					
-					min-height: 80vh;
+					min-height: 70vh;
 					width: 100%;
-					max-width: 47rem;
+					max-width: 45rem;
 					
-					display: block;
+					display: flex;
+					flex-direction: column;
 					
-					margin: auto;
-					
+					border-radius: 1rem;
+					color: hsl(0, 0%, 0%);
 					background: linear-gradient(to bottom, 
 						hsl(0, 0%, 96%),
 						hsl(235, 45%, 94%)
 					);
-					border-radius: 1rem;
-					color: hsl(0, 0%, 0%);
 					box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
 					
-					div.title {
+					transition: all 180ms;
+					.title {
 						background: hsla(0, 0%, 100%, 1);
 						border-radius: 1rem 1rem 0 0;
 						border-bottom: 2px solid hsla(0, 0%, 0%, 0.07);
@@ -273,8 +301,21 @@ nav.more {
 							}
 						}
 					}
-					
-					
+					.options {
+						flex-grow: 1;
+						display: flex;
+						flex-direction: column;
+						justify-content: center;
+						gap: 4rem;
+						padding: 3rem 1.5rem;
+						
+						h2 {
+							margin-bottom: 0.3em;
+						}
+						p {
+							line-height: 1.55;
+						}
+					}
 					svg {
 						height: 1rem;
 						width: 1rem;
@@ -299,11 +340,20 @@ nav.more {
 							-webkit-backdrop-filter: blur(0.25rem);
 						}
 						p {
-							border-radius: 0.6rem 0.6rem 0 0;
+							transform: scale(1.15);
 						}
 					}
 					div.content {
 						top: 5rem;
+						animation: get-started-anim-in 300ms forwards ease;
+					}
+					@keyframes get-started-anim-in {
+						from {
+							top: 100%;
+						}
+						to {
+							top: 5rem;
+						}
 					}
 				}
 			}
