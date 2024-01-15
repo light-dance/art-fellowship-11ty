@@ -12,7 +12,7 @@
 }
 $background: hsl(48, 26%, 96%);
 
-html, body, div.wrapper {
+html, body, body > div.wrapper {
 	background-color: var(--background);
 	color: var(--text-color);
 }
@@ -70,11 +70,15 @@ nav {
 	}
 	
 	.title {
+		width: 100%;
+		max-width: 69rem;
+		padding: 1.2rem 1.5rem 0;
+		display: flex;
+		justify-content: flex-start;
+		
 		#nav-btn {
 			width: 100%;
 			height: clamp(1.5rem, 5vw, 1.8rem);
-			padding: 0 0.5rem;
-			margin: 0.8rem auto 0;
 			picture, img {
 				height: 100%;
 				transition: filter 200ms;
@@ -86,13 +90,20 @@ nav {
 		}
 		
 		#logo {
+			justify-self: center;
 			max-width: 100%;
-			width: clamp(14rem, 70vw, 20rem);
+			width: clamp(14rem, 70vw, 19.5rem);
+			flex-shrink: 0;
 			padding-left: 0.4rem;
 			padding-right: 0.4rem;
 			picture, img {
 				width: 100%;
 			}
+		}
+		
+		div.right-spacer {
+			width: 100%;
+			flex-grow: 1;
 		}
 	}
 	
@@ -108,6 +119,9 @@ nav {
 			letter-spacing: -0.013em;
 			@media (max-width: 60rem) {
 				padding-bottom: 1.3rem;
+				font-weight: 500;
+				font-size: 3.7rem;
+				line-height: 1;
 			}
 			&::selection {
 				background: hsl(0, 0%, 73%);
@@ -276,14 +290,27 @@ nav {
 					background: hsla(0, 0%, 0%, 0);
 					transition: background 200ms, backdrop-filter 200ms, -webkit-backdrop-filter 200ms;
 				}
-				div.modal {
+				div.wrapper {
 					position: fixed;
-					top: 100%;
+					top: 0;
+					height: 100dvh;
 					left: 50%;
-					transform: translateX(-50%);
-					min-height: calc(100vh - 2rem);
 					width: 100%;
 					max-width: 41rem;
+					transform: translateX(-50%);
+					padding-top: 2rem;
+					// padding-top: calc(10rem - 20vw);
+					
+					overflow-y: scroll;
+					
+					display: flex;
+					justify-content: center;
+				}
+				div.modal {
+					position: relative;
+					width: 100%;
+					height: fit-content;
+					min-height: calc(100dvh - 2rem);
 					display: flex;
 					flex-direction: column;
 					border-radius: 1.8rem 1.8rem 0 0;
@@ -328,6 +355,7 @@ nav {
 						text-align: center;
 						font-weight: 700;
 						font-size: 1.8rem;
+						// font-size: 1.5rem;
 						color: hsl(221, 100%, 58%);
 						background: linear-gradient(to bottom, 
 							hsl(220, 100%, 53%) 20%, 
@@ -359,6 +387,7 @@ nav {
 						padding: 0.3rem 1.3rem;
 						border-radius: 1.5rem;
 						height: 4rem;
+						flex-shrink: 0;
 						width: 23rem;
 						border: none;
 						font-size: 1.5rem;
@@ -397,8 +426,19 @@ nav {
 						
 					}
 					> p {
+						font-size: 1.3rem;
 						font-weight: 500;
-						color: hsla(0, 0%, 0%, 0.65);
+						color: hsla(0, 0%, 0%, 0.7);
+					}
+					> p.subtext {
+						background: linear-gradient(to bottom, 
+							hsl(221, 80%, 56%) 6%, 
+							hsl(221, 100%, 55%) 32%, 
+							hsl(260, 51%, 50%) 92%);
+						background-clip: text;
+						-webkit-background-clip: text;
+						text-fill-color: transparent;
+						-webkit-text-fill-color: transparent;
 					}
 					> p.email-disclaimer {
 						font-size: 0.9rem;
@@ -415,6 +455,7 @@ nav {
 						h2 {
 							padding-bottom: 0.7rem;
 							font-size: 1.6rem;
+							color: hsl(201, 5%, 18%);
 						}
 						p {
 							line-height: 1.55;
@@ -425,7 +466,7 @@ nav {
 							margin: auto;
 							padding: 0.3rem 0.7rem;
 							margin-bottom: 0.8rem;
-							color: hsla(0, 0%, 11%, 0.8);
+							color: hsla(0, 0%, 5%, 0.8);
 							border-radius: 10rem;
 							font-size: 1rem;
 							font-weight: 500;
@@ -447,7 +488,7 @@ nav {
 							background: hsl(156, 100%, 39%);
 							background: hsl(212, 21%, 80%);
 							color: hsl(231, 2%, 20%);
-							padding: 0.3rem 0.3rem 0.3rem 0.6rem;
+							padding: 0.3rem 0.9rem 0.3rem 0.6rem;
 							margin: 0.4rem auto;
 							border-radius: 3rem;
 							box-shadow: 
@@ -505,7 +546,7 @@ nav {
 						}
 					}
 					div.modal {
-						animation: get-started-anim-in 300ms forwards ease;
+						// animation: get-started-anim-in 300ms forwards ease;
 					}
 					@keyframes get-started-anim-in {
 						from {
@@ -603,10 +644,15 @@ article.problem-statement {
 		font-family: 'Inter Var', 'Inter V', 'Inter';
 		font-size: 2.42rem;
 		font-weight: 700;
-		padding: 0.29rem 0;
+		line-height: 1.35;
+		padding: 1.9rem 0;
 		color: hsl(193, 5%, 37%);
+		span {
+			display: block;
+			height: 0.29rem;
+		}
 	}
-	div {
+	> div {
 		padding: 1.9rem 0;
 	}
 }
@@ -655,7 +701,7 @@ article.problem-statement {
 		max-width: 86rem;
 		margin: auto;
 		margin-bottom: 1.8rem;
-		height: 50vh;
+		min-height: 50vh;
 		padding: 5.2rem 7rem;
 		background: linear-gradient(to bottom, 
 			hsl(208, 49%, 93%) 0%, 
@@ -663,7 +709,7 @@ article.problem-statement {
 		);
 		border-radius: 3.3rem;
 		
-		h2 {
+		> h2 {
 			font-family: 'Petrona Var';
 			font-weight: 300;
 			font-size: 2.75rem;
@@ -671,7 +717,131 @@ article.problem-statement {
 		}
 	}
 	section.overall-structure {
-		
+		div.canvas {
+			display: flex;
+			flex-direction: row;
+			justify-content: space-between;
+			gap: 1.3rem;
+			padding-top: 7rem;
+			
+			div.indicator {
+				height: 1.8rem;
+				width: 100%;
+				margin: 0 0 0.8rem;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				span {
+					display: block;
+					height: 100%;
+					width: 100%;
+					border-radius: 10rem;
+				}
+			}
+			> div {
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				
+				h1 {
+					font-family: 'Petrona Var';
+					font-weight: 500;
+					font-size: 2.8rem;
+					letter-spacing: -0.015em;
+				}
+				h2 {
+					font-size: 1.3rem;
+					font-weight: 400;
+					opacity: 0.8;
+				}
+				p {
+					margin-top: 1rem;
+					padding: 0 0.3rem;
+					text-align: center;
+					font-size: 1.7rem;
+					color: hsl(0, 0%, 33%);
+				}
+			}
+			div.round-one {
+				flex-grow: 0;
+				flex-basis: 1;
+				flex-shrink: 1;
+				.indicator span {
+					width: 5.8rem;
+					background: linear-gradient(to bottom, 
+						hsl(275, 95%, 45%) 0%, 
+						hsl(258, 100%, 65%) 100%);
+				}
+				h1 {
+					color: hsl(265, 100%, 59%);
+				}
+			}
+			div.week {
+				flex-grow: 2;
+				flex-basis: 2;
+				flex-shrink: 0.5;
+				.indicator > span {
+					position: relative;
+					height: 1rem;
+					background: hsl(0, 0%, 81%);
+					overflow: clip;
+					
+					--line-width: 12rem; 
+					span {
+						position: absolute;
+						top: 0;
+						left: 10%;
+						height: inherit;
+						width: var(--line-width);
+						background: linear-gradient(to right, 
+							hsla(0, 0%, 100%, 0) 0%,
+							hsla(210, 86%, 66%, 0.842) 15%,
+							hsla(210, 100%, 51%, 0.842) 30%,
+							hsla(241, 81%, 66%, 0.834) 70%,
+							hsla(293, 67%, 70%, 0.632) 90%,
+							hsla(293, 99%, 84%, 0.632) 95%,
+							hsla(0, 0%, 100%, 0),
+						);
+						filter: blur(0.3rem);
+						border-radius: 0;
+						animation: week-line-pulse forwards infinite 2.3s ease-in;
+					}
+					@keyframes week-line-pulse {
+						0% {
+							left: calc(var(--line-width) * -1);
+						}
+						60% {
+							left: calc(100% + var(--line-width));
+						}
+						100% {
+							left: calc(100% + var(--line-width));
+						}
+					}
+				}
+				h1 {
+					color: hsl(0, 0%, 33%);
+				}
+			}
+			div.round-two {
+				flex-grow: 0;
+				flex-basis: 1;
+				flex-shrink: 1;
+				.indicator span {
+					width: 5.8rem;
+					background: linear-gradient(to bottom, 
+						hsl(237, 100%, 67%) 0%, 
+						hsl(201, 100%, 47%) 100%);
+				}
+				h1 {
+					color: hsl(201, 100%, 47%);
+				}
+			}
+		}
+	}
+	section.intent {
+		background: linear-gradient(to bottom, 
+			hsl(275, 55%, 94%) 0%, 
+			hsl(252, 44%, 91%) 99%);
 	}
 	section.benefits {
 		background: linear-gradient(180deg, #F1E7F8 0%, #E2DEF2 99%);

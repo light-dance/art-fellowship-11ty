@@ -21,31 +21,6 @@ style: '/css/pages/index.css'
 				</div>
 			</nav>
 			
-			<!-- <nav class="more">		
-				<details>
-					<summary>
-						<ul>
-							<li>Sign In</li>
-							<li>Cheat Sheet Guide</li>
-							<li>FAQ's</li>
-							<li>Practice Design</li>
-							<li>How to Practice</li>
-							<li>Find Artwork</li>
-							<li>Submit Artwork</li>
-						</ul>
-						
-						<div class="btn">
-							<picture>
-								<source srcset="{% asset "/images/more.svg" %}">
-								<source srcset="{% asset "/images/more.webp" %}">
-								<img src="{% asset "/images/more.png" %}" alt="Hamburger menu button">
-							</picture>
-						</div>
-						
-					</summary>
-				</details>
-			</nav> -->
-			
 			<div id="hero">
 				<div class="title">
 					<div id="nav-btn">
@@ -56,13 +31,15 @@ style: '/css/pages/index.css'
 						</picture>
 					</div>
 					
-					<div id="logo">
+					<a href="https://artfellowship.space" id="logo">
 						<picture>
 							<source srcset="{% asset "/images/logo.svg" %}">
 							<source srcset="{% asset "/images/logo.webp" %}">
 							<img src="{% asset "/images/logo.png" %}" alt="Art Fellowship Logo">
 						</picture>
-					</div>
+					</a>
+					
+					<div class="right-spacer"></div>
 				</div>
 				
 				<div class="strong-copy">
@@ -88,28 +65,30 @@ style: '/css/pages/index.css'
 								<p>Get Started</p>
 								<div class="overlay"></div>
 							</summary>
-							<div class="modal">
-								<div class="bg gradient"></div>
-								<div class="bg blur"></div>
-								<h1>Get Started <span>with Art Fellowship</span></h1>
-								<input type="text" placeholder="Enter your email">
-								<p>Sign up for upcoming sessions</p>
-								<p class="email-disclaimer">We use your email <span>only</span> to facilitate practice.</p>
-								<div class="option">
-									<h2>Facilitated Practice</h2>
-									<p class="donation">$10 Suggested Donation</p>
-									<p>New to the practice? A facilitated session provides the structure, support, and guidance to help you get started.</p>
-									<p class="scheduled"><span class="region">🌎 America&rsquo;s:</span> Sat Jan 27th & Feb 3 &bull; 7<span class="time-detail">PM EST</span> <a href="">Join</a></p>
-									<p class="scheduled"><span class="region">🌍 Europe:</span> Sat Jan 27th & Feb 3 &bull; 10<span class="time-detail">AM CET</span> <a href="">Join</a></p>
-									<p class="future-sessions">Can't Make These? New Sessions every 4-6 weeks.</p>
-								</div>
-								<div class="option">
-									<h2>Community Practice</h2>
-									<p class="donation">Free! <em>Donations Appreciated</em></p>
-									<p>Already experienced a facilitated practice? Continue and build your practice with the community. Find times that work, make friends, and make creative engagement a habit.</p>
-									
-								</div>
-								<div class="options">
+							<div class="wrapper">
+								<div class="modal">
+									<div class="bg gradient"></div>
+									<div class="bg blur"></div>
+									<h1>Get Started <span>with Art Fellowship</span></h1>
+									<input type="text" placeholder="Enter your email">
+									<p class="subtext">Sign up for upcoming sessions</p>
+									<p class="email-disclaimer">We use your email <span>only</span> to facilitate practice.</p>
+									<div class="option">
+										<h2>Facilitated Practice</h2>
+										<p class="donation">$10 Suggested Donation</p>
+										<p>New to the practice? A facilitated session provides the structure, support, and guidance to help you get started.</p>
+										<p class="scheduled"><span class="region">🌎 America&rsquo;s:</span> Sat Jan 27th & Feb 3 &bull; 7<span class="time-detail">PM EST</span></p>
+										<p class="scheduled"><span class="region">🌍 Europe:</span> Sat Jan 27th & Feb 3 &bull; 10<span class="time-detail">AM CET</span></p>
+										<p class="future-sessions">Can't make these? New sessions every 4-6 weeks.</p>
+									</div>
+									<div class="option">
+										<h2>Community Practice</h2>
+										<p class="donation">Free! <em>Donations Appreciated</em></p>
+										<p>Already experienced a facilitated practice? Continue and build your practice with the community. Find times that work, make friends, and make creative engagement a habit.</p>
+										
+									</div>
+									<div class="options">
+									</div>
 								</div>
 							</div>
 						</details>
@@ -146,20 +125,21 @@ style: '/css/pages/index.css'
 			</div>
 			
 			<article class="problem-statement">
-				<div>
-					<p>Throughout history, art expanded humanity's awareness, transforming and connecting us.</p>
-					<p>Art was communal. Everyone participated. People were connected <em>by</em> and <em>through</em> art.</p>
-				</div>
-				
-				<div>
-					<p>Today many of us are disconnected: from art, from our bodies, and from each other. We're disconnected from our creativity and artistic voice.</p>
-					<p>Our connections have been severed by a culture that values critique over meaningful experience.</p>
-					<p>Our awareness has been hijacked and diluted.</p>
-				</div>
-				
-				<div>
-					<p>Art fellowship is an opportunity to reconnect. Through communitas, ritual, and intentional practice, we can open  back up to wonder and insight</p>
-				</div>
+				<p id="article-p1">
+					Throughout history, art expanded humanity's awareness, transforming and connecting us.
+					</br><span></span>
+					Art was communal. Everyone participated. People were connected <em>by</em> and <em>through</em> art.
+				</p>
+				<p id="article-p2">
+					Today many of us are disconnected: from art, from our bodies, and from each other. We're disconnected from our creativity and artistic voice.
+					</br><span></span>
+					Our connections have been severed by a culture that values critique over meaningful experience.
+					</br><span></span>
+					Our awareness has been hijacked and diluted.
+				</p>
+				<p id="article-p3">
+					Art fellowship is an opportunity to reconnect. Through communitas, ritual, and intentional practice, we can open  back up to wonder and insight
+				</p>
 			</article>
 			
 			<div id="about">
@@ -170,9 +150,31 @@ style: '/css/pages/index.css'
 				
 				<section class="overall-structure">
 					<h2>The practice takes place over the course of a full week. Split into two sessions a week apart. In the week between the two sessions, you’re reflecting on round one and responding with your own creative effort.</h2>
+					<div class="canvas">
+						<div class="round-one">
+							<div class="indicator"><span></span></div>
+							<h1>Round 1</h1>
+							<h2>~2 Hours</h2>
+							<p>Explore an artwork by an outside artist and discover Dialogos</p>
+						</div>
+						<div class="week">
+							<div class="indicator">
+								<span><span></span></span>
+							</div>
+							<h1>Week Between</h1>
+							<h2>Expect to spend 3+ hours</h2>
+							<p>Respond genuinely by creating your own work of art</p>
+						</div>
+						<div class="round-two">
+							<div class="indicator"><span></span></div>
+							<h1>Round 2</h1>
+							<h2>~2 Hours</h2>
+							<p>Share your art and engage deeply with each other’s work.</p>
+						</div>
+					</div>
 				</section>
 				
-				<section class="benefits">
+				<section class="intent">
 					
 				</section>
 				
@@ -194,6 +196,12 @@ style: '/css/pages/index.css'
 			</footer>
 		</div>
 		
+		<!-- GSAP Animations, Scrolling, Visual Improvements -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
+		<script src="/js/SplitText.min.js"></script>
+		<!-- [END] GSAP Animations, Scrolling, Visual Improvements -->
+		
 		<!-- Basic JS -->
 		<script>			
 			document.querySelector('#nav-btn').addEventListener('click', () => {
@@ -206,6 +214,70 @@ style: '/css/pages/index.css'
 				}
 			})
 		</script>
-		<!-- Basic JS [End] -->
+		<!-- [End] Basic JS -->
+		
+		<!-- Scroll Anim -->
+		<script>			
+			gsap.registerPlugin(ScrollTrigger)
+			
+			/* Animate ARTICLE text on scroll
+			~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+			let paragraph1 = new SplitText(document.querySelector('#article-p1'), {type: "chars,words"})
+			let paragraphHighlight = gsap.timeline({
+				scrollTrigger: {
+					trigger: '#article-p1',
+					start: 'top 60%',
+					end: 'bottom 60%',
+					scrub: 1.5,
+				}
+			})
+			paragraphHighlight.fromTo(paragraph1.chars, {
+				opacity: 0.5
+			},
+			{
+				opacity: 1,
+				color: 'hsl(0, 0%, 0%)',
+				duration: 1,
+				ease: 'power3',
+				stagger: 0.05
+			})
+			
+			let paragraph2 = new SplitText(document.querySelector('#article-p2'), {type: "chars,words"})
+			gsap.fromTo(paragraph2.chars, {
+				opacity: 0.5
+			},
+			{
+				opacity: 1,
+				color: 'hsl(0, 0%, 0%)',
+				duration: 1,
+				ease: 'power3',
+				stagger: 0.05,
+				scrollTrigger: {
+					trigger: '#article-p2',
+					start: 'top 60%',
+					end: 'bottom 60%',
+					scrub: 1.5
+				}
+			})
+			let paragraph3 = new SplitText(document.querySelector('#article-p3'), {type: "chars,words"})
+			gsap.fromTo(paragraph3.chars, {
+				opacity: 0.5
+			},
+			{
+				opacity: 1,
+				color: 'hsl(0, 0%, 0%)',
+				duration: 1,
+				ease: 'power3',
+				stagger: 0.05,
+				scrollTrigger: {
+					trigger: '#article-p3',
+					start: 'top 60%',
+					end: 'bottom 60%',
+					scrub: 1.5
+				}
+			})
+			
+		</script>
+		<!-- [End] Scroll Anim -->
 	</body>
 </html>
