@@ -11,7 +11,7 @@ style: '/css/pages/index.css'
 		<div class="overscroll top mobile"></div>
 		
 		<div class="wrapper">
-			<nav class="hide">
+			<nav class="collapse">
 				<div>
 					<a href="/">Join Practice</a>
 					<a href="/">Cheat Sheet</a>
@@ -20,6 +20,7 @@ style: '/css/pages/index.css'
 					<a href="/">Contact</a>
 				</div>
 			</nav>
+			<div class="mobile-dark-shim"><span></span></div>
 			
 			<div id="hero">
 				<div class="title">
@@ -96,7 +97,7 @@ style: '/css/pages/index.css'
 					
 					<div class="cards right">
 						<div><p>explore perspectival knowing</p></div>
-						<div id="video-how"><p>See How it Works <span>(2<em>MIN</em>)</span></p></div>
+						<div><p>exercise a creative way of being</p></div>
 					</div>
 				</div>
 				
@@ -127,14 +128,14 @@ style: '/css/pages/index.css'
 			<article class="problem-statement">
 				<p id="article-p1">
 					Throughout history, art expanded humanity's awareness, transforming and connecting us.
-					</br><span></span>
+					</br><span class="br"></span>
 					Art was communal. Everyone participated. People were connected <em>by</em> and <em>through</em> art.
 				</p>
 				<p id="article-p2">
 					Today many of us are disconnected: from art, from our bodies, and from each other. We're disconnected from our creativity and artistic voice.
-					</br><span></span>
+					</br><span class="br"></span>
 					Our connections have been severed by a culture that values critique over meaningful experience.
-					</br><span></span>
+					</br><span class="br"></span>
 					Our awareness has been hijacked and diluted.
 				</p>
 				<p id="article-p3">
@@ -206,11 +207,11 @@ style: '/css/pages/index.css'
 		<script>			
 			document.querySelector('#nav-btn').addEventListener('click', () => {
 				const nav = document.querySelector('nav')
-				if (nav.classList.contains('hide')) {
-					nav.classList.remove('hide')
+				if (nav.classList.contains('collapse')) {
+					nav.classList.remove('collapse')
 				}
 				else {
-					nav.classList.add('hide')
+					nav.classList.add('collapse')
 				}
 			})
 		</script>
