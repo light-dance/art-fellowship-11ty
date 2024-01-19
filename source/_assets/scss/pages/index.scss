@@ -201,6 +201,13 @@ nav {
 		}
 	}
 	
+	.small-spacer {
+		width: 100%;
+		max-height: 4rem;
+		flex-shrink: 1;
+		flex-grow: 1;
+	}
+	
 	.body {
 		position: relative;
 		z-index: 10;
@@ -235,8 +242,7 @@ nav {
 				height: fit-content;
 				padding: 0;
 				
-				// --margin: clamp(1.3rem, 10vw, 3.8rem);
-				--margin: calc(3.5vw + 0.5rem);
+				--margin: clamp(1.3rem, calc(3.5vw + 0.5rem), 3.8rem);
 				&.left {
 					li:nth-of-type(1) {
 						transform: rotate(-5deg);
@@ -659,7 +665,8 @@ nav {
 	> div.spacer {
 		width: 100%;
 		flex-basis: 2rem;
-		flex-grow: 1;
+		min-height: 4rem;
+		flex-grow: 3;
 		flex-shrink: 1;
 	}
 	
@@ -736,11 +743,11 @@ nav {
 
 
 article.problem-statement {
-	max-width: 42rem;
-	margin: auto;
-	padding: 8rem 0.4rem 1.5rem;
-	
+	position: relative;
+	padding: 6rem 0.4rem 1.5rem;
 	p {
+		max-width: 42rem;
+		margin: auto;
 		font-family: 'Inter Var', 'Inter V', 'Inter';
 		font-size: 2.42rem;
 		font-weight: 700;
@@ -752,13 +759,19 @@ article.problem-statement {
 			height: 0.29rem;
 		}
 	}
-	> div {
-		padding: 1.9rem 0;
+	div.bg.gradient {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 3rem;
+		background: linear-gradient(to bottom, 
+			hsla(48, 44%, 89%, 1),
+			var(--background)
+		);
 	}
-}
-@media (max-width: 40rem) {
-	article.problem-statement {
-		padding: 8rem 0.8rem 1.5rem;
+	@include screen-md {
+		padding: 5rem 0.8rem 1.5rem;
 		p {
 			line-height: 1.22;
 			span.br {
@@ -785,9 +798,11 @@ article.problem-statement {
 		);
 		padding-top: 11rem;
 		h1 {
-			// padding-top: 11rem;
 			text-align: center;
 			font-size: 6.7rem;
+			font-size: 2.5rem;
+			font-size: 9vw;
+			font-size: clamp(2.5rem, 14.5vw, 6.7rem);
 			font-weight: 600;
 			letter-spacing: -0.015em;
 			
@@ -796,15 +811,19 @@ article.problem-statement {
 				#E3E9FE 46%, 
 				#E1E1FF 89%
 			);
-			background-clip: text;
-			-webkit-background-clip: text;
-			text-fill-color: transparent;
-			-webkit-text-fill-color: transparent;
+			@include gradient-text;
+			&::selection {
+				background: hsl(203, 100%, 98%);
+				@include selection-color(hsl(217, 100%, 58%));
+			}
 		}
 		object, svg {
 			display: block;
 			margin: 1.1rem auto;
 			width: 4.3rem;
+		}
+		@include screen-md {
+			
 		}
 	}
 	section {
