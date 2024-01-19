@@ -117,13 +117,15 @@ style: '/css/pages/index.css'
 				<div class="spacer"></div>
 				
 				<div id="art-marquee">
-					<div class="main hide">
-						<p>About the Practice</p>
-						<picture aria-hidden="true">
-							<source srcset="{% asset "/images/down-arrow.svg" %}">
-							<source srcset="{% asset "/images/down-arrow.webp" %}">
-							<img src="{% asset "/images/down-arrow.png" %}" alt="" aria-hidden="true">
-						</picture>
+					<div class="main">
+						<div class="wrapper">
+							<p>About the Practice</p>
+							<picture aria-hidden="true">
+								<source srcset="{% asset "/images/down-arrow.svg" %}">
+								<source srcset="{% asset "/images/down-arrow.webp" %}">
+								<img src="{% asset "/images/down-arrow.png" %}" alt="" aria-hidden="true">
+							</picture>
+						</div>
 					</div>
 					<div class="scroll">
 						<div class="item"></div>
@@ -160,21 +162,23 @@ style: '/css/pages/index.css'
 			
 			<div id="about">
 				<div class="transition">
+					<div class="bg gradient"></div>
 					<h1>How It Works</h1>
-					<object data="{% asset "/images/down-arrow-dark.svg" %}" type="image/svg+xml"></object>
 				</div>
+				<object data="{% asset "/images/down-arrow-dark.svg" %}" type="image/svg+xml"></object>
 				
 				<section class="overall-structure">
 					<h2>The practice takes place over the course of a full week. Split into two sessions a week apart. In the week between the two sessions, you’re reflecting on round one and responding with your own creative effort.</h2>
+					
 					<div class="canvas">
 						<div class="round-one">
-							<div class="indicator"><span></span></div>
+							<div class="block"><span></span></div>
 							<h1>Round 1</h1>
 							<h2>~2 Hours</h2>
 							<p>Explore an artwork by an outside artist and discover Dialogos</p>
 						</div>
 						<div class="week">
-							<div class="indicator">
+							<div class="block">
 								<span><span></span></span>
 							</div>
 							<h1>Week Between</h1>
@@ -182,11 +186,17 @@ style: '/css/pages/index.css'
 							<p>Respond genuinely by creating your own work of art</p>
 						</div>
 						<div class="round-two">
-							<div class="indicator"><span></span></div>
+							<div class="block"><span></span></div>
 							<h1>Round 2</h1>
 							<h2>~2 Hours</h2>
 							<p>Share your art and engage deeply with each other’s work.</p>
 						</div>
+					</div>
+					
+					<div class="scroll-indicator">
+						<span class="active"></span>
+						<span></span>
+						<span></span>
 					</div>
 				</section>
 				

@@ -25,6 +25,11 @@ $screen-md-min: 60rem;
 		@content
 	}
 }
+@mixin screen-x($size) {
+	@media (max-width: $size) {
+		@content
+	}
+}
 
 @mixin gradient-text {
 	background-clip: text !important;
@@ -123,15 +128,17 @@ nav {
 }
 
 #hero {
+	$about-overhang: 5rem;
+	
 	position: relative;
 	min-height: fit-content;
-	height: 100svh;
-	max-height: 65rem;
+	height: calc(100svh + $about-overhang);
+	max-height: calc(65rem + $about-overhang);
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	overflow-x: hidden;
-		
+	overflow-y: visible;
 	* {
 		z-index: 1;
 	}
@@ -364,9 +371,10 @@ nav {
 				font-weight: 400;
 				line-height: 1.4;
 			}
-			h1::selection, p::selection {
+			h1::selection, 
+			p::selection {
 				background: hsl(0, 0%, 0%);
-				@include selection-color(var(--background))
+				@include selection-color(var(--background));
 			}
 			p.btn {
 				padding: 0.37rem 1.5rem;
@@ -671,55 +679,63 @@ nav {
 	}
 	
 	#art-marquee {
-		z-index: 1;
-		width: 100%;
-		padding-bottom: 0.4rem;
+		$item-height: 13.6rem;
 		
-		div.main {
-			position: absolute;
-			width: 30rem;
-			height: 20rem;
-			z-index: 3;
-			background: rgb(177, 177, 177);
-			margin-left: 50%;
-			transform: translateX(-50%);
-			
-			background: linear-gradient(to bottom, 
-				hsl(180, 100%, 100%), 
-				hsl(221, 100%, 79%));
-			display: flex;
-			flex-direction: column;
-			align-items: center;
-			justify-content: space-evenly;
-			p {
-				font-family: 'Petrona';
-				font-weight: 600;
-				font-size: 2.3rem;
-				font-style: italic;
-				background: linear-gradient(to bottom, 
-					hsl(214, 100%, 16%), 
-					hsl(214, 84%, 52%));
-				background-clip: text;
-				-webkit-background-clip: text;
-				text-fill-color: transparent;
-				-webkit-text-fill-color: transparent;
-			}
-		}
+		width: 100%;
+		height: calc($item-height + (2 * $about-overhang));
+		
 		div.scroll {
-			width: 100%;
-			max-width: 100%;
 			display: flex;
+			align-items: center;
+			height: 100%;
+			gap: 1.3rem;
+			padding: 0.3rem 0.5rem;
 			overflow-x: scroll;
-			gap: 1.4rem;
-			
 			div.item {
-				height: 13.6rem;
-				width: 18.8rem;
+				height: $item-height;
+				aspect-ratio: 18.8/13.6;
 				flex-shrink: 0;
-				border-radius: 0.2rem;
+				border-radius: 0.3rem;
 				background: linear-gradient(to bottom, 
 					hsla(202, 45%, 22%, 1) 0%, 
 					hsla(233, 51%, 37%, 1) 100%);
+			}
+		}
+		div.main {
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			width: 100%;
+			height: inherit;
+			z-index: 2;
+			pointer-events: none;
+			
+			.wrapper {
+				width: calc(100% - 2rem);
+				max-width: 30rem;
+				margin: auto;
+				height: 100%;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				justify-content: space-evenly;
+				background: linear-gradient(to bottom, 
+					hsl(180, 100%, 100%), 
+					hsl(221, 100%, 79%)
+				);
+				p {
+					font-family: 'Petrona';
+					font-weight: 600;
+					font-size: 2.3rem;
+					font-style: italic;
+					background: linear-gradient(to bottom, 
+						hsl(214, 100%, 16%), 
+						hsl(214, 84%, 52%));
+					background-clip: text;
+					-webkit-background-clip: text;
+					text-fill-color: transparent;
+					-webkit-text-fill-color: transparent;
+				}
 			}
 		}
 	}
@@ -744,6 +760,7 @@ nav {
 
 article.problem-statement {
 	position: relative;
+	z-index: 2;
 	padding: 6rem 0.4rem 1.5rem;
 	p {
 		max-width: 42rem;
@@ -782,30 +799,42 @@ article.problem-statement {
 }
 
 #about {
+	* {
+		position: relative;
+		z-index: 3;
+	}
 	.transition {
-		height: 37rem;
-		margin-top: -8rem;
-		margin-bottom: -12rem;
-		background: linear-gradient(to bottom, 
-			hsla(48, 26%, 96%, 1) 0%, 
-			hsla(256, 50%, 90%, 1) 10%, 
-			hsla(256, 93%, 84%, 1) 21%, 
-			hsla(221, 94%, 75%, 1) 32%, 
-			hsla(209, 99%, 67%, 1) 43%, 
-			hsla(213, 99%, 68%, 1) 57%, 
-			hsla(212, 100%, 70%, 1) 68%, 
-			hsla(48, 26%, 96%, 1) 100%
-		);
-		padding-top: 11rem;
+		position: relative;
+		z-index: 1;
+		* {
+			position: relative;
+			z-index: 2;
+		}
+		div.bg.gradient {
+			position: absolute;
+			z-index: 1;
+			top: -8rem;
+			left: 0;
+			width: 100%;
+			height: 37rem;
+			background: linear-gradient(to bottom, 
+				hsla(48, 26%, 96%, 1) 0%, 
+				hsla(256, 50%, 90%, 1) 10%, 
+				hsla(256, 93%, 84%, 1) 21%, 
+				hsla(221, 94%, 75%, 1) 32%, 
+				hsla(209, 99%, 67%, 1) 43%, 
+				hsla(213, 99%, 68%, 1) 57%, 
+				hsla(212, 100%, 70%, 1) 68%, 
+				hsla(48, 26%, 96%, 1) 100%
+			);
+		}
 		h1 {
+			padding-top: 3rem;
+			padding-bottom: 1.1rem;
 			text-align: center;
-			font-size: 6.7rem;
-			font-size: 2.5rem;
-			font-size: 9vw;
 			font-size: clamp(2.5rem, 14.5vw, 6.7rem);
 			font-weight: 600;
 			letter-spacing: -0.015em;
-			
 			background: linear-gradient(to bottom, 
 				#E5F6F9 12%,
 				#E3E9FE 46%, 
@@ -817,14 +846,15 @@ article.problem-statement {
 				@include selection-color(hsl(217, 100%, 58%));
 			}
 		}
-		object, svg {
-			display: block;
-			margin: 1.1rem auto;
-			width: 4.3rem;
-		}
-		@include screen-md {
-			
-		}
+	}
+	object, svg {
+		z-index: 5;
+		display: block;
+		margin-left: auto;
+		margin-right: auto;
+		margin-bottom: calc(-1 * clamp(2.05rem, 4vw, 1.85rem));
+		
+		height: clamp(5.5rem, 13vw, 7.8rem);
 	}
 	section {
 		width: calc(98vw - 2rem);
@@ -848,20 +878,45 @@ article.problem-statement {
 		@media (max-width: 40rem) {
 			width: calc(100vw - 1rem);
 			border-radius: 2.3rem;
-			padding: 2.1rem 1.3rem;
-			>h2 { font-size: 1.8rem; }
+			padding: 2.7rem 1.4rem;
+			> h2 { font-size: 1.8rem; }
 		}
 	}
 	section.overall-structure {
+		
+		div.scroll-indicator {
+			display: none;
+			width: 100%;
+			height: 0.4rem;
+			justify-content: center;
+			gap: 0.45rem;
+			span {
+				width: 2.4rem;
+				height: 100%;
+				background: hsla(0, 0%, 0%, 0.3);
+				border-radius: 10rem;
+				&.active {
+					background: hsla(0, 0%, 0%, 0.8)
+				}
+			}
+		}
+		
 		div.canvas {
+			width: 100%;
 			display: flex;
 			flex-direction: row;
 			justify-content: space-between;
 			gap: 1.3rem;
 			padding-top: 7rem;
 			overflow-x: scroll;
+			scroll-snap-type: x mandatory;
+			-ms-overflow-style: none;
+			scrollbar-width: none;
+			&::-webkit-scrollbar {
+				background: transparent;
+			}
 			
-			div.indicator {
+			div.block {
 				height: 1.8rem;
 				width: 100%;
 				margin: 0 0 0.8rem;
@@ -879,7 +934,7 @@ article.problem-statement {
 				display: flex;
 				flex-direction: column;
 				align-items: center;
-				
+				scroll-snap-align: center;
 				h1 {
 					font-family: 'Petrona Var';
 					font-weight: 500;
@@ -887,24 +942,32 @@ article.problem-statement {
 					letter-spacing: -0.015em;
 				}
 				h2 {
-					font-size: 1.3rem;
+					font-family: 'Petrona Var';
+					font-size: 1.4rem;
 					font-weight: 400;
 					opacity: 0.8;
 				}
 				p {
 					margin-top: 1rem;
 					padding: 0 0.3rem;
+					max-width: 34rem;
 					text-align: center;
-					font-size: 1.7rem;
+					font-size: 1.6rem;
+					letter-spacing: -0.01em;
+					line-height: 1.25;
 					color: hsl(0, 0%, 33%);
 				}
 			}
-			div.round-one {
+			div.round-one, div.round-two {
 				flex-grow: 0;
 				flex-basis: 1;
 				flex-shrink: 1;
-				.indicator span {
+				.block span {
 					width: 5.8rem;
+				}
+			}
+			div.round-one {
+				.block span {
 					background: linear-gradient(to bottom, 
 						hsl(275, 95%, 45%) 0%, 
 						hsl(258, 100%, 65%) 100%);
@@ -913,12 +976,23 @@ article.problem-statement {
 					color: hsl(265, 100%, 59%);
 				}
 			}
+			div.round-two {
+				.block span {
+					background: linear-gradient(to bottom, 
+						hsl(237, 100%, 67%) 0%, 
+						hsl(201, 100%, 47%) 100%);
+				}
+				h1 {
+					color: hsl(201, 100%, 47%);
+				}
+			}
 			div.week {
-				flex-grow: 2;
-				flex-basis: 2;
-				flex-shrink: 0.5;
-				.indicator > span {
+				flex-grow: 1.5;
+				flex-basis: 1.5;
+				flex-shrink: 0.7;
+				.block > span {
 					position: relative;
+					max-width: 40rem;
 					height: 1rem;
 					background: hsl(0, 0%, 81%);
 					overflow: clip;
@@ -959,19 +1033,19 @@ article.problem-statement {
 					color: hsl(0, 0%, 33%);
 				}
 			}
-			div.round-two {
-				flex-grow: 0;
-				flex-basis: 1;
-				flex-shrink: 1;
-				.indicator span {
-					width: 5.8rem;
-					background: linear-gradient(to bottom, 
-						hsl(237, 100%, 67%) 0%, 
-						hsl(201, 100%, 47%) 100%);
+		}
+		@include screen-x(72rem) {
+			div.canvas {
+				padding-top: 2.8rem;
+				padding-bottom: 1.8rem;
+				> div {
+					width: 100%;
+					flex-shrink: 0 !important;
+					flex-grow: 0;
 				}
-				h1 {
-					color: hsl(201, 100%, 47%);
-				}
+			}
+			div.scroll-indicator {
+				display: flex;
 			}
 		}
 	}
