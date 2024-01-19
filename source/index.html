@@ -40,22 +40,36 @@ style: '/css/pages/index.css'
 						</picture>
 					</a>
 					
-					<div class="right-spacer"></div>
+					<div class="spacer"></div>
 				</div>
 				
-				<div class="strong-copy">
+				<div class="headline">
 					<h1>Expanding Awareness Together</h1>
 					<h2>Relate and Renew Through Art</h2>
 				</div>
 				
-				<div class="content">
-					<div class="cards left">
-						<div class="quote">
-							<p class="quote">&ldquo;</p>
-							<p>new <strong>appreciation</strong> for my creativity</p>
-							<img src="https://large-assets.notnotjake.com/images/index/profile-pic.png" alt="Person Smiling">
-						</div>
-						<div><p>add to your <strong>ecology of practices</strong></p></div>
+				<div class="body">					
+					<div class="cards-group">
+						<ul class="left">
+							<li class="card quote">
+								<p>new <strong>appreciation</strong> for my creativity</p>
+								<img src="https://large-assets.notnotjake.com/images/index/profile-pic.png" alt="Person Smiling">
+							</li>
+							<li>
+								<p>add to your <strong>ecology of practices</strong></p>
+							</li>
+						</ul>
+						
+						<div class="spacer"></div>
+						
+						<ul class="right">
+							<li>
+								<p>explore <strong>perspectival knowing</strong></p>
+							</li>
+							<li>
+								<p>exercise a creative way of being</p>
+							</li>
+						</ul>					
 					</div>
 					
 					<div class="cta">
@@ -63,10 +77,10 @@ style: '/css/pages/index.css'
 						<p>Whether you're new to the practice or returning, schedule a session and experience Art Fellowship</p>
 						<details>
 							<summary>
-								<p>Get Started</p>
+								<p class="btn">Get Started</p>
 								<div class="overlay"></div>
 							</summary>
-							<div class="wrapper">
+							<div id="signup" class="wrapper">
 								<div class="modal">
 									<div class="bg gradient"></div>
 									<div class="bg blur"></div>
@@ -94,15 +108,14 @@ style: '/css/pages/index.css'
 							</div>
 						</details>
 					</div>
-					
-					<div class="cards right">
-						<div><p>explore perspectival knowing</p></div>
-						<div><p>exercise a creative way of being</p></div>
-					</div>
 				</div>
 				
+				<div class="bg gradient"></div>
+				
+				<div class="spacer"></div>
+				
 				<div id="art-marquee">
-					<div class="main">
+					<div class="main hide">
 						<p>About the Practice</p>
 						<picture aria-hidden="true">
 							<source srcset="{% asset "/images/down-arrow.svg" %}">
@@ -121,8 +134,6 @@ style: '/css/pages/index.css'
 						<div class="item"></div>
 					</div>				
 				</div>
-				
-				<div class="bg gradient"></div>
 			</div>
 			
 			<article class="problem-statement">
@@ -163,7 +174,7 @@ style: '/css/pages/index.css'
 								<span><span></span></span>
 							</div>
 							<h1>Week Between</h1>
-							<h2>Expect to spend 3+ hours</h2>
+							<h2>As much or little time as needed</h2>
 							<p>Respond genuinely by creating your own work of art</p>
 						</div>
 						<div class="round-two">
