@@ -82,17 +82,20 @@ style: '/css/pages/index.css'
 								<p class="btn">Get Started</p>
 								<div class="overlay"></div>
 							</summary>
-							<div id="signup" class="wrapper">
+							<div id="signup">
 								<div class="modal">
 									<div class="bg gradient"></div>
 									<div class="bg blur"></div>
 									<h1>Get Started <span>with Art Fellowship</span></h1>
 									<input type="text" placeholder="Enter your email">
 									<p class="subtext">Sign up for upcoming sessions</p>
-									<p class="email-disclaimer">We use your email <span>only</span> to facilitate practice.</p>
+									<p class="email-disclaimer">Your email is <span>only</span> used to facilitate practice</p>
 									<div class="option">
 										<h2>Facilitated Practice</h2>
-										<p class="donation">$10 Suggested Donation</p>
+										<div class="donation">
+											<p>$10 Suggested Donation</p>
+										</div>
+										<p class="donation hide">$10 Suggested Donation<span></span></p>
 										<p>New to the practice? A facilitated session provides the structure, support, and guidance to help you get started.</p>
 										<p class="scheduled"><span class="region">🌎 America&rsquo;s:</span> Sat Jan 27th & Feb 3 &bull; 7<span class="time-detail">PM EST</span></p>
 										<p class="scheduled"><span class="region">🌍 Europe:</span> Sat Jan 27th & Feb 3 &bull; 10<span class="time-detail">AM CET</span></p>
@@ -100,7 +103,9 @@ style: '/css/pages/index.css'
 									</div>
 									<div class="option">
 										<h2>Community Practice</h2>
-										<p class="donation">Free! <em>Donations Appreciated</em></p>
+										<div class="donation">
+											<p>Free! <em>Donations Appreciated</em></p>
+										</div>
 										<p>Already experienced a facilitated practice? Continue and build your practice with the community. Find times that work, make friends, and make creative engagement a habit.</p>
 										
 									</div>
@@ -237,6 +242,17 @@ style: '/css/pages/index.css'
 				}
 				else {
 					nav.classList.add('collapse')
+				}
+			})
+			
+			document.querySelector('div.cta details').addEventListener('toggle', () => {
+				console.log('successfully detected details toggle')
+				const b = document.querySelector('body')
+				if ( b.classList.contains('modal-open')) {
+					b.classList.remove('modal-open')
+				}
+				else {
+					b.classList.add('modal-open')
 				}
 			})
 		</script>

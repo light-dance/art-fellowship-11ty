@@ -47,6 +47,9 @@ html, body, body > div.wrapper {
 	background-color: var(--background);
 	color: var(--text-color);
 }
+body.modal-open {
+	overflow: hidden;
+}
 
 nav {
 	--height: 4rem;
@@ -88,7 +91,7 @@ nav {
 	}
 	@include screen-sm {
 		background: hsl(0, 0%, 0%);
-		height: fit-content;
+		height: 16.41rem;
 		div {
 			padding: 0.8rem 0.5rem;
 			flex-direction: column;
@@ -441,25 +444,30 @@ nav {
 		height: 100dvh;
 		left: 50%;
 		width: 100%;
-		max-width: 41rem;
+		// max-width: 41rem;
 		transform: translateX(-50%);
-		padding-top: 2rem;
+		padding: 2rem 0.2rem 2rem;
 		overflow-y: scroll;
 		display: flex;
 		justify-content: center;
+		pointer-events: none;
 		
 		div.modal {
+			$background-color: hsl(212, 18%, 93%);
+			
+			pointer-events: all;
 			position: relative;
 			width: 100%;
+			max-width: 40rem;
 			height: fit-content;
-			min-height: calc(100dvh - 2rem);
+			// min-height: calc(100dvh - 2rem);
 			display: flex;
 			flex-direction: column;
-			border-radius: 1.8rem 1.8rem 0 0;
+			border-radius: 1.8rem 1.8rem 1.8rem 1.8rem;
 			color: hsl(201, 5%, 24%);
-			background: hsl(212, 16%, 86%);
+			background: $background-color;
 			box-shadow: 
-				hsla(204, 18%, 89%, 1) 0px 0px 1px 1px inset,
+				hsla(204, 28%, 81%, 1) 0px 0px 1px 1px inset,
 				rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, 
 				rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, 
 				rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
@@ -467,6 +475,10 @@ nav {
 			
 			> * {
 				z-index: 3;
+			}
+			*::selection {
+				background: hsl(242, 100%, 63%);
+				@include selection-color(hsl(224, 100%, 93%))
 			}
 			.bg {
 				border-radius: inherit;
@@ -478,10 +490,10 @@ nav {
 				z-index: 1;
 				height: 8rem;
 				background: linear-gradient(to bottom, 
-					hsl(220, 80%, 91%) 0%,
-					hsl(216, 100%, 98%) 50%,
+					hsl(220, 72%, 85%) 0%,
+					hsl(261, 75%, 94%) 50%,
 					hsl(216, 100%, 98%) 65%,
-					hsl(212, 16%, 86%) 100%
+					$background-color 100%
 				);
 			}
 			.blur {
@@ -497,15 +509,11 @@ nav {
 				text-align: center;
 				font-weight: 700;
 				font-size: 1.8rem;
-				// font-size: 1.5rem;
 				color: hsl(221, 100%, 58%);
 				background: linear-gradient(to bottom, 
 					hsl(220, 100%, 53%) 20%, 
 					hsl(277, 100%, 84%) 80%);
-				background-clip: text;
-				-webkit-background-clip: text;
-				text-fill-color: transparent;
-				-webkit-text-fill-color: transparent;
+				@include gradient-text;
 				span {
 					font-family: 'Source Serif Text';
 					font-weight: 300;
@@ -574,13 +582,10 @@ nav {
 			}
 			> p.subtext {
 				background: linear-gradient(to bottom, 
-					hsl(221, 80%, 56%) 6%, 
-					hsl(221, 100%, 55%) 32%, 
-					hsl(260, 51%, 50%) 92%);
-				background-clip: text;
-				-webkit-background-clip: text;
-				text-fill-color: transparent;
-				-webkit-text-fill-color: transparent;
+					hsl(216, 57%, 57%) 6%, 
+					hsl(222, 66%, 50%) 32%, 
+					hsl(260, 70%, 62%) 92%);
+				@include gradient-text;
 			}
 			> p.email-disclaimer {
 				font-size: 0.9rem;
@@ -593,33 +598,65 @@ nav {
 			}
 			div.option {
 				padding: 2.3rem 1.5rem;
-				border-top: 1px solid hsl(212, 17%, 93%);
+				box-shadow: 
+					inset 0 1px 0 0px hsl(212, 9%, 81%),
+					inset 0 2px 0 0px hsl(212, 2%, 99%);
 				h2 {
 					padding-bottom: 0.7rem;
 					font-size: 1.6rem;
-					color: hsl(201, 5%, 18%);
+					letter-spacing: -0.014em;
+					color: hsl(212, 3%, 18%);
 				}
 				p {
 					line-height: 1.55;
 					padding-bottom: 0.7rem;
 				}
-				p.donation {
+				div.donation {
+					position: relative;
 					width: fit-content;
 					margin: auto;
-					padding: 0.3rem 0.7rem;
 					margin-bottom: 0.8rem;
-					color: hsla(0, 0%, 5%, 0.8);
 					border-radius: 10rem;
-					font-size: 1rem;
-					font-weight: 500;
-					background: linear-gradient(114deg,
-						hsl(136, 100%, 94%) 5%,
-						hsl(36, 100%, 93%) 16%,
-						hsl(271, 100%, 92%) 25%,
-						hsl(0, 0%, 93%) 50%);
-					box-shadow: inset 0 1.5px hsla(0, 0%, 0%, 0.13);
+					overflow: hidden;
+					p {
+						position: relative;
+						padding: 0.3rem 0.7rem;
+						color: hsla(0, 0%, 5%, 0.8);
+						font-size: 1rem;
+						font-weight: 500;
+						z-index: 2;
+					}
 					em {
 						opacity: 0.9;
+					}
+					&::before, &::after {
+						content: "";
+						position: absolute;
+						top: 0;
+						left: 0;
+						width: 100%;
+						height: 100%;
+					}
+					&::after {
+						z-index: 5;
+						border-radius: inherit;
+						box-shadow: inset 0 1.5px hsla(0, 0%, 0%, 0.13);
+					}
+					&::before {
+						z-index: 1;
+						background: linear-gradient(114deg,
+							hsl(136, 100%, 94%) 5%,
+							hsl(36, 100%, 93%) 16%,
+							hsl(271, 100%, 92%) 25%,
+							hsl(53, 40%, 98%) 50%);
+						transition: all 300ms;
+						transition-timing-function: ease-out;
+					}
+					&:hover::before {
+						width: 130%;
+					}
+					&:hover {
+						cursor:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'  width='40' height='48' viewport='0 0 100 100' style='fill:black;font-size:24px;'><text y='50%'>❤️</text></svg>") 16 0,auto; /*!emojicursor.app*/
 					}
 				}
 				p.scheduled {
@@ -627,19 +664,20 @@ nav {
 					font-size: 1.23rem;
 					font-weight: 500;
 					width: fit-content;
-					background: hsl(156, 100%, 39%);
-					background: hsl(212, 21%, 80%);
-					color: hsl(231, 2%, 20%);
 					padding: 0.3rem 0.9rem 0.3rem 0.6rem;
 					margin: 0.4rem auto;
 					border-radius: 3rem;
+					background: hsl(212, 12%, 92%);
+					color: hsl(231, 2%, 20%);
 					box-shadow: 
-						inset 0 -1px hsla(0, 0%, 0%, 0.1),
-						inset 0 1px hsla(0, 0%, 0%, 0.03);
+						inset 0 0 0 1px hsla(0, 0%, 0%, 0.07),
+						inset 0 -1px hsla(0, 0%, 0%, 0.09),
+						inset 0 1px hsla(0, 0%, 0%, 0.14);
 					.region {
 						font-weight: 600;
 						color: hsl(204, 100%, 95%);
 						color: hsl(221, 98%, 47%);
+						color: hsl(221, 85%, 43%);
 					}
 					.time-detail {
 						font-size: 0.85em;
