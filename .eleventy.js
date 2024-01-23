@@ -11,12 +11,42 @@ module.exports = function(eleventyConfig) {
 		"source/_assets/js": "js"
 	})
 	
+	/* DEV Environment: Passthrough Static Assets
+	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+	if ( process.env.MY_ENVIRONMENT !== "prod" ) {
+		eleventyConfig.addPassthroughCopy({
+			"static": "static"
+		})
+	}
+	/* Environment Production|Dev
+	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+	module.exports = function() {
+		return {
+			environment: process.env.MY_ENVIRONMENT || "dev"
+		}
+	}
+	/* SHORTCODE: Static Assets Linking
+	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+	// eleventyConfig.addShortcode("asset", function (path) {
+	// 	const host = `https://large-assets.notnotjake.com/`
+	// 	if ( process.env.MY_ENVIRONMENT !== "prod" ) {
+	// 		host = `/static/`
+	// 	}
+	// 	return host + path
+	// })	
+	
+	
 	/* SHORTCODE: Static Assets Linking
 	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 	eleventyConfig.addShortcode("asset", function ( path ) {
-		// Would be better if we could read the url from the /_data/site.json file
-		const host = 'https://assets.artfellowship.space'
-		return host + path
+		const host = 'https://assets.artfellowship.space/'
+		if (process.env.MY_ENVIRONMENT !== 'prod') {
+			return '/static/' + path
+		}
+		else {
+			return host + path
+		}
+		return 'Error'
 	})	
 	
 	/* Set input/output

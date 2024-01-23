@@ -10,6 +10,8 @@ style: '/css/pages/index.css'
 		<div class="overscroll top"></div>
 		<div class="overscroll top mobile"></div>
 		
+		{% include "components/Signup.html" %}
+		
 		<div class="wrapper">
 			<nav class="collapse">
 				<div>
@@ -77,43 +79,7 @@ style: '/css/pages/index.css'
 					<div class="cta">
 						<h1>Join the Practice</h1>
 						<p>Whether you're new to the practice or returning, schedule a session and experience Art Fellowship</p>
-						<details>
-							<summary>
-								<p class="btn">Get Started</p>
-								<div class="overlay"></div>
-							</summary>
-							<div id="signup">
-								<div class="modal">
-									<div class="bg gradient"></div>
-									<div class="bg blur"></div>
-									<h1>Get Started <span>with Art Fellowship</span></h1>
-									<input type="text" placeholder="Enter your email">
-									<p class="subtext">Sign up for upcoming sessions</p>
-									<p class="email-disclaimer">Your email is <span>only</span> used to facilitate practice</p>
-									<div class="option">
-										<h2>Facilitated Practice</h2>
-										<div class="donation">
-											<p>$10 Suggested Donation</p>
-										</div>
-										<p class="donation hide">$10 Suggested Donation<span></span></p>
-										<p>New to the practice? A facilitated session provides the structure, support, and guidance to help you get started.</p>
-										<p class="scheduled"><span class="region">🌎 America&rsquo;s:</span> Sat Jan 27th & Feb 3 &bull; 7<span class="time-detail">PM EST</span></p>
-										<p class="scheduled"><span class="region">🌍 Europe:</span> Sat Jan 27th & Feb 3 &bull; 10<span class="time-detail">AM CET</span></p>
-										<p class="future-sessions">Can't make these? New sessions every 4-6 weeks.</p>
-									</div>
-									<div class="option">
-										<h2>Community Practice</h2>
-										<div class="donation">
-											<p>Free! <em>Donations Appreciated</em></p>
-										</div>
-										<p>Already experienced a facilitated practice? Continue and build your practice with the community. Find times that work, make friends, and make creative engagement a habit.</p>
-										
-									</div>
-									<div class="options">
-									</div>
-								</div>
-							</div>
-						</details>
+						<a href="/get-started" id="get-started-btn">Get Started</a>
 					</div>
 				</div>
 				
@@ -206,19 +172,45 @@ style: '/css/pages/index.css'
 				</section>
 				
 				<section class="intent">
-					
+					<h1>Creativity is your birthright.</h1>
+					<h2>The commodification of everything has turned us into consumers. We view art passively, rather than participate in it. <strong>Let's reconnect by valuing the process of creation over the product that results.</strong></h2>
 				</section>
 				
 				<section class="round-structure">
-					
+					<h2>Based on the work of <a href="https://www.youtube.com/watch?v=bsI3e6j26R4&pp=ygUWam9obiB2ZXJ2YWVrZSBkaWFsb2dvcw%3D%3D">John Vervaeke</a>, we aim to enter 'dialogos' to bring artwork alive and enter into it deeply.</h2>
 				</section>
 			</div>
 			
-			<div class="cta">
+			<div class="engage">
+				<div class="bg gradient"></div>
+				<div class="bg blur"></div>
 				
+				<ul class="responses">
+					<li>
+						<img src="{% asset "/images/pic-woman-red.jpg" %}" alt="Person Smiling">
+						<p><span>new <strong>appreciation</strong> for my creativity</span></p>
+					</li>
+					<li>
+						<img src="https://large-assets.notnotjake.com/images/index/profile-pic.png" alt="Person Smiling">
+						<p><span>new <strong>appreciation</strong> for my creativity</span></p>
+					</li>
+					<li>
+						<img src="https://large-assets.notnotjake.com/images/index/profile-pic.png" alt="Person Smiling">
+						<p><span>new <strong>appreciation</strong> for my creativity</span></p>
+					</li>
+					<li>
+						<img src="https://large-assets.notnotjake.com/images/index/profile-pic.png" alt="Person Smiling">
+						<p><span>new <strong>appreciation</strong> for my creativity</span></p>
+					</li>
+				</ul>
+				
+				<h2>Open <em>yourself</em>, your <em>awareness</em>, and your <em>creativity</em>.</h2>
+				<h1>Ditch the inner critic. Reconnect to something deeper.</h1>
+				
+				<a href="">Get Started</a>
 			</div>
 			
-			<div class="more-cards">
+			<div class="library">
 				
 			</div>
 			
@@ -245,7 +237,8 @@ style: '/css/pages/index.css'
 				}
 			})
 			
-			document.querySelector('div.cta details').addEventListener('toggle', () => {
+			document.querySelector('div.cta a').addEventListener('click', () => {
+				e.preventDefault()
 				console.log('successfully detected details toggle')
 				const b = document.querySelector('body')
 				if ( b.classList.contains('modal-open')) {
@@ -253,6 +246,14 @@ style: '/css/pages/index.css'
 				}
 				else {
 					b.classList.add('modal-open')
+				}
+			})
+			
+			document.querySelector('#signup div.overlay').addEventListener('click', () => {
+				console.log('testing A')
+				const m = document.querySelector('#signup')
+				if (! m.classList.contains('hide')) {
+					m.classList.add('hide')
 				}
 			})
 		</script>
