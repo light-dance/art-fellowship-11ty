@@ -944,8 +944,9 @@ article.problem-statement {
 		@include screen-md {
 			margin-bottom: 1rem;
 			width: calc(100vw - 1rem);
+			min-height: 0px;
 			border-radius: 2.3rem;
-			padding: 2.7rem 1.4rem;
+			padding: 2.7rem 1.4rem 4rem;
 			> h2 { font-size: 1.8rem; }
 		}
 	}
@@ -1120,7 +1121,7 @@ article.problem-statement {
 			hsl(275, 55%, 94%) 0%, 
 			hsl(252, 44%, 91%) 99%);
 		h1 {
-			padding-bottom: 0.1em;
+			padding-bottom: 0.6em;
 			font-family: 'Source Serif Text';
 			font-weight: 300;
 			font-size: clamp(2.6rem, 5.5vw, 5rem);
@@ -1149,6 +1150,91 @@ article.problem-statement {
 	}
 	section.round-structure {
 		margin-bottom: 0;
+		padding: 5.2rem 0;
+		> * {
+			padding: 0 7rem;
+		}
+		div.canvas {
+			// border: 1px solid red;
+			padding: 1rem 0;
+			
+			div.timeline {
+				overflow-x: scroll;
+				padding: 0 7rem;
+				
+				div.labels {
+					display: flex;
+					gap: 0.8rem;
+				}
+				p {
+					position: relative;
+					flex-shrink: 0;
+					font-size: 1.2rem;
+					text-align: center;
+					padding: 0 1rem;
+					// max-width: 10rem;
+					height: 6rem;
+					display: flex;
+					align-items: flex-end;
+					z-index: 3;
+					&::after {
+						content: "";
+						position: absolute;
+						top: 6.4rem;
+						left: 0;
+						height: 3.3rem;
+						width: 100%;
+						background: linear-gradient(to bottom, 
+							hsl(0, 0%, 100%) 0%, 
+							hsl(200, 100%, 97%) 62%, 
+							hsl(189, 100%, 96%) 100%
+						);
+						border-radius: 10rem;
+						box-shadow: 0 2px 6px 1px hsla(0, 0%, 0%, 0.02);
+					}
+					&.stage-dialogos {
+						max-width: unset;
+						flex-shrink: 0;
+						// color: hsl(248, 89%, 67%);
+						font-weight: 500;
+					}
+				}
+				div.tray {
+					z-index: 2;
+					height: 4rem;
+					width: 100%;
+					background: linear-gradient(to bottom, 
+						hsl(224, 71%, 96%) 0%, 
+						hsl(207, 41%, 95%) 100%
+					);
+					border-radius: 10rem;
+				}				
+			}
+			div.explain-text {
+				padding-top: 2rem;
+				padding-left: 7rem;
+				padding-right: 7rem;
+				font-family: 'Petrona Var', 'Petrona V', 'Petrona', serif;
+				font-size: 2.2rem;
+				font-weight: 300;
+			}
+			div.scroll-indicator {
+				width: 6rem;
+				height: 0.4rem;
+				margin: auto;
+				background: hsla(0, 0%, 0%, 0.3);
+				border-radius: 10rem;
+				span {
+					position: absolute;
+					top: 0;
+					left: 0;
+					width: 30%;
+					height: 100%;
+					border-radius: inherit;
+					background: hsla(0, 0%, 0%, 0.8)
+				}
+			}
+		}
 	}
 }
 
@@ -1157,7 +1243,7 @@ div.engage {
 	height: fit-content;
 	width: 100%;
 	padding: 2.1rem 1.5rem 5rem;
-	box-shadow: 0 1px 1px 2px hsla(0, 0%, 0%, 0.08);
+	box-shadow: 0 2px 1px 0px hsla(0, 0%, 0%, 0.08);
 	
 	> * {
 		position: relative;
