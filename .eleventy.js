@@ -27,17 +27,6 @@ module.exports = function(eleventyConfig) {
 	}
 	/* SHORTCODE: Static Assets Linking
 	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
-	// eleventyConfig.addShortcode("asset", function (path) {
-	// 	const host = `https://large-assets.notnotjake.com/`
-	// 	if ( process.env.MY_ENVIRONMENT !== "prod" ) {
-	// 		host = `/static/`
-	// 	}
-	// 	return host + path
-	// })	
-	
-	
-	/* SHORTCODE: Static Assets Linking
-	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 	eleventyConfig.addShortcode("asset", function ( path ) {
 		const host = 'https://assets.artfellowship.space/'
 		if (process.env.MY_ENVIRONMENT !== 'prod') {
