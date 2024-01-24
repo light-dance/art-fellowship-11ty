@@ -1246,7 +1246,8 @@ article.problem-statement {
 					span.num {
 						margin-left: 0.3rem;
 						margin-bottom: 0.1rem;
-						font-size: 0.9em;
+						font-size: 0.75em;
+						font-weight: 600;
 						background: hsla(0, 0%, 0%, 0.13);
 						padding: 0.1rem 0.5rem;
 						border-radius: 10rem;
@@ -1279,6 +1280,10 @@ article.problem-statement {
 				font-family: 'Petrona Var', 'Petrona V', 'Petrona', serif;
 				font-size: 2.1rem;
 				font-weight: 300;
+				
+				display: flex;
+				flex-direction: column;
+				gap: 1.7rem;
 			}
 			div.scroll-indicator {
 				width: 6rem;
