@@ -80,7 +80,7 @@ style: '/css/pages/index.css'
 					<div class="cta">
 						<h1>Join the Practice</h1>
 						<p>Whether you're new to the practice or returning, schedule a session and experience Art Fellowship</p>
-						<a href="/get-started" id="get-started-btn">Get Started</a>
+						<a href="/get-started" id="get-started-btn" class="get-started-btn">Get Started</a>
 					</div>
 				</div>
 				
@@ -173,11 +173,11 @@ style: '/css/pages/index.css'
 				</section>
 				
 				<div class="virtual">
-					<p>Currently all practice is facilitated virtually on <img src="{% asset "images/zoom-icon.png" %}" alt="zoom logo"> Zoom. <a href="">Want to start a local group?</a></p>
+					<p>Currently all practice is facilitated virtually on <img src="{% asset "images/zoom-icon.png" %}" alt="zoom logo">&nbsp;Zoom. <a href="">Want to start a local group?</a></p>
 				</div>
 				
 				<section class="intent">
-					<h1>Creativity is your birthright.</h1>
+					<h1>Creativity is a birthright.</h1>
 					<h2>The commodification of everything has turned us into consumers. We view art passively, rather than participate in it. <strong>Let's reconnect by valuing the process of creation over the product that results.</strong> Don't worry about being "good" or feel like you're not a "real" artist.</h2>
 				</section>
 				
@@ -218,7 +218,7 @@ style: '/css/pages/index.css'
 				<div class="bg blur"></div>
 				
 				<ul class="responses">
-					<li>
+					<li class="active">
 						<img src="{% asset "images/pic-woman-red.jpg" %}" alt="Person Smiling">
 						<p><span>new <strong>appreciation</strong> for my creativity</span></p>
 					</li>
@@ -239,7 +239,7 @@ style: '/css/pages/index.css'
 				<h2>Open <em>yourself</em>, your <em>awareness</em>, and your <em>creativity</em>.</h2>
 				<h1>Ditch the inner critic. Reconnect to something deeper.</h1>
 				
-				<a href="">Get Started</a>
+				<a href="/get-started" class="get-started-btn">Get Started</a>
 			</div>
 			
 			<div class="library">
@@ -274,108 +274,16 @@ style: '/css/pages/index.css'
 			</footer>
 		</div>
 		
+		
+		<!-- Basic JS --> <script src="/js/index.js"></script>
+		
 		<!-- GSAP Animations, Scrolling, Visual Improvements -->
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
 		<script src="/js/SplitText.min.js"></script>
+		
+		<script src="/js/index-animations.js"></script>
 		<!-- [END] GSAP Animations, Scrolling, Visual Improvements -->
-		
-		<!-- Basic JS -->
-		<script>			
-			document.querySelector('#nav-btn').addEventListener('click', () => {
-				const nav = document.querySelector('nav')
-				if (nav.classList.contains('collapse')) {
-					nav.classList.remove('collapse')
-				}
-				else {
-					nav.classList.add('collapse')
-				}
-			})
-			
-			document.querySelector('div.cta a').addEventListener('click', () => {
-				e.preventDefault()
-				console.log('successfully detected details toggle')
-				const b = document.querySelector('body')
-				if ( b.classList.contains('modal-open')) {
-					b.classList.remove('modal-open')
-				}
-				else {
-					b.classList.add('modal-open')
-				}
-			})
-			
-			document.querySelector('#signup div.overlay').addEventListener('click', () => {
-				console.log('testing A')
-				const m = document.querySelector('#signup')
-				if (! m.classList.contains('hide')) {
-					m.classList.add('hide')
-				}
-			})
-		</script>
-		<!-- [End] Basic JS -->
-		
-		<!-- Scroll Anim -->
-		<script>			
-			gsap.registerPlugin(ScrollTrigger)
-			
-			/* Animate ARTICLE text on scroll
-			~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
-			let paragraph1 = new SplitText(document.querySelector('#article-p1'), {type: "chars,words"})
-			let paragraphHighlight = gsap.timeline({
-				scrollTrigger: {
-					trigger: '#article-p1',
-					start: 'top 60%',
-					end: 'bottom 60%',
-					scrub: 1.5,
-				}
-			})
-			paragraphHighlight.fromTo(paragraph1.chars, {
-				opacity: 0.5
-			},
-			{
-				opacity: 1,
-				color: 'hsl(0, 0%, 0%)',
-				duration: 1,
-				ease: 'power3',
-				stagger: 0.05
-			})
-			
-			let paragraph2 = new SplitText(document.querySelector('#article-p2'), {type: "chars,words"})
-			gsap.fromTo(paragraph2.chars, {
-				opacity: 0.5
-			},
-			{
-				opacity: 1,
-				color: 'hsl(0, 0%, 0%)',
-				duration: 1,
-				ease: 'power3',
-				stagger: 0.05,
-				scrollTrigger: {
-					trigger: '#article-p2',
-					start: 'top 60%',
-					end: 'bottom 60%',
-					scrub: 1.5
-				}
-			})
-			let paragraph3 = new SplitText(document.querySelector('#article-p3'), {type: "chars,words"})
-			gsap.fromTo(paragraph3.chars, {
-				opacity: 0.5
-			},
-			{
-				opacity: 1,
-				color: 'hsl(0, 0%, 0%)',
-				duration: 1,
-				ease: 'power3',
-				stagger: 0.05,
-				scrollTrigger: {
-					trigger: '#article-p3',
-					start: 'top 60%',
-					end: 'bottom 60%',
-					scrub: 1.5
-				}
-			})
-			
-		</script>
-		<!-- [End] Scroll Anim -->
+
 	</body>
 </html>

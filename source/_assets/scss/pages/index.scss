@@ -976,6 +976,16 @@ article.problem-statement {
 		a:hover {
 			color: hsl(216, 82%, 56%);
 		}
+		.nowrap {
+			white-space: nowrap;
+		}
+		@include screen-md {
+			margin-bottom: 1rem;
+			width: calc(100vw - 1rem);
+			// min-height: 0px;
+			border-radius: 10rem;
+			padding: 2.2rem 1.4rem;
+		}
 	}
 	section.overall-structure {
 		div.scroll-indicator {
@@ -1165,8 +1175,6 @@ article.problem-statement {
 			}
 			@include screen-md {
 				padding-bottom: 1.2rem;
-				font-weight: 500;
-				// font-size: 3.8rem;
 				line-height: 0.96;
 			}
 		}
@@ -1363,27 +1371,32 @@ div.engage {
 			list-style: none;
 			position: relative;
 			transition: all 250ms;
+			&.active {
+				p {
+					display: flex;
+				}
+				img {
+					animation: bounce 200ms forwards ease-in-out;
+				}
+			}
 			img {
 				width: 3.3rem;
 				box-shadow: 0 0 0 3px white;
 				border-radius: 100rem;
-				&:hover {
-					animation: bounce 200ms forwards ease-in-out;
-				}
-				@keyframes bounce {
-					0% {
-						transform: translateY(0) scale(1);
-					}
-					50% {
-						transform: translateY(-0.4rem) scale(1.02);
-					}
-					100% {
-						transform: translateY(0) scale(1);	
-					}
-				}
+				// &:hover {
+				// 	animation: bounce 200ms forwards ease-in-out;
+				// }
 			}
-			img:hover + p {
-				display: flex;
+			@keyframes bounce {
+				0% {
+					transform: translateY(0) scale(1);
+				}
+				50% {
+					transform: translateY(-0.4rem) scale(1.02);
+				}
+				100% {
+					transform: translateY(0) scale(1);	
+				}
 			}
 			p {
 				position: absolute;
@@ -1420,11 +1433,6 @@ div.engage {
 					padding-right: 0.3rem;
 				}
 				transition: all 250ms;
-				&:hover {
-					transform: rotate(0) translateX(-50%) scale(1.1) !important;
-					border: 2px solid hsla(0, 0%, 100%, 0.6);
-					box-shadow: 0 2px 6px 2px hsla(0, 0%, 0%, 0.06);
-				}
 			}
 		}
 	}
