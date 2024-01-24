@@ -857,25 +857,6 @@ nav {
 		opacity: 0;
 		filter: blur(3rem);
 		transform: scale(1.5);
-		
-		
-		// animation: modal-out forwards 600ms ease-in;
-		// @keyframes modal-out {
-		// 	0% {
-		// 		opacity: 1;
-		// 		filter: blur(0rem);
-		// 		transform: scale(1);
-		// 	}
-		// 	99% {
-		// 		opacity: 0;
-		// 		filter: blur(3rem);
-		// 		transform: scale(1.5);
-		// 		display: flex;
-		// 	}
-		// 	100% {
-		// 		display: none;
-		// 	}
-		// }
 	}
 }
 
