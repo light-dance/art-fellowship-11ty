@@ -950,6 +950,33 @@ article.problem-statement {
 			> h2 { font-size: 1.8rem; }
 		}
 	}
+	div.virtual {
+		width: calc(98vw - 2rem);
+		max-width: 86rem;
+		margin: auto;
+		margin-bottom: 1.8rem;
+		padding: 3rem 7rem;
+		background: linear-gradient(to bottom, 
+			hsl(208, 8%, 85%) 0%, 
+			hsl(270, 14%, 93%) 100%
+		);
+		border-radius: 10rem;
+		color: hsl(0, 0%, 23%);
+		text-align: center;
+		font-size: 1.3rem;
+		font-weight: 450;
+		img {
+			display: inline-block;
+			width: 1.7rem;
+			margin-bottom: -0.3rem;
+		}
+		a, a:visited, a:active {
+			color: hsl(0, 0%, 0%);
+		}
+		a:hover {
+			color: hsl(216, 82%, 56%);
+		}
+	}
 	section.overall-structure {
 		div.scroll-indicator {
 			display: none;
@@ -1158,31 +1185,47 @@ article.problem-statement {
 			// border: 1px solid red;
 			padding: 1rem 0;
 			
+			--tray-height: 4rem;
+			--tray-border-width: 0.6rem;
+			--label-padding: 0.3rem;
+			--p-height: 5rem;
 			div.timeline {
 				overflow-x: scroll;
-				padding: 0 7rem;
+				padding: 0 0 2rem;
+				width: 100%;
 				
+				div.wrapper {
+					padding: 0 7rem;
+					width: fit-content;
+				}
 				div.labels {
+					min-width: 100%;
+					width: min-content;
 					display: flex;
-					gap: 0.8rem;
+					gap: var(--tray-border-width);
+					padding-left: var(--tray-border-width);
 				}
 				p {
-					position: relative;
 					flex-shrink: 0;
-					font-size: 1.2rem;
-					text-align: center;
+					width: min-content;
+					height: var(--p-height);
 					padding: 0 1rem;
-					// max-width: 10rem;
-					height: 6rem;
+					z-index: 3;
 					display: flex;
 					align-items: flex-end;
-					z-index: 3;
+					
+					font-family: 'Inter V', 'Inter Var';
+					font-size: 1.2rem;
+					font-weight: 450;
+					letter-spacing: -0.009em;
+					color: hsla(0, 0%, 17%, 0.9);
+					white-space: nowrap;
 					&::after {
 						content: "";
 						position: absolute;
-						top: 6.4rem;
+						bottom: calc( -1 * var(--tray-height) + var(--tray-border-width) - var(--label-padding) );
+						height: calc(var(--tray-height) - ( var(--tray-border-width) * 2));
 						left: 0;
-						height: 3.3rem;
 						width: 100%;
 						background: linear-gradient(to bottom, 
 							hsl(0, 0%, 100%) 0%, 
@@ -1192,21 +1235,32 @@ article.problem-statement {
 						border-radius: 10rem;
 						box-shadow: 0 2px 6px 1px hsla(0, 0%, 0%, 0.02);
 					}
+					span.num {
+						margin-left: 0.3rem;
+						margin-bottom: 0.1rem;
+						font-size: 0.9em;
+						background: hsla(0, 0%, 0%, 0.13);
+						padding: 0.1rem 0.5rem;
+						border-radius: 10rem;
+					}
 					&.stage-dialogos {
 						max-width: unset;
 						flex-shrink: 0;
-						// color: hsl(248, 89%, 67%);
 						font-weight: 500;
 					}
 				}
 				div.tray {
 					z-index: 2;
-					height: 4rem;
-					width: 100%;
+					height: var(--tray-height);
+					margin-top: var(--label-padding);
+					width: calc(100% + var(--tray-border-width));
+					min-width: 30rem;
+					flex-grow: 1;
 					background: linear-gradient(to bottom, 
-						hsl(224, 71%, 96%) 0%, 
-						hsl(207, 41%, 95%) 100%
+						hsl(224, 48%, 91%) 0%, 
+						hsl(207, 70%, 97%) 100%
 					);
+					box-shadow: inset 0 0.1rem 0 0rem hsla(207, 45%, 95%, 1);
 					border-radius: 10rem;
 				}				
 			}
@@ -1215,7 +1269,7 @@ article.problem-statement {
 				padding-left: 7rem;
 				padding-right: 7rem;
 				font-family: 'Petrona Var', 'Petrona V', 'Petrona', serif;
-				font-size: 2.2rem;
+				font-size: 2.1rem;
 				font-weight: 300;
 			}
 			div.scroll-indicator {

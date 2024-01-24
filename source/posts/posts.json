@@ -1,0 +1,9 @@
+{
+	"permalink": "/library/{{ title | slug }}/",
+	"tags": "posts",
+	"description": "Art fellowship...",
+	"image": "https://large-assets.notnotjake.com/images/site/og-image-posts.jpeg",
+	"date": "Last Modified",
+	"layout": "posts",
+	"style": "/css/pages/posts.css"
+}
