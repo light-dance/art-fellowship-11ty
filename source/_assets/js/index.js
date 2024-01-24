@@ -14,6 +14,7 @@ document.querySelectorAll('.get-started-btn').forEach( i => {
 	i.addEventListener('click', (e) => {
 		e.preventDefault()
 		document.querySelector('#signup').classList.remove('hide')
+		document.querySelector('#signup').classList.add('show')
 	})
 })
 
@@ -21,7 +22,12 @@ document.querySelectorAll('.get-started-btn').forEach( i => {
 document.querySelector('#signup div.overlay').addEventListener('click', () => {
 	const m = document.querySelector('#signup')
 	if (! m.classList.contains('hide')) {
-		m.classList.add('hide')
+		m.classList.add('close')
+		setTimeout( () => {
+			m.classList.remove('show')
+			m.classList.remove('close')
+			m.classList.add('hide')
+		}, 500)
 	}
 })
 
