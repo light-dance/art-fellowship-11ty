@@ -1,289 +1,264 @@
 ---
+layout: 'base'
 style: '/css/pages/index.css'
 ---
-<!DOCTYPE html>
-<html>
-	<head>
-		{% include "partials/_head.njk" %}
-	</head>
-	<body>
-		<div class="overscroll top"></div>
-		<div class="overscroll top mobile"></div>
-		
-		{% include "components/Signup.html" %}
-		
-		<div class="wrapper">
-			<nav class="collapse">
-				<div>
-					<a href="/get-started">Join</a>
-					<a href="/cheat-sheet">Cheat Sheet</a>
-					<a href="/about">About</a>
-					<a href="/">Artwork Gallery</a>
-					<a href="/support">Support</a>
-					<a href="/contact">Contact</a>
-				</div>
-			</nav>
-			<div class="mobile-dark-shim"><span></span></div>
-			
-			<div id="hero">
-				<div class="title">
-					<div id="nav-btn">
-						<picture>
-							<source srcset="{% asset "images/more.svg" %}">
-							<source srcset="{% asset "images/more.webp" %}">
-							<img src="{% asset "images/more.png" %}" alt="Hamburger menu button">
-						</picture>
-					</div>
-					
-					<a href="https://artfellowship.space" id="logo">
-						<picture>
-							<source srcset="{% asset "images/logo.svg" %}">
-							<source srcset="{% asset "images/logo.webp" %}">
-							<img src="{% asset "images/logo.png" %}" alt="Art Fellowship Logo">
-						</picture>
-					</a>
-					
-					<div class="spacer"></div>
-				</div>
-				
-				<div class="headline">
-					<h1>Expanding Awareness Together</h1>
-					<h2>Relate and Renew Through Art</h2>
-				</div>
-				
-				<div class="small-spacer"></div>
-				
-				<div class="body">					
-					<div class="cards-group">
-						<ul class="left">
-							<li class="card quote">
-								<p>new <strong>appreciation</strong> for my creativity</p>
-								<img src="https://large-assets.notnotjake.com/images/index/profile-pic.png" alt="Person Smiling">
-							</li>
-							<li>
-								<p>add to your <strong>ecology of practices</strong></p>
-							</li>
-						</ul>
-						
-						<div class="spacer"></div>
-						
-						<ul class="right">
-							<li>
-								<p>explore <strong>perspectival knowing</strong></p>
-							</li>
-							<li>
-								<p>exercise a creative way of being</p>
-							</li>
-						</ul>					
-					</div>
-					
-					<div class="cta">
-						<h1>Join the Practice</h1>
-						<p>Whether you're new to the practice or returning, schedule a session and experience Art Fellowship</p>
-						<a href="/get-started" id="get-started-btn" class="get-started-btn">Get Started</a>
-					</div>
-				</div>
-				
-				<div class="bg gradient"></div>
-				
-				<div class="spacer"></div>
-				
-				<div id="art-marquee">
-					<div class="main">
-						<div class="wrapper">
-							<p>About the Practice</p>
-							<picture aria-hidden="true">
-								<source srcset="{% asset "images/down-arrow.svg" %}">
-								<source srcset="{% asset "images/down-arrow.webp" %}">
-								<img src="{% asset "images/down-arrow.png" %}" alt="" aria-hidden="true">
-							</picture>
-						</div>
-					</div>
-					<div class="scroll">
-						<div class="item"></div>
-						<div class="item"></div>
-						<div class="item"></div>
-						<div class="item"></div>
-						<div class="item"></div>
-						<div class="item"></div>
-						<div class="item"></div>
-						<div class="item"></div>
-					</div>				
-				</div>
+<div class="overscroll top"></div>
+<div class="overscroll top mobile"></div>
+
+{% include "components/Signup.html" %}
+
+<div class="wrapper">
+	<nav class="collapse">
+		<div>
+			<a href="/get-started">Join</a>
+			<a href="/cheat-sheet">Cheat Sheet</a>
+			<a href="/about">About</a>
+			<a href="/">Artwork Gallery</a>
+			<a href="/support">Support</a>
+			<a href="/about#contact">Contact</a>
+		</div>
+	</nav>
+	<div class="mobile-dark-shim"><span></span></div>
+	
+	<div id="hero">
+		<div class="title">
+			<div id="nav-btn">
+				<picture>
+					<source srcset="{% asset "images/more.svg" %}">
+					<source srcset="{% asset "images/more.webp" %}">
+					<img src="{% asset "images/more.png" %}" alt="Hamburger menu button">
+				</picture>
 			</div>
 			
-			<article class="problem-statement">
-				<div class="bg gradient"></div>
-				
-				<p id="article-p1">
-					Throughout history, art expanded humanity's awareness, transforming and connecting us.
-					</br><span class="br"></span>
-					Art was communal. Everyone participated. People were connected <em>by</em> and <em>through</em> art.
-				</p>
-				<p id="article-p2">
-					Today many of us are disconnected: from art, from our bodies, and from each other. We're disconnected from our creativity and artistic voice.
-					</br><span class="br"></span>
-					Our connections have been severed by a culture that values critique over meaningful experience.
-					</br><span class="br"></span>
-					Our awareness has been hijacked and diluted.
-				</p>
-				<p id="article-p3">
-					Art fellowship is an opportunity to reconnect. Through communitas, ritual, and intentional practice, we can open  back up to wonder and insight
-				</p>
-			</article>
+			<a href="https://artfellowship.space" id="logo">
+				<picture>
+					<source srcset="{% asset "images/logo.svg" %}">
+					<source srcset="{% asset "images/logo.webp" %}">
+					<img src="{% asset "images/logo.png" %}" alt="Art Fellowship Logo">
+				</picture>
+			</a>
 			
-			<div id="about">
-				<div class="transition">
-					<div class="bg gradient"></div>
-					<h1>How It Works</h1>
-				</div>
-				<object data="{% asset "images/down-arrow-dark.svg" %}" type="image/svg+xml"></object>
-				
-				<section class="overall-structure">
-					<h2>The practice takes place over the course of a full week. Split into two sessions a week apart. In the week between the two sessions, you’re reflecting on round one and responding with your own creative effort.</h2>
-					
-					<div class="canvas">
-						<div class="round-one">
-							<div class="block"><span></span></div>
-							<h1>Round 1</h1>
-							<h2>~2&#189; Hours</h2>
-							<p>Explore an artwork by an outside artist and discover Dialogos</p>
-						</div>
-						<div class="week">
-							<div class="block">
-								<span><span></span></span>
-							</div>
-							<h1>Week Between</h1>
-							<h2>As much or little time as needed</h2>
-							<p>Respond genuinely by creating your own work of art</p>
-						</div>
-						<div class="round-two">
-							<div class="block"><span></span></div>
-							<h1>Round 2</h1>
-							<h2>~2&#189; Hours</h2>
-							<p>Share your art and engage deeply with each other’s work.</p>
-						</div>
-					</div>
-					
-					<div class="scroll-indicator">
-						<span class="active"></span>
-						<span></span>
-						<span></span>
-					</div>
-				</section>
-				
-				<div class="virtual">
-					<p>Currently all practice is facilitated virtually on <img src="{% asset "images/zoom-icon.png" %}" alt="zoom logo">&nbsp;Zoom. <a href="">Want to start a local group?</a></p>
-				</div>
-				
-				<section class="intent">
-					<h1>Creativity is a birthright.</h1>
-					<h2>The commodification of everything has turned us into consumers. We view art passively, rather than participate in it. <strong>Here, we value the <em>process</em> of creation over the product that results.</strong> Don't worry about being "good" or feel like you're not a "real" artist.</h2>
-				</section>
-				
-				<section class="round-structure">
-					<h2>Based on the work of <a href="https://www.youtube.com/watch?v=bsI3e6j26R4&pp=ygUWam9obiB2ZXJ2YWVrZSBkaWFsb2dvcw%3D%3D">John Vervaeke</a>, we aim to enter 'dialogos' to bring artwork alive and enter into it deeply.</h2>
-					<div class="canvas">
-						<div class="timeline">
-							<div class="wrapper">
-								<div class="labels">
-									<p>Centering Meditation</p>
-									<p>Check-In</p>
-									<p>Embodied Meditation</p>
-									<p>Art Viewings <span class="num">3</span></p>
-									<p>Embodied Check-In's <span class="num">2</span></p>
-									<p>Short Speech</p>
-									<p>Engaged Speech</p>
-									<p class="stage-dialogos"><em>&ldquo;Dialogos&rdquo;</em> Open Discussion</p>
-								</div>
-								<div class="tray"></div>
-							</div>
-						</div>
-						
-						<div class="explain-text">
-							<p class="">We begin by letting go and becoming present. We become aware of our bodies and our sensations to help ground the discussion.</p>
-							<p class="">The artwork is viewed silently with curiosity and wonder. Then we check in with our bodies and share our sensations. We repeat this again, sharing our emotional changes the second time.</p>
-							<p class="">Through structured response, we try to bring the art alive and bring the artist into the space with us. Focus on what's felt and what's alive, not concepts and propositions.</p>
-						</div>
-						
-						<div class="scroll-indicator">
-							<span class="progress"></span>
-						</div>
-					</div>
-				</section>
-			</div>
-			
-			<div class="engage">
-				<div class="bg gradient"></div>
-				<div class="bg blur"></div>
-				
-				<ul class="responses">
-					<li class="active">
-						<img src="{% asset "images/pic-woman-red.jpg" %}" alt="Person Smiling">
-						<p><span>new <strong>appreciation</strong> for my creativity</span></p>
+			<div class="spacer"></div>
+		</div>
+		
+		<div class="headline">
+			<h1>Expanding Awareness Together</h1>
+			<h2>Relate and Renew Through Art</h2>
+		</div>
+		
+		<div class="small-spacer"></div>
+		
+		<div class="body">					
+			<div class="cards-group">
+				<ul class="left">
+					<li class="card quote">
+						<p>new <strong>appreciation</strong> for my creativity</p>
+						<img src="https://large-assets.notnotjake.com/images/index/profile-pic.png" alt="Person Smiling">
 					</li>
 					<li>
-						<img src="https://large-assets.notnotjake.com/images/index/profile-pic.png" alt="Person Smiling">
-						<p><span>new <strong>appreciation</strong> for my creativity</span></p>
-					</li>
-					<li>
-						<img src="https://large-assets.notnotjake.com/images/index/profile-pic.png" alt="Person Smiling">
-						<p><span>new <strong>appreciation</strong> for my creativity</span></p>
-					</li>
-					<li>
-						<img src="https://large-assets.notnotjake.com/images/index/profile-pic.png" alt="Person Smiling">
-						<p><span>new <strong>appreciation</strong> for my creativity</span></p>
+						<p>add to your <strong>ecology of practices</strong></p>
 					</li>
 				</ul>
 				
-				<h2>Open <em>yourself</em>, your <em>awareness</em>, and your <em>creativity</em>.</h2>
-				<h1>Ditch the inner critic. Reconnect to something deeper.</h1>
+				<div class="spacer"></div>
 				
-				<a href="/get-started" class="get-started-btn">Get Started</a>
+				<ul class="right">
+					<li>
+						<p>explore <strong>perspectival knowing</strong></p>
+					</li>
+					<li>
+						<p>exercise a creative way of being</p>
+					</li>
+				</ul>					
 			</div>
 			
-			<div class="library">
-				<a href="/library">
-					<h2>The Four P's</h2>
-				</a>
-				<a href="/library">
-					<h2>An Ecology of Practice</h2>
-				</a>
-				<a href="/library">
-					<h2>Meditation for Creativity</h2>
-				</a>
-				<a href="/library">
-					<h2>Start your Own Art Fellowship</h2>
-				</a>
-				<a href="/library">
-					<h2>Dialectic into Dialogos</h2>
-				</a>
-				<a href="/library">
-					<h2>Practice Design</h2>
-				</a>
-				<a href="/library">
-					<h2>Evolve the Practice</h2>
-				</a>
+			<div class="cta">
+				<h1>Join the Practice</h1>
+				<p>Whether you're new to the practice or returning, schedule a session and experience Art Fellowship</p>
+				<a href="/get-started" id="get-started-btn" class="get-started-btn">Get Started</a>
 			</div>
-			
-			<footer>
-				<a href="/contact">Contact</a>
-				<a href="/support">Support</a>
-				<a href="/get-started">Join Us</a>
-				<a href="" class="company">OpenPractice, LLC 2024</a>
-			</footer>
 		</div>
 		
+		<div class="bg gradient"></div>
 		
-		<!-- Basic JS --> <script src="/js/index.js"></script>
+		<div class="spacer"></div>
 		
-		<!-- GSAP Animations, Scrolling, Visual Improvements -->
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
-		<script src="/js/SplitText.min.js"></script>
+		<div id="art-marquee">
+			<div class="main">
+				<div class="wrapper">
+					<p>About the Practice</p>
+					<picture aria-hidden="true">
+						<source srcset="{% asset "images/down-arrow.svg" %}">
+						<source srcset="{% asset "images/down-arrow.webp" %}">
+						<img src="{% asset "images/down-arrow.png" %}" alt="" aria-hidden="true">
+					</picture>
+				</div>
+			</div>
+			<div class="scroll">
+				<div class="item"></div>
+				<div class="item"></div>
+				<div class="item"></div>
+				<div class="item"></div>
+				<div class="item"></div>
+				<div class="item"></div>
+				<div class="item"></div>
+				<div class="item"></div>
+			</div>				
+		</div>
+	</div>
+	
+	<article class="problem-statement">
+		<p id="problem-statement">
+			<span class="paragraph">
+				Throughout history, art expanded humanity's awareness, transforming and connecting us.
+				</br><span class="break"></span>
+				Art was communal. Everyone participated. People were connected <em>by</em> and <em>through</em> art.
+			</span>
+			<span class="paragraph">
+				Today many of us are disconnected: from art, from our bodies, and from each other. We're disconnected from our creativity and artistic voice.
+				</br><span class="break"></span>
+				Our connections have been severed by a culture that values critique over meaningful experience.
+				</br><span class="break"></span>
+				Our awareness has been hijacked and diluted.
+			</span>
+			<span class="paragraph">
+				Art fellowship is an opportunity to reconnect. Through communitas, ritual, and intentional practice, we can open  back up to wonder and insight
+			</span>
+		</p>
+	</article>
+	
+	<div id="about">
+		<div class="transition">
+			<div class="bg gradient"></div>
+			<h1>How It Works</h1>
+		</div>
+		<object data="{% asset "images/down-arrow-dark.svg" %}" type="image/svg+xml"></object>
 		
-		<script src="/js/index-animations.js"></script>
-		<!-- [END] GSAP Animations, Scrolling, Visual Improvements -->
+		<section class="overall-structure">
+			<h2>The practice takes place over the course of a full week. Split into two sessions a week apart. In the week between the two sessions, you’re reflecting on round one and responding with your own creative effort.</h2>
+			
+			<div class="canvas">
+				<div class="round-one">
+					<div class="block"><span></span></div>
+					<h1>Round 1</h1>
+					<h2>~2&#189; Hours</h2>
+					<p>Explore an artwork by an outside artist and discover Dialogos</p>
+				</div>
+				<div class="week">
+					<div class="block">
+						<span><span></span></span>
+					</div>
+					<h1>Week Between</h1>
+					<h2>As much or little time as needed</h2>
+					<p>Respond genuinely by creating your own work of art</p>
+				</div>
+				<div class="round-two">
+					<div class="block"><span></span></div>
+					<h1>Round 2</h1>
+					<h2>~2&#189; Hours</h2>
+					<p>Share your art and engage deeply with each other’s work.</p>
+				</div>
+			</div>
+			
+			<div class="scroll-indicator">
+				<span class="active"></span>
+				<span></span>
+				<span></span>
+			</div>
+		</section>
+		
+		<div class="virtual">
+			<p class="desktop">Currently all practice is facilitated virtually on <img src="{% asset "images/zoom-icon.png" %}" alt="zoom logo">&nbsp;Zoom. <a href="">Want to start a local group?</a></p>
+			<p class="mobile">Practice facilitated on <img src="{% asset "images/zoom-icon.png" %}" alt="zoom logo">&nbsp;Zoom.</p>
+			<p class="mobile"><a href="">Start a local group!</a></p>
+		</div>
+		
+		<section class="intent">
+			<h1>Creativity is a birthright.</h1>
+			<h2>The commodification of everything has turned us into consumers. We view art passively, rather than participate in it. <strong>Here, we value the <em>process</em> of creation over the product that results.</strong> Don't worry about being "good" or feel like you're not a "real" artist. Creativity belongs to everyone</h2>
+		</section>
+		
+		<section class="round-structure">
+			<h2>Based on the work of <a href="https://www.youtube.com/watch?v=bsI3e6j26R4&pp=ygUWam9obiB2ZXJ2YWVrZSBkaWFsb2dvcw%3D%3D">John Vervaeke</a>, we aim to enter 'dialogos' to bring artwork alive and enter into it deeply.</h2>
+			<div class="canvas">
+				<div class="timeline">
+					<div class="wrapper">
+						<div class="labels">
+							<p>Centering Meditation</p>
+							<p>Check-In</p>
+							<p>Embodied Meditation</p>
+							<p>Art Viewings <span class="num">3</span></p>
+							<p>Embodied Check-In's <span class="num">2</span></p>
+							<p>Short Speech</p>
+							<p>Engaged Speech</p>
+							<p class="stage-dialogos"><em>&ldquo;Dialogos&rdquo;</em> Open Discussion</p>
+						</div>
+						<div class="tray"></div>
+					</div>
+				</div>
+				
+				<div class="explain-text">
+					<p class="">We begin by letting go and becoming present. We become aware of our bodies and our sensations to help ground the discussion.</p>
+					<p class="">The artwork is viewed silently with curiosity and wonder. Then we check in with our bodies and share our sensations. We repeat this again, sharing our emotional changes the second time.</p>
+					<p class="">Through structured response, we try to bring the art alive and bring the artist into the space with us. Focus on what's felt and what's alive, not concepts and propositions.</p>
+				</div>
+				
+				<div class="scroll-indicator">
+					<span class="progress"></span>
+				</div>
+			</div>
+		</section>
+	</div>
+	
+	<div class="engage">
+		<div class="bg gradient"></div>
+		<div class="bg blur"></div>
+		
+		<ul class="responses">
+			<li class="active">
+				<img src="{% asset "images/pic-woman-red.jpg" %}" alt="Person Smiling">
+				<p><span>new <strong>appreciation</strong> for my creativity</span></p>
+			</li>
+			<li>
+				<img src="https://large-assets.notnotjake.com/images/index/profile-pic.png" alt="Person Smiling">
+				<p><span>new <strong>appreciation</strong> for my creativity</span></p>
+			</li>
+			<li>
+				<img src="https://large-assets.notnotjake.com/images/index/profile-pic.png" alt="Person Smiling">
+				<p><span>new <strong>appreciation</strong> for my creativity</span></p>
+			</li>
+			<li>
+				<img src="https://large-assets.notnotjake.com/images/index/profile-pic.png" alt="Person Smiling">
+				<p><span>new <strong>appreciation</strong> for my creativity</span></p>
+			</li>
+		</ul>
+		
+		<h2 class="desktop">Open <em>yourself</em>, your <em>awareness</em>, and your <em>creativity</em>.</h2>
+		<h2 class="mobile">Open <em>yourself</em>,</br>your <em>awareness</em>,</br>and your <em>creativity</em>.</h2>
+		<h1 class="desktop">Ditch the inner critic. Reconnect to something deeper.</h1>
+		<h1 class="mobile">Reconnect to something deeper.</h1>
+		
+		<a href="/get-started" class="get-started-btn">Get Started</a>
+	</div>
+	
+	<div class="library">
+		{% for post in collections.introductory %}
+			<a href="{{ post.url }}">
+				<h2>{{ post.data.title }}</h2>
+			</a>
+		{% endfor %}
+	</div>
+	
+	{% include "components/Footer.html" %}
+</div>
 
-	</body>
-</html>
+
+<!-- Basic JS --> <script src="/js/index.js"></script>
+
+<!-- GSAP Animations, Scrolling, Visual Improvements -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
+<script src="/js/SplitText.min.js"></script>
+
+<script src="/js/index-animations.js"></script>
+<!-- [END] GSAP Animations, Scrolling, Visual Improvements -->
