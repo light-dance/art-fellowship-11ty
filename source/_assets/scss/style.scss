@@ -1,23 +1,11 @@
 @use './abstracts' as a;
-@use './utilities';
-// @use './components';
-
-@import url('https://rsms.me/inter/inter.css');
+@use './utilities' as *;
+@use './components' as *;
 
 html, body {
 	font-family: 'Inter Var', 'Inter V', 'Inter', sans-serif;
 	background-color: rgb(234, 239, 240);
 }
-
-.hide { display: none !important; }
-
-.gradient-text {
-	background-clip: text !important;
-	-webkit-background-clip: text !important;
-	text-fill-color: transparent !important;
-	-webkit-text-fill-color: transparent !important;
-}
-
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Overscrolls
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */

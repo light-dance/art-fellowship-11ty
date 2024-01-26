@@ -1,1 +1,54 @@
+@use '../abstracts' as *;
 @forward '_reset';
+
+.hide {
+	display: none !important;
+}
+
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Typography
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+@mixin gradient-text {
+	background-clip: text !important;
+	-webkit-background-clip: text !important;
+	text-fill-color: transparent !important;
+	-webkit-text-fill-color: transparent !important;
+}
+.gradient-text {
+	background-clip: text !important;
+	-webkit-background-clip: text !important;
+	text-fill-color: transparent !important;
+	-webkit-text-fill-color: transparent !important;
+}
+
+@mixin selection($background, $text-color) {
+	&::selection {
+		background: $background;
+		color: $text-color;
+		text-fill-color: $text-color;
+		-webkit-text-fill-color: $text-color;
+	}
+}
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Layout
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+.hide {
+	display: none !important;
+}
+@mixin screen-sm {
+	@media (max-width: #{$screen-sm-min}) {
+		@content
+	}
+}
+@mixin screen-md {
+	@media (max-width: #{$screen-md-min}) {
+		@content
+	}
+}
+@mixin screen-x($size) {
+	@media (max-width: $size) {
+		@content
+	}
+}
