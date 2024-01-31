@@ -7,6 +7,15 @@ style: '/css/pages/index.css'
 
 {% include "components/Signup.html" %}
 
+<div id="splash" class="">
+	<h1>Expanding Awareness Together</h1>
+	<div class="bg primary">
+		<div class="bg"></div>
+	</div>
+	<div class="bg secondary"></div>
+	<div class="bg blur"></div>
+</div>
+
 <div class="wrapper">
 	<nav class="collapse">
 		<div>
@@ -242,6 +251,9 @@ style: '/css/pages/index.css'
 	</div>
 	
 	<div class="library">
+		<a href="/" class="test">
+			<h2>iPod Touch in 2024</h2>
+		</a>
 		{% for post in collections.introductory %}
 			<a href="{{ post.url }}">
 				<h2>{{ post.data.title }}</h2>

@@ -9,6 +9,12 @@ document.querySelector('#nav-btn').addEventListener('click', () => {
 	}
 })
 
+/* Splash Animation
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+setTimeout( () => {
+	document.querySelector('#splash').classList.add('hide')
+}, 3900)
+
 
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Sign-up Modal Interactions

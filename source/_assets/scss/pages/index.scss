@@ -23,6 +23,138 @@ body.modal-open {
 	overflow: hidden;
 }
 
+$splash-animation-length: 3.7s;
+
+#splash {
+	position: fixed;
+	top: 0;
+	left: 0;
+	height: 100dvh;
+	width: 100%;
+	z-index: 90;
+	h1 {
+		position: absolute;
+		color: hsl(198, 34%, 93%);
+		width: 100%;
+		padding-top: 19rem;
+		text-align: center;
+		font-family: 'Source Serif Display';
+		font-weight: 700;
+		font-size: clamp(3.4rem, 6vw, 4.4rem);
+		line-height: 1.18;
+		letter-spacing: -0.013em;
+		z-index: 4;
+		animation: splash-text-in forwards 800ms 2.9s ease-in-out;
+	}
+	.bg {
+		position: absolute; 
+		top: 0;
+		left: 0;
+		height: 100%;
+		width: 100%;
+		z-index: 1;
+	}
+	.primary {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		div {
+			position: relative;
+			width: 10%;
+			height: 10%;
+			transform: translateY(0);
+			background: linear-gradient(to bottom, 
+				hsl(219, 100%, 50%) 0%, 
+				hsl(208, 88%, 52%) 34%, 
+				hsl(209, 100%, 78%) 100%
+			);
+			filter: blur(2rem);
+			animation: splash-in forwards 3.7s 150ms ease-in-out;
+		}
+		z-index: 2;
+	}
+	.secondary {
+		background: linear-gradient(to bottom, 
+			hsl(64, 9%, 81%) 0%, 
+			hsl(291, 22%, 88%) 34%, 
+			hsl(263, 32%, 94%) 100%
+		);
+		z-index: 1;
+		animation: splash-in-secondary forwards 1s 2.6s ease-in-out;
+	}
+	.blur {
+		z-index: 3;
+		backdrop-filter: blur(3rem);
+		-webkit-backdrop-filter: blur(3rem);
+		animation: splash-in-blur forwards 1.1s 3.2s ease-in-out;
+	}
+	@keyframes splash-in {
+		0% {
+			width: 10%;
+			height: 10%;
+			border-radius: 100rem;
+			transform: translateY(0);
+		}
+		75% {
+			width: 90%;
+			height: calc(100% - 8rem);
+			border-radius: 20rem;
+			transform: translateY(0);
+		}
+		90% {
+			opacity: 1;
+		}
+		100% {
+			height: 20vh;
+			opacity: 0;
+			transform: translateY(-45vh);
+		}
+	}
+	@keyframes splash-in-secondary {
+		0% {
+			opacity: 1;
+		}
+		100% {
+			opacity: 0;
+		}
+	}
+	@keyframes splash-text-in {
+		0% {
+			opacity: 1;
+			transform: translateY(0);
+		}
+		100% {
+			opacity: 0;
+			transform: translateY(-3rem);
+		}
+	}
+	@keyframes splash-in-blur {
+		0% {
+			opacity: 1;
+			backdrop-filter: blur(3rem);
+			-webkit-backdrop-filter: blur(3rem);
+		}
+		100% {
+			opacity: 0;
+			backdrop-filter: blur(0rem);
+			-webkit-backdrop-filter: blur(0rem);
+		}
+	}
+}
+#hero .title #logo {
+	animation: logo-splash-animation forwards 700ms 3.5s ease-out;
+	@keyframes logo-splash-animation {
+		0% {
+			transform: translateY(2.5rem);
+			filter: blur(0.9rem);
+		}
+		100% {
+			transform: translateY(0rem);
+			filter: blur(0);
+		}
+	}
+}
+
 nav {
 	--height: 4rem;
 	position: relative;
@@ -114,6 +246,8 @@ nav {
 	align-items: center;
 	overflow-x: hidden;
 	overflow-y: visible;
+	
+	z-index: 9;
 	* {
 		z-index: 1;
 	}
@@ -134,6 +268,8 @@ nav {
 		#logo {
 			width: clamp(13.5rem, 50vw, 19.5rem);
 			flex-shrink: 0;
+			transform: translateY(2.5rem);
+			filter: blur(0.9rem);
 		}
 		div.spacer {
 			width: 100%;
@@ -148,6 +284,8 @@ nav {
 			padding: 3.5rem 1rem 2.2rem;
 		}
 		> h1 {
+			z-index: 51;
+			
 			font-family: 'Source Serif Display';
 			font-weight: 700;
 			font-size: clamp(3.4rem, 6vw, 4.4rem);
@@ -351,12 +489,19 @@ nav {
 				font-weight: 600;
 				font-size: 1.4rem;
 				background: hsl(39, 3%, 44%);
+				background: linear-gradient(to bottom, 
+					hsl(220, 4%, 31%),
+					hsl(51, 2%, 47%)
+				);
 				color: hsl(0, 0%, 100%);
 				text-decoration: none;
 				border-radius: 10rem;
 				transition: all 250ms;
 				&:hover {
-					background: hsl(0, 0%, 0%);
+					// background: hsl(0, 0%, 0%);
+					box-shadow: 1px 0 1px 2px hsla(0, 0%, 0%, 0.03);
+					padding-left: 2.1rem;
+					padding-right: 2.1rem;
 					cursor: pointer;
 				}
 				&.opened {
@@ -1163,7 +1308,7 @@ div.library {
 		width: 40vw;
 		height: fit-content;
 		padding: 2rem 1.1rem;
-		aspect-ratio: 1.4;
+		aspect-ratio: 1.5;
 		background: hsl(35, 25%, 91%);
 		background: linear-gradient(to bottom,
 			hsl(35, 25%, 91%),
@@ -1173,6 +1318,7 @@ div.library {
 		color: hsl(0, 0%, 17%);
 		border-radius: 1.1rem;
 		text-decoration: none;
+		overflow: hidden;
 		h2 {
 			text-align: center;
 		}
@@ -1181,6 +1327,50 @@ div.library {
 				color: hsl(216, 82%, 56%);
 				text-decoration: underline;
 			}
+		}
+	}
+	a.test {
+		position: relative;
+		&::before {
+			content: "";
+			position: absolute;
+			z-index: 2;
+			bottom: 0;
+			left: 0;
+			width: 100%;
+			height: calc(100% - 5rem);
+			background: linear-gradient(to bottom, 
+				hsla(35, 25%, 91%, 1), 
+				hsla(35, 25%, 91%, 0.9) 20%, 
+				hsla(35, 25%, 91%, 0)
+			);
+		}
+		&::after {
+			content: "";
+			position: absolute;
+			z-index: 1;
+			bottom: 0;
+			left: 0;
+			width: 100%;
+			height: calc(100% - 5rem);
+			background-image: url("https://assets.artfellowship.space/images/library-pattern-1.jpg");
+			object-fit: cover;
+			object-position: top;
+			background-size: cover;
+			filter: saturate(0.5) brightness(0.8);
+			transform-origin: top;
+			transition: all 300ms;
+		}
+		&:hover::after {
+			filter: saturate(1) brightness(1);
+			transform: scale(1.05);
+		}
+		&:hover::before {
+			background: linear-gradient(to bottom, 
+				hsla(35, 25%, 91%, 1), 
+				hsla(35, 25%, 91%, 0.9) 15%, 
+				hsla(35, 25%, 91%, 0) 60%
+			);
 		}
 	}
 }
