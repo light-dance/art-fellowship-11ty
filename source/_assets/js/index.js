@@ -57,6 +57,22 @@ document.querySelector('#signup div.overlay').addEventListener('click', () => {
 })
 /* [END] Sign-up Modal Interactions */
 
+
+/* Scroll Indicators
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
+const roundStructureWidth = document.querySelector('#round-structure-scroller').offsetWidth
+console.log(roundStructureWidth)
+
+const roundStructureScrollField = document.querySelector('#round-structure-scroller')
+roundStructureScrollField.addEventListener('scroll', e => {
+	let scrollProgress = roundStructureScrollField.scrollLeft
+	let scrollProgressPercent = scrollProgress / roundStructureWidth
+	console.log(scrollProgressPercent)
+})
+
+/* [END] Scroll Indicators */
+
 // switch between testimonials
 const responsesSet = document.querySelectorAll('ul.responses li')
 

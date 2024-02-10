@@ -22,7 +22,7 @@ style: '/css/pages/index.css'
 			<a href="/get-started">Join</a>
 			<a href="/cheat-sheet">Cheat Sheet</a>
 			<a href="/about">About</a>
-			<a href="/">Artwork Gallery</a>
+			<a href="/">Art Gallery</a>
 			<a href="/support">Support</a>
 			<a href="/about#contact">Contact</a>
 		</div>
@@ -68,9 +68,7 @@ style: '/css/pages/index.css'
 						<p>add to your <strong>ecology of practices</strong></p>
 					</li>
 				</ul>
-				
 				<div class="spacer"></div>
-				
 				<ul class="right">
 					<li>
 						<p>explore <strong>perspectival knowing</strong></p>
@@ -83,7 +81,7 @@ style: '/css/pages/index.css'
 			
 			<div class="cta">
 				<h1>Join the Practice</h1>
-				<p>Whether you're new to the practice or returning, schedule a session and experience Art Fellowship</p>
+				<p>Whether you're new to the practice or returning, schedule a session to experience Art Fellowship</p>
 				<a href="/get-started" id="get-started-btn" class="get-started-btn">Get Started</a>
 			</div>
 		</div>
@@ -190,17 +188,17 @@ style: '/css/pages/index.css'
 		<section class="round-structure">
 			<h2>Based on the work of <a href="https://www.youtube.com/watch?v=bsI3e6j26R4&pp=ygUWam9obiB2ZXJ2YWVrZSBkaWFsb2dvcw%3D%3D">John Vervaeke</a>, we aim to enter 'dialogos' to bring artwork alive and enter into it deeply.</h2>
 			<div class="canvas">
-				<div class="timeline">
+				<div class="timeline" id="round-structure-scroller">
 					<div class="wrapper">
 						<div class="labels">
-							<p>Centering Meditation</p>
-							<p>Check-In</p>
-							<p>Embodied Meditation</p>
-							<p>Art Viewings <span class="num">3</span></p>
-							<p>Embodied Check-In's <span class="num">2</span></p>
-							<p>Short Speech</p>
-							<p>Engaged Speech</p>
-							<p class="stage-dialogos"><em>&ldquo;Dialogos&rdquo;</em> Open Discussion</p>
+							<p class="section-1">Centering Meditation</p>
+							<p class="section-1">Check-In</p>
+							<p class="section-1">Embodied Meditation</p>
+							<p class="section-2">Art Viewings <span class="num">3</span></p>
+							<p class="section-2">Embodied Check-In's <span class="num">2</span></p>
+							<p class="section-3">Short Speech</p>
+							<p class="section-3">Engaged Speech</p>
+							<p class="section-3 stage-dialogos"><em>&ldquo;Dialogos&rdquo;</em> Open Discussion</p>
 						</div>
 						<div class="tray"></div>
 					</div>
@@ -251,9 +249,9 @@ style: '/css/pages/index.css'
 	</div>
 	
 	<div class="library">
-		<a href="/" class="test">
+		{% comment %} <a href="/" class="test">
 			<h2>iPod Touch in 2024</h2>
-		</a>
+		</a> {% endcomment %}
 		{% for post in collections.introductory %}
 			<a href="{{ post.url }}">
 				<h2>{{ post.data.title }}</h2>
@@ -270,6 +268,7 @@ style: '/css/pages/index.css'
 <!-- GSAP Animations, Scrolling, Visual Improvements -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollToPlugin.min.js"></script>
 <script src="/js/SplitText.min.js"></script>
 
 <script src="/js/index-animations.js"></script>
