@@ -23,7 +23,6 @@ style: '/css/pages/index.css'
 			<a href="/cheat-sheet">Cheat Sheet</a>
 			<a href="/about">About</a>
 			<a href="/">Art Gallery</a>
-			<a href="/support">Support</a>
 			<a href="/about#contact">Contact</a>
 		</div>
 	</nav>
@@ -62,19 +61,20 @@ style: '/css/pages/index.css'
 				<ul class="left">
 					<li class="card quote">
 						<p>new <strong>appreciation</strong> for my creativity</p>
-						<img src="https://large-assets.notnotjake.com/images/index/profile-pic.png" alt="Person Smiling">
+						<img src="{% asset "images/pic-man-grey.jpg" %}" alt="Person Smiling">
 					</li>
-					<li>
+					<a href="/library-an-ecology-of-practices"><li>
 						<p>add to your <strong>ecology of practices</strong></p>
-					</li>
+					</li></a>
 				</ul>
 				<div class="spacer"></div>
 				<ul class="right">
-					<li>
+					<a href="/library-the-four-p-s"><li>
 						<p>explore <strong>perspectival knowing</strong></p>
-					</li>
-					<li>
-						<p>exercise a creative way of being</p>
+					</li></a>
+					<li class="card quote">
+						<p>i feel a new relation with art</p>
+						<img src="{% asset "images/pic-woman-red.jpg" %}" alt="Person Smiling">
 					</li>
 				</ul>					
 			</div>
@@ -253,7 +253,7 @@ style: '/css/pages/index.css'
 			<h2>iPod Touch in 2024</h2>
 		</a> {% endcomment %}
 		{% for post in collections.introductory %}
-			<a href="{{ post.url }}">
+			<a href="{{ post.url | slugify }}">
 				<h2>{{ post.data.title }}</h2>
 			</a>
 		{% endfor %}

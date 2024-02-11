@@ -31,3 +31,29 @@ Overscrolls
 	transform: translateY(0) scale(-1, -1);
 }
 /* Overscrolls [End] */
+
+
+footer {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: wrap;
+	gap: 1rem;
+	padding: 0.8rem 1.5rem 2rem;
+	font-weight: 500;
+	
+	a, a:visited, a:active {
+		color: hsl(0, 0%, 34%);
+		text-decoration: none;
+		transition: all 250ms;
+	}
+	a:hover {
+		color: hsl(216, 82%, 56%);
+		text-decoration: underline;
+	}
+	
+	p.open-practice {
+		font-style: italic;
+		font-weight: 550;
+	}
+}

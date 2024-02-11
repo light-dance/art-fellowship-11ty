@@ -96,7 +96,7 @@ $splash-animation-length: 3.7s;
 			transform: translateY(0);
 		}
 		75% {
-			width: 90%;
+			width: 80%;
 			height: calc(100% - 8rem);
 			border-radius: 20rem;
 			transform: translateY(0);
@@ -142,7 +142,7 @@ $splash-animation-length: 3.7s;
 	}
 }
 #hero .title #logo {
-	animation: logo-splash-animation forwards 700ms 3.5s ease-out;
+	animation: logo-splash-animation forwards 700ms 3.3s ease-out;
 	@keyframes logo-splash-animation {
 		0% {
 			transform: translateY(2.5rem);
@@ -360,23 +360,27 @@ nav {
 				
 				--margin: clamp(1.3rem, calc(3.5vw + 0.5rem), 3.8rem);
 				&.left {
-					li:nth-of-type(1) {
+					li {
 						transform: rotate(-5deg);
 					}
-					li:nth-of-type(2) {
+					a {
 						transform: rotate(2deg);
 						margin-left: var(--margin);
 					}
 				}
 				&.right {
 					align-items: flex-end;
-					li:nth-of-type(1) {
+					a {
 						transform: rotate(3deg);
 					}
-					li:nth-of-type(2) {
+					li {
 						transform: rotate(-2deg);
 						margin-right: var(--margin);
 					}
+				}
+				a {
+					text-decoration: none;
+					cursor: alias;
 				}
 				li {
 					list-style: none;
@@ -444,7 +448,7 @@ nav {
 						li:nth-of-type(1) {
 							transform: rotate(-5deg);
 						}
-						li:nth-of-type(2) {
+						a li {
 							transform: rotate(2deg);
 							margin-left: 0;
 						}
@@ -1390,36 +1394,6 @@ div.library {
 			&::before {
 				height: calc(100% - 3rem);
 			}
-		}
-	}
-}
-
-footer {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	flex-wrap: wrap;
-	gap: 1rem;
-	padding: 0.8rem 1.5rem 2rem;
-	font-weight: 500;
-	
-	a, a:visited, a:active {
-		color: hsl(0, 0%, 34%);
-		text-decoration: none;
-		transition: all 250ms;
-	}
-	a:hover {
-		color: hsl(216, 82%, 56%);
-		text-decoration: underline;
-	}
-	
-	a.company {
-		background: hsla(0, 0%, 0%, 0.13);
-		border-radius: 10rem;
-		padding: 0.1rem 0.5rem;
-		&:hover {
-			color: hsl(0, 0%, 94%);
-			background: hsla(0, 0%, 0%, 1);
 		}
 	}
 }
