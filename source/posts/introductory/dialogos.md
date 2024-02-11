@@ -1,4 +1,4 @@
 ---
-title: 'Dialectic into Dialogos'
+title: 'Dialogos'
 date: 2024-01-04
 ---
