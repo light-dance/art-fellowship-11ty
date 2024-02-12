@@ -333,7 +333,7 @@ nav {
 		width: 100%;
 		max-width: 69rem;
 		
-		.cards-group {
+		.cards {
 			position: absolute;
 			top: 0;
 			left: 0;
@@ -411,9 +411,9 @@ nav {
 							display: block;
 							font-family: 'Petrona Var';
 							font-weight: 800;
-							font-size: 6rem;
+							font-size: 5.4rem;
 							color: hsla(60, 8%, 87%, 1.00);
-							padding-top: 2rem;
+							padding-top: 1.5rem;
 						}
 						img {
 							position: absolute;
@@ -1231,7 +1231,7 @@ div.engage {
 		h2.mobile, h1.mobile { display: block; }
 	}
 	
-	ul.responses {
+	ul.community {
 		height: 15rem;
 		display: flex;
 		align-items: flex-start;
@@ -1243,9 +1243,58 @@ div.engage {
 			list-style: none;
 			position: relative;
 			transition: all 250ms;
-			&.active {
-				p {
+			
+			font-family: 'Petrona Var', 'Petrona V', 'Petrona';
+			font-size: 1.3rem;
+			font-weight: 500;
+			
+			height: 3.3rem;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			
+			&.more {
+				width: 3.3rem;
+				height: 3.3rem;
+				background: hsla(49, 6%, 85%, 0.5);
+				box-shadow: 0 0 0 3px white, inset 0 2px 2px 0 hsla(0, 0%, 0%, 0.05);
+				border-radius: 100rem;
+				cursor: alias;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				// overflow: hidden;
+				transition: all 300ms;
+				svg {
+					height: 2.5rem;
+					width: 2.5rem;
+					transition: inherit;
+				}
+				p { 
+					position: absolute;
+					top: 0;
+					left: 0;
+					width: 7.3rem;
+					height: 100%;
 					display: flex;
+					align-items: center;
+					justify-content: center;
+					font-family: 'Inter V', 'Inter Var', 'Inter';
+					font-size: 1.2rem;
+					font-weight: 600;
+					opacity: 0;
+					transition: inherit; 
+				}
+				&:hover {
+					width: 7.3rem;
+					svg { opacity: 0; }
+					p { opacity: 1; }
+				}
+			}
+			
+			&.active {
+				p.bio {
+					display: block;
 				}
 				img {
 					animation: bounce 200ms forwards ease-in-out;
@@ -1255,9 +1304,6 @@ div.engage {
 				width: 3.3rem;
 				box-shadow: 0 0 0 3px white;
 				border-radius: 100rem;
-				// &:hover {
-				// 	animation: bounce 200ms forwards ease-in-out;
-				// }
 			}
 			@keyframes bounce {
 				0% {
@@ -1270,18 +1316,21 @@ div.engage {
 					transform: translateY(0) scale(1);	
 				}
 			}
-			p {
+			p.bio {
 				position: absolute;
 				top: 4.7rem;
 				left: 0;
 				transform: translateX(-50%) rotate(-1.5deg);
-				width: 15.4rem;
-				height: 4.5rem;
+				width: 20rem;
+				max-height: 9rem;
+				overflow-y: scroll;
 				
-				padding: 0.5rem 0.5rem;
+				padding: 1rem 1rem;
 				display: none;
 				
-				background: #FFFFFF;
+				background: hsla(0, 0%, 100%, 0.8);
+				backdrop-filter: blur(1rem);
+				-webkit-backdrop-filter: blur(1rem);
 				border-radius: 1.8rem;
 				border: 1px solid hsla(0, 0%, 100%, 0.46);
 				box-shadow: 0 2px 5px 1px hsla(0, 0%, 0%, 0.03);
@@ -1294,15 +1343,10 @@ div.engage {
 					font-weight: 600; 
 					color: hsl(234, 6%, 24%);
 				}
-				&::before {
-					content: "\00201c";
-					display: block;
-					font-family: 'Petrona Var';
-					font-weight: 800;
-					font-size: 5rem;
-					color: hsla(60, 8%, 87%, 1.00);
-					padding-top: 2rem;
-					padding-right: 0.3rem;
+				em {
+					font-family: 'Inter Var', 'Inter V', 'Inter';
+					font-weight: 350;
+					font-size: 0.9em;
 				}
 				transition: all 250ms;
 			}

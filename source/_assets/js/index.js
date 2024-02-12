@@ -73,8 +73,8 @@ roundStructureScrollField.addEventListener('scroll', e => {
 
 /* [END] Scroll Indicators */
 
-// switch between testimonials
-const responsesSet = document.querySelectorAll('ul.responses li')
+// switch between community members
+const responsesSet = document.querySelectorAll('ul.community li')
 
 responsesSet.forEach( i => {
 	i.addEventListener('mouseover', () => {

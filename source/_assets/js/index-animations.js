@@ -3,7 +3,7 @@ gsap.registerPlugin(ScrollToPlugin)
 
 function startHeroCardScroll () {
 	
-	const cardScroller = document.querySelector('#hero div.body div.cards-group')
+	const cardScroller = document.querySelector('#hero div.body div.cards')
 	
 	const speed = 40 // Set the horiz. scroll speed for marquee
 	const scrollEnd = cardScroller.offsetWidth
