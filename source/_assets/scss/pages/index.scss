@@ -141,7 +141,9 @@ $splash-animation-length: 3.7s;
 		}
 	}
 }
-#hero .title #logo {
+#hero .title a.animate {
+	transform: translateY(2.5rem);
+	filter: blur(0.9rem);
 	animation: logo-splash-animation forwards 700ms 3.3s ease-out;
 	@keyframes logo-splash-animation {
 		0% {
@@ -268,8 +270,6 @@ nav {
 		#logo {
 			width: clamp(13.5rem, 50vw, 19.5rem);
 			flex-shrink: 0;
-			transform: translateY(2.5rem);
-			filter: blur(0.9rem);
 		}
 		div.spacer {
 			width: 100%;
@@ -360,20 +360,20 @@ nav {
 				
 				--margin: clamp(1.3rem, calc(3.5vw + 0.5rem), 3.8rem);
 				&.left {
-					li {
+					li:nth-of-type(1) {
 						transform: rotate(-5deg);
 					}
-					a {
+					li:nth-of-type(2) {
 						transform: rotate(2deg);
 						margin-left: var(--margin);
 					}
 				}
 				&.right {
 					align-items: flex-end;
-					a {
+					li:nth-of-type(1) {
 						transform: rotate(3deg);
 					}
-					li {
+					li:nth-of-type(2) {
 						transform: rotate(-2deg);
 						margin-right: var(--margin);
 					}
@@ -381,16 +381,17 @@ nav {
 				a {
 					text-decoration: none;
 					cursor: alias;
+					color: unset;
 				}
 				li {
 					list-style: none;
 					width: 14.6rem;
 					height: 4.7rem;
-					background: #FFFFFF;
 					border-radius: 1.8rem;
+					padding: 0.5rem 1.1rem;
+					background: #FFFFFF;
 					border: 1px solid hsla(0, 0%, 100%, 0.46);
 					box-shadow: 0 2px 5px 1px hsla(0, 0%, 0%, 0.03);
-					padding: 0.5rem 1.1rem;
 					display: flex;
 					align-items: center;
 					font-family: 'Manropey';
@@ -448,7 +449,7 @@ nav {
 						li:nth-of-type(1) {
 							transform: rotate(-5deg);
 						}
-						a li {
+						li:nth-of-type(2) {
 							transform: rotate(2deg);
 							margin-left: 0;
 						}
@@ -526,6 +527,7 @@ nav {
 	#art-marquee {
 		$item-height: 13.6rem;
 		
+		position: relative;
 		width: 100%;
 		height: calc($item-height + (2 * $about-overhang));
 		
@@ -533,7 +535,7 @@ nav {
 			display: flex;
 			align-items: center;
 			height: 100%;
-			gap: 1.3rem;
+			gap: 1.1rem;
 			padding: 0.3rem 0.5rem;
 			overflow-x: scroll;
 			div.item {
@@ -544,6 +546,13 @@ nav {
 				background: linear-gradient(to bottom, 
 					hsla(202, 45%, 22%, 1) 0%, 
 					hsla(233, 51%, 37%, 1) 100%);
+					
+				picture, img {
+					object-fit: cover;
+					width: 100%;
+					height: 100%;
+					border-radius: inherit;
+				}
 			}
 		}
 		div.main {
@@ -554,7 +563,6 @@ nav {
 			height: inherit;
 			z-index: 2;
 			pointer-events: none;
-			
 			.wrapper {
 				width: calc(100% - 2rem);
 				max-width: 30rem;
@@ -578,6 +586,33 @@ nav {
 						hsl(214, 84%, 52%));
 					@include gradient-text;
 				}
+			}
+		}
+		.edge-blur {
+			position: absolute;
+			z-index: 5;
+			top: calc((100% - $item-height)*0.5);
+			height: $item-height;
+			width: 3rem;
+			
+			backdrop-filter: blur(0.8rem);
+			-webkit-backdrop-filter: blur(0.8rem);
+			mask: linear-gradient(to right,
+				rgba(255, 255, 255, 1) 0%,
+				rgba(255, 255, 255, 1) 10%,
+				rgba(0, 0, 0, 0) 100%
+			);
+			-webkit-mask: linear-gradient(to right,
+				rgba(255, 255, 255, 1) 0%,
+				rgba(255, 255, 255, 1) 10%,
+				rgba(0, 0, 0, 0) 100%
+			);
+			&.left {
+				left: 0;
+			}
+			&.right {
+				right: 0;
+				transform: scaleX(-1);
 			}
 		}
 	}

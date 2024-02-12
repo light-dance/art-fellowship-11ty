@@ -7,7 +7,7 @@ style: '/css/pages/index.css'
 
 {% include "components/Signup.html" %}
 
-<div id="splash" class="">
+<div id="splash" class="hide">
 	<h1>Expanding Awareness Together</h1>
 	<div class="bg primary">
 		<div class="bg"></div>
@@ -21,8 +21,8 @@ style: '/css/pages/index.css'
 		<div>
 			<a href="/get-started">Join</a>
 			<a href="/cheat-sheet">Cheat Sheet</a>
-			<a href="/about">About</a>
 			<a href="/">Art Gallery</a>
+			<a href="/about">About</a>
 			<a href="/about#contact">Contact</a>
 		</div>
 	</nav>
@@ -38,7 +38,7 @@ style: '/css/pages/index.css'
 				</picture>
 			</div>
 			
-			<a href="https://artfellowship.space" id="logo">
+			<a href="https://artfellowship.space" id="logo" class="">
 				<picture>
 					<source srcset="{% asset "images/logo.svg" %}">
 					<source srcset="{% asset "images/logo.webp" %}">
@@ -57,21 +57,25 @@ style: '/css/pages/index.css'
 		<div class="small-spacer"></div>
 		
 		<div class="body">					
-			<div class="cards-group">
+			<div class="cards">
 				<ul class="left">
 					<li class="card quote">
 						<p>new <strong>appreciation</strong> for my creativity</p>
 						<img src="{% asset "images/pic-man-grey.jpg" %}" alt="Person Smiling">
 					</li>
-					<a href="/library-an-ecology-of-practices"><li>
+					<li>
+						<a href="/library-an-ecology-of-practices">
 						<p>add to your <strong>ecology of practices</strong></p>
-					</li></a>
+						</a>
+					</li>
 				</ul>
 				<div class="spacer"></div>
 				<ul class="right">
-					<a href="/library-the-four-p-s"><li>
+					<li>
+						<a href="/library-the-four-p-s">
 						<p>explore <strong>perspectival knowing</strong></p>
-					</li></a>
+						</a>
+					</li>
 					<li class="card quote">
 						<p>i feel a new relation with art</p>
 						<img src="{% asset "images/pic-woman-red.jpg" %}" alt="Person Smiling">
@@ -91,6 +95,8 @@ style: '/css/pages/index.css'
 		<div class="spacer"></div>
 		
 		<div id="art-marquee">
+			<div class="edge-blur left"></div>
+			<div class="edge-blur right"></div>
 			<div class="main">
 				<div class="wrapper">
 					<p>About the Practice</p>
@@ -102,9 +108,24 @@ style: '/css/pages/index.css'
 				</div>
 			</div>
 			<div class="scroll">
-				<div class="item"></div>
-				<div class="item"></div>
-				<div class="item"></div>
+				<div class="item">
+					<picture aria-hidden="true">
+						<source srcset="{% asset "images/artwork/mavis-ngallametta-brush-fire.jpg" %}">
+						<img src="{% asset "images/artwork/mavis-ngallametta-brush-fire.jpg" %}" alt="" aria-hidden="true">
+					</picture>
+				</div>
+				<div class="item">
+					<picture aria-hidden="true">
+						<source srcset="{% asset "images/artwork/ulysses-apple.jpg" %}">
+						<img src="{% asset "images/artwork/ulysses-apple.jpg" %}" alt="" aria-hidden="true">
+					</picture>
+				</div>
+				<div class="item">
+					<picture aria-hidden="true">
+						<source srcset="{% asset "images/artwork/ulysses-sunrise.png" %}">
+						<img src="{% asset "images/artwork/ulysses-sunrise.png" %}" alt="" aria-hidden="true">
+					</picture>
+				</div>
 				<div class="item"></div>
 				<div class="item"></div>
 				<div class="item"></div>
