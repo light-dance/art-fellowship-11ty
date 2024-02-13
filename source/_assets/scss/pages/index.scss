@@ -537,7 +537,8 @@ nav {
 			height: 100%;
 			gap: 1.1rem;
 			padding: 0.3rem 0.5rem;
-			overflow-x: scroll;
+			// overflow-x: hidden;
+			animation: autoScroll 20s infinite linear;
 			div.item {
 				height: $item-height;
 				aspect-ratio: 18.8/13.6;
@@ -553,6 +554,10 @@ nav {
 					height: 100%;
 					border-radius: inherit;
 				}
+			}
+			@keyframes autoScroll {
+				from { transform: translateX(0); }
+				to { transform: translateX(calc(-100% - 3rem)); }
 			}
 		}
 		div.main {
@@ -573,9 +578,13 @@ nav {
 				align-items: center;
 				justify-content: space-evenly;
 				background: linear-gradient(to bottom, 
-					hsl(180, 100%, 100%), 
-					hsl(221, 100%, 79%)
+					hsla(0, 0%, 100%, 0.8), 
+					hsla(221, 100%, 79%, 0.8)
 				);
+				backdrop-filter: blur(1.1rem);
+				-webkit-backdrop-filter: blur(1.1rem);
+				
+				border: 1rem solid hsla(45, 11%, 39%, 1);
 				p {
 					font-family: 'Petrona';
 					font-weight: 600;
@@ -1206,7 +1215,7 @@ div.engage {
 			line-height: 0.96;
 		}
 	}
-	a, a:visited, a:active {
+	> a, > a:visited, > a:active {
 		font-family: 'Inter Var', 'Inter V', 'Inter', sans-serif;
 		text-decoration: none;
 		font-size: 1.6rem;
@@ -1231,22 +1240,27 @@ div.engage {
 		h2.mobile, h1.mobile { display: block; }
 	}
 	
+	h3 {
+		font-family: 'Petrona Var', 'Petrona V', 'Petrona';
+		font-size: 1.3rem;
+		font-weight: 500;
+		padding-bottom: 1.2rem;
+	}
 	ul.community {
-		height: 15rem;
+		height: 4.4rem;
 		display: flex;
 		align-items: flex-start;
 		justify-content: center;
 		gap: 0.8rem;
 		padding: 0;
 		
+		a, a:hover, a:visited, a:active {
+			color: unset;
+		}
 		li {
 			list-style: none;
 			position: relative;
 			transition: all 250ms;
-			
-			font-family: 'Petrona Var', 'Petrona V', 'Petrona';
-			font-size: 1.3rem;
-			font-weight: 500;
 			
 			height: 3.3rem;
 			display: flex;
@@ -1263,7 +1277,6 @@ div.engage {
 				display: flex;
 				align-items: center;
 				justify-content: center;
-				// overflow: hidden;
 				transition: all 300ms;
 				svg {
 					height: 2.5rem;
@@ -1291,14 +1304,12 @@ div.engage {
 					p { opacity: 1; }
 				}
 			}
-			
 			&.active {
-				p.bio {
-					display: block;
-				}
-				img {
-					animation: bounce 200ms forwards ease-in-out;
-				}
+				border-radius: 100rem;
+				box-shadow: 0 0 1px 5px hsla(207, 90%, 54%, 0.803);
+			}
+			&.active img {
+				animation: bounce 200ms forwards ease-in-out;
 			}
 			img {
 				width: 3.3rem;
@@ -1316,39 +1327,48 @@ div.engage {
 					transform: translateY(0) scale(1);	
 				}
 			}
-			p.bio {
-				position: absolute;
-				top: 4.7rem;
-				left: 0;
-				transform: translateX(-50%) rotate(-1.5deg);
-				width: 20rem;
-				max-height: 9rem;
-				overflow-y: scroll;
-				
-				padding: 1rem 1rem;
-				display: none;
-				
-				background: hsla(0, 0%, 100%, 0.8);
-				backdrop-filter: blur(1rem);
-				-webkit-backdrop-filter: blur(1rem);
-				border-radius: 1.8rem;
-				border: 1px solid hsla(0, 0%, 100%, 0.46);
-				box-shadow: 0 2px 5px 1px hsla(0, 0%, 0%, 0.03);
-				
-				text-align: left;
-				font-family: 'Manropey';
-				font-size: 1.1rem;
-				color: hsl(234, 6%, 32%);
-				strong { 
-					font-weight: 600; 
-					color: hsl(234, 6%, 24%);
-				}
-				em {
-					font-family: 'Inter Var', 'Inter V', 'Inter';
-					font-weight: 350;
-					font-size: 0.9em;
-				}
-				transition: all 250ms;
+		}
+	}
+	div.community-bios {
+		width: 100%;
+		height: 12rem;
+		p {
+			display: none;
+			width: 20rem;
+			margin: auto;
+			max-height: 9rem;
+			overflow-y: scroll;
+			padding: 1rem 1rem;
+			background: hsla(0, 0%, 100%, 0.8);
+			backdrop-filter: blur(1rem);
+			-webkit-backdrop-filter: blur(1rem);
+			border-radius: 1.8rem;
+			border: 1px solid hsla(0, 0%, 100%, 0.46);
+			box-shadow: 0 2px 5px 1px hsla(0, 0%, 0%, 0.03);
+			
+			text-align: left;
+			font-family: 'Manropey';
+			font-size: 1.1rem;
+			color: hsl(234, 6%, 32%);
+			strong { 
+				font-weight: 600; 
+				color: hsl(234, 6%, 24%);
+			}
+			em {
+				font-family: 'Inter Var', 'Inter V', 'Inter';
+				font-weight: 350;
+				font-size: 0.9em;
+			}
+			transition: all 250ms;
+			
+			&.active {
+				display: block;
+			}
+			&:nth-child(odd) {
+				transform: rotate(-1.2deg);
+			}
+			&:nth-child(even) {
+				transform: rotate(1.4deg);
 			}
 		}
 	}

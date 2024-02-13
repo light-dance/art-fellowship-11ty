@@ -74,15 +74,21 @@ roundStructureScrollField.addEventListener('scroll', e => {
 /* [END] Scroll Indicators */
 
 // switch between community members
-const responsesSet = document.querySelectorAll('ul.community li')
+const communityPics = document.querySelectorAll('ul.community li')
+const communityBios = document.querySelectorAll('div.community-bios p')
 
-responsesSet.forEach( i => {
+communityPics.forEach( i => {
 	i.addEventListener('mouseover', () => {
 		// removes active state from all responses
-		responsesSet.forEach( n => {
+		communityPics.forEach( n => {
+			n.classList.remove('active')
+		})
+		communityBios.forEach( n => {
 			n.classList.remove('active')
 		})
 		// adds active state to hover'ed response
 		i.classList.add('active')
+		let target = i.dataset.bio
+		document.querySelector(`div.community-bios [data-bio='${target}']`).classList.add('active')
 	})
 })

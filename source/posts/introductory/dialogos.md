@@ -2,3 +2,5 @@
 title: 'Dialogos'
 date: 2024-01-04
 ---
+
+Dialogos is

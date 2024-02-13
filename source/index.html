@@ -21,7 +21,7 @@ style: '/css/pages/index.css'
 		<div>
 			<a href="/get-started">Join</a>
 			<a href="/cheat-sheet">Cheat Sheet</a>
-			<a href="/">Art Gallery</a>
+			<a href="/art-gallery">Art Gallery</a>
 			<a href="/about">About</a>
 			<a href="/about#contact">Contact</a>
 		</div>
@@ -116,17 +116,22 @@ style: '/css/pages/index.css'
 				</div>
 				<div class="item">
 					<picture aria-hidden="true">
-						<source srcset="{% asset "images/artwork/ulysses-apple.jpg" %}">
-						<img src="{% asset "images/artwork/ulysses-apple.jpg" %}" alt="" aria-hidden="true">
-					</picture>
-				</div>
-				<div class="item">
-					<picture aria-hidden="true">
 						<source srcset="{% asset "images/artwork/ulysses-sunrise.png" %}">
 						<img src="{% asset "images/artwork/ulysses-sunrise.png" %}" alt="" aria-hidden="true">
 					</picture>
 				</div>
-				<div class="item"></div>
+				<div class="item">
+					<picture aria-hidden="true">
+						<source srcset="{% asset "images/artwork/ulysses-beach.jpg" %}">
+						<img src="{% asset "images/artwork/ulysses-beach.jpg" %}" alt="" aria-hidden="true">
+					</picture>
+				</div>
+				<div class="item">
+					<picture aria-hidden="true">
+						<source srcset="{% asset "images/artwork/ulysses-apple.jpg" %}">
+						<img src="{% asset "images/artwork/ulysses-apple.jpg" %}" alt="" aria-hidden="true">
+					</picture>
+				</div>
 				<div class="item"></div>
 				<div class="item"></div>
 				<div class="item"></div>
@@ -242,46 +247,45 @@ style: '/css/pages/index.css'
 		<div class="bg gradient"></div>
 		<div class="bg blur"></div>
 		
+		<h3>A Community of ❤️</h3>
 		<ul class="community">
-			<li>❤️ Community</li>
-			<li class="active">
-				<img src="{% asset "images/pic-woman-red.jpg" %}" alt="Person Smiling">
-				<p class="bio"><strong>Alexandra Zachary</strong>, pursuing a doctorate in psychology, developed the Art Fellowship practice and grew it. <em>Australia</em></p>
+			<li class="active" data-bio="alexandra">
+				<img src="{% asset "images/pic-woman-red.jpg" %}" alt="Alexandra Zachary">
 			</li>
-			<li>
-				<img src="{% asset "images/pic-man-grey.jpg" %}" alt="Person Smiling">
-				<p class="bio"><strong>Jonas</strong> has been practicing for almost 2 years and is facilitator <em>Sweeden?</em></p>
+			<li data-bio="jonas">
+				<img src="{% asset "images/pic-man-grey.jpg" %}" alt="Jonas">
 			</li>
-			<li>
-				<img src="{% asset "images/pic-woman-pink.jpg" %}" alt="Person Smiling">
-				<p class="bio"><strong>Jake Go</strong> is helping to grow the practice, creating this website, and facilitating practices. <em>United States</em></p>
+			<li data-bio="jake">
+				<img src="{% asset "images/pic-woman-pink.jpg" %}" alt="Jake">
 			</li>
-			<li>
-				<img src="{% asset "images/pic-man-black.jpg" %}" alt="Person Smiling">
-				<p class="bio"><strong>Ebenezer</strong> for my creativity <em>England</em></p>
+			<li data-bio="ebenezer">
+				<img src="{% asset "images/pic-man-black.jpg" %}" alt="Ebenezer">
 			</li>
-			<li class="more">
+			<a href="/about"><li class="more">
 				<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right-short" viewBox="0 0 16 16">
 				  <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8"/>
 				</svg>
 				<p>About Us</p>
-			</li>
+			</li></a>
 		</ul>
+		<div class="community-bios">
+			<p data-bio="alexandra" class="active"><strong>Alexandra Zachary</strong>, pursuing a doctorate in psychology, developed the Art Fellowship practice and grew it. <em>Australia</em></p>
+			<p data-bio="jonas" class=""><strong>Jonas</strong> has been practicing for almost 2 years and is facilitator <em>Sweeden?</em></p>
+			<p data-bio="jake" class=""><strong>Jake Go</strong> is helping to grow the practice, creating this website, and facilitating practices. <em>United States</em></p>
+			<p data-bio="ebenezer" class=""><strong>Ebenezer</strong> for my creativity <em>England</em></p>
+		</div>
 		
 		<h2 class="desktop">Open <em>yourself</em>, your <em>awareness</em>, and your <em>creativity</em>.</h2>
 		<h2 class="mobile">Open <em>yourself</em>,</br>your <em>awareness</em>,</br>and your <em>creativity</em>.</h2>
 		<h1 class="desktop">Ditch the inner critic. Reconnect to something deeper.</h1>
 		<h1 class="mobile">Reconnect to something deeper.</h1>
 		
-		<a href="/get-started" class="get-started-btn">Join the Practice</a>
+		<a href="/get-started" class="get-started-btn">Get Started</a>
 	</div>
 	
 	<div class="library">
-		{% comment %} <a href="/" class="test">
-			<h2>iPod Touch in 2024</h2>
-		</a> {% endcomment %}
 		{% for post in collections.introductory %}
-			<a href="{{ post.url | slugify }}">
+			<a href="{{ post.url }}">
 				<h2>{{ post.data.title }}</h2>
 			</a>
 		{% endfor %}
