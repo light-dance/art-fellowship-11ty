@@ -26,18 +26,20 @@ a#home-link {
 }
 
 header {
-	font-family: 'Source Serif Text';
-	font-weight: 400;
+	font-family: 'Petrona Var';
 	font-size: 1.4rem;
 	padding-top: 4.8rem;
 	padding-bottom: 1rem;
+	h1 {
+		font-weight: 400;
+	}
 	a {
 		text-decoration: none;
 		&, &:active, &:visited {
-			color: hsla(261, 79%, 34%, 1);
+			color: hsla(248, 62%, 34%, 1);
 		}
 		&:hover {
-			color: hsla(261, 79%, 25%, 1);
+			color: hsla(248, 62%, 25%, 1);
 			text-decoration: underline;
 		}
 	}
@@ -46,15 +48,22 @@ header {
 article {
 	width: 100%;
 	font-family: 'Inter Var', 'Inter V', 'Inter', sans-serif;
-	font-weight: 400;
+	font-weight: 380;
 	font-size: 1.15rem;
 	padding-bottom: 3rem;
 	p {
-		
+		letter-spacing: -0.009em;
+		line-height: 1.55;
 		padding: 1rem 0 1rem;
+		strong {
+			font-weight: 500;
+			letter-spacing: -0.03;
+		}
 	}
 	ul {
 		padding-left: 1.9rem;
+		letter-spacing: -0.009em;
+		line-height: 1.55;
 		li {
 			padding: 0.5rem 0;
 		}
