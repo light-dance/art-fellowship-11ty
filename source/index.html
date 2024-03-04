@@ -250,7 +250,7 @@ style: '/css/pages/index.css'
 		<h3>A Community of ❤️</h3>
 		<ul class="community">
 			<li class="active" data-bio="alexandra">
-				<img src="{% asset "images/pic-woman-red.jpg" %}" alt="Alexandra Zachary">
+				<img src="{% asset "images/profile-photos/alexandra-zachary.jpg" %}" alt="Alexandra Zachary">
 			</li>
 			<li data-bio="jonas">
 				<img src="{% asset "images/pic-man-grey.jpg" %}" alt="Jonas">
@@ -269,10 +269,20 @@ style: '/css/pages/index.css'
 			</li></a>
 		</ul>
 		<div class="community-bios">
-			<p data-bio="alexandra" class="active"><strong>Alexandra Zachary</strong>, pursuing a doctorate in psychology, developed the Art Fellowship practice and grew it. <em>Australia</em></p>
-			<p data-bio="jonas" class=""><strong>Jonas</strong> has been practicing for almost 2 years and is facilitator <em>Sweeden?</em></p>
-			<p data-bio="jake" class=""><strong>Jake Go</strong> is helping to grow the practice, creating this website, and facilitating practices. <em>United States</em></p>
-			<p data-bio="ebenezer" class=""><strong>Ebenezer</strong> for my creativity <em>England</em></p>
+			<p data-bio="alexandra" class="active">
+				<strong>Alexandra Zachary</strong> 
+				{% include "testimonials/alexandra-zachary.html" %} 
+				<em>Australia</em></p>
+			<p data-bio="jonas" class="">
+				<strong>Jonas</strong>
+				<em>Sweeden?</em></p>
+			<p data-bio="jake" class="">
+				<strong>Jake Go</strong>
+				{% include "testimonials/jake-go.html" %}
+				<em>United States</em></p>
+			<p data-bio="ebenezer" class="">
+				<strong>Ebenezer</strong>
+				<em>England</em></p>
 		</div>
 		
 		<h2 class="desktop">Open <em>yourself</em>, your <em>awareness</em>, and your <em>creativity</em>.</h2>
