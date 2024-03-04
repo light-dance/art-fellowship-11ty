@@ -60,7 +60,7 @@ style: '/css/pages/index.css'
 			<div class="cards">
 				<ul class="left">
 					<li class="card quote">
-						<p>new <strong>appreciation</strong> for my creativity</p>
+						<p>{% include "testimonials/georgina-mills.html" %}</p>
 						<img src="{% asset "images/pic-man-grey.jpg" %}" alt="Person Smiling">
 					</li>
 					<li>
@@ -77,8 +77,7 @@ style: '/css/pages/index.css'
 						</a>
 					</li>
 					<li class="card quote">
-						<p>i feel a new relation with art</p>
-						<img src="{% asset "images/pic-woman-red.jpg" %}" alt="Person Smiling">
+						{% include "testimonials/delia-brett.html" %}
 					</li>
 				</ul>					
 			</div>
@@ -107,35 +106,55 @@ style: '/css/pages/index.css'
 					</picture>
 				</div>
 			</div>
-			<div class="scroll">
+			<div class="scroll" aria-hidden="true">
 				<div class="item">
-					<picture aria-hidden="true">
+					<picture>
+						<source srcset="{% asset "images/artwork/delia-dance-1.png" %}">
+						<img src="{% asset "images/artwork/delia-dance-1.png" %}">
+					</picture>
+				</div>
+				<div class="item">
+					<picture>
 						<source srcset="{% asset "images/artwork/mavis-ngallametta-brush-fire.jpg" %}">
-						<img src="{% asset "images/artwork/mavis-ngallametta-brush-fire.jpg" %}" alt="" aria-hidden="true">
+						<img src="{% asset "images/artwork/mavis-ngallametta-brush-fire.jpg" %}">
 					</picture>
 				</div>
 				<div class="item">
-					<picture aria-hidden="true">
-						<source srcset="{% asset "images/artwork/ulysses-sunrise.png" %}">
-						<img src="{% asset "images/artwork/ulysses-sunrise.png" %}" alt="" aria-hidden="true">
-					</picture>
-				</div>
-				<div class="item">
-					<picture aria-hidden="true">
+					<picture>
 						<source srcset="{% asset "images/artwork/ulysses-beach.jpg" %}">
-						<img src="{% asset "images/artwork/ulysses-beach.jpg" %}" alt="" aria-hidden="true">
+						<img src="{% asset "images/artwork/ulysses-beach.jpg" %}">
 					</picture>
 				</div>
 				<div class="item">
-					<picture aria-hidden="true">
-						<source srcset="{% asset "images/artwork/ulysses-apple.jpg" %}">
-						<img src="{% asset "images/artwork/ulysses-apple.jpg" %}" alt="" aria-hidden="true">
+					<picture>
+						<source srcset="{% asset "images/artwork/georgina-sculpture.jpg" %}">
+						<img src="{% asset "images/artwork/georgina-sculpture.jpg" %}">
 					</picture>
 				</div>
-				<div class="item"></div>
-				<div class="item"></div>
-				<div class="item"></div>
-				<div class="item"></div>
+				<div class="item">
+					<picture>
+						<source srcset="{% asset "images/artwork/ulysses-apple.jpg" %}">
+						<img src="{% asset "images/artwork/ulysses-apple.jpg" %}">
+					</picture>
+				</div>
+				<div class="item">
+					<picture>
+						<source srcset="{% asset "images/artwork/delia-dance-2.png" %}">
+						<img src="{% asset "images/artwork/delia-dance-2.png" %}">
+					</picture>
+				</div>
+				<div class="item">
+					<picture>
+						<source srcset="{% asset "images/artwork/ebenezer-painting.jpg" %}">
+						<img src="{% asset "images/artwork/ebenezer-painting.jpg" %}">
+					</picture>
+				</div>
+				<div class="item">
+					<picture>
+						<source srcset="{% asset "images/artwork/ulysses-sunrise.png" %}">
+						<img src="{% asset "images/artwork/ulysses-sunrise.png" %}">
+					</picture>
+				</div>
 			</div>				
 		</div>
 	</div>

@@ -9,6 +9,8 @@
 	<main>
 		<div class="line-top"></div>
 		
+		<a id="home-link" href="/">Home</a>
+		
 		<header class="width-narrow">
 			<h1><a href="{{ site.baseURL }}{{ page.url }}">{{ title }} <span class="subtitle">{{ subtitle }}</span></a></h1>
 		</header>
@@ -17,7 +19,18 @@
 			{{content | safe}}
 		</article>
 		
+		<div class="more-articles">
+			<h1>Introductory Concepts</h1>
+			{% for post in collections.introductory %}
+				<a href="{{ post.url }}">
+					<h2>{{ post.data.title }}</h2>
+				</a>
+			{% endfor %}
+		</div>
+		
 	</main>
+	
+	{% include "components/Footer.html" %}
 		
 	<div class="overscroll bottom"></div>
 	<div class="overscroll bottom mobile"></div>

@@ -1,16 +1,93 @@
+html, body {
+	background: hsl(212, 10%, 91%);
+}
+
 main {
 	max-width: 57ch;
 	margin: auto;
-	padding-top: 5rem;
-	padding-bottom: clamp(12rem, 30vh, 40rem);
+	padding-top: 1.9rem;
+	padding-bottom: clamp(12rem, 20vh, 20rem);
+}
+
+a#home-link {
+	padding: 0.2rem 0.6rem;
+	background: hsla(0, 0%, 98%, 1);
+	border-radius: 10rem;
+	text-decoration: none;
+	font-weight: 500;
+	transition: all 200ms;
+	&, &:active, &:visited {
+		color: hsla(206, 77%, 48%, 1);
+	}
+	&:hover {
+		color: hsla(206, 100%, 55%, 1);
+		padding: 0.2rem 0.8rem;
+	}
 }
 
 header {
-	
+	font-family: 'Source Serif Text';
+	font-weight: 400;
+	font-size: 1.4rem;
+	padding-top: 4.8rem;
+	padding-bottom: 1rem;
+	a {
+		text-decoration: none;
+		&, &:active, &:visited {
+			color: hsla(261, 79%, 34%, 1);
+		}
+		&:hover {
+			color: hsla(261, 79%, 25%, 1);
+			text-decoration: underline;
+		}
+	}
 }
 
 article {
+	width: 100%;
+	font-family: 'Inter Var', 'Inter V', 'Inter', sans-serif;
+	font-weight: 400;
+	font-size: 1.15rem;
+	padding-bottom: 3rem;
 	p {
+		
 		padding: 1rem 0 1rem;
+	}
+	ul {
+		padding-left: 1.9rem;
+		li {
+			padding: 0.5rem 0;
+		}
+	}
+}
+
+div.more-articles {
+	width: 100%;
+	background: hsl(0, 0%, 94%);
+	box-shadow: 
+		inset 0 0 0 2px hsla(248, 40%, 36%, 0.08),
+		inset 0 2px 0 0 hsla(0, 0%, 0%, 0.03);
+	border-radius: 1.6rem;
+	padding: 2rem 1.8rem 1.5rem;
+	
+	h1 {
+		font-family: 'Petrona Var';
+		font-weight: 400;
+	}
+	a {
+		text-decoration: none;
+		color: hsla(240, 100%, 47%, 1.00);
+		&:hover {
+			color: hsla(240, 11%, 5%, 1);
+			text-decoration: underline;
+		}
+		&:visited {
+			color: hsla(240, 11%, 50%, 1)
+		}
+	}
+	h2 {
+		font-family: 'Petrona Var';
+		font-weight: 300;
+		line-height: 1.6;
 	}
 }
