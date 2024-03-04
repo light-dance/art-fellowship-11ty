@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	{% include "partials/_head.njk" %}
+</head>
+<body>
+	<div class="overscroll top"></div>
+	<div class="overscroll top mobile"></div>
+	<main>
+		<div class="line-top"></div>
+		
+		<header class="width-narrow">
+			<h1><a href="{{ site.baseURL }}{{ page.url }}">{{ title }} <span class="subtitle">{{ subtitle }}</span></a></h1>
+		</header>
+		
+		<article class="width-narrow">
+			{{content | safe}}
+		</article>
+		
+	</main>
+		
+	<div class="overscroll bottom"></div>
+	<div class="overscroll bottom mobile"></div>
+	
+</body>
+</html>
