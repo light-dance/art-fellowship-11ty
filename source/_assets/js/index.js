@@ -92,3 +92,36 @@ communityPics.forEach( i => {
 		document.querySelector(`div.community-bios [data-bio='${target}']`).classList.add('active')
 	})
 })
+
+const overallStructureScroller = document.querySelector('#overall-structure-scroller')
+overallStructureScroller.addEventListener('scroll', () => {
+	let viewOne = document.querySelector('#overall-structure-scroller div.round-one').offsetWidth
+	let viewTwo = document.querySelector('#overall-structure-scroller div.week').offsetWidth
+
+	let scrollPosition = overallStructureScroller.scrollLeft
+	let currentView = ''
+
+	if (scrollPosition <= viewOne ) {
+		currentView = '1'
+	}
+	else if (scrollPosition <= (viewOne + viewTwo)) {
+		currentView = '2'
+	}
+	else if (scrollPosition > (viewOne + viewTwo)) {
+		currentView = '3'
+	}
+	else {
+		console.log('Problem')
+	}
+	
+	document.querySelectorAll('section.overall-structure div.scroll-indicator span').forEach( i => {
+		i.classList.remove('active')
+	})
+	document.querySelector(`#overall-structure-indicator-${currentView}`).classList.add('active')	
+})
+
+
+const sessionStructureScroller = document.querySelector('#round-structure-scroller')
+sessionStructureScroller.addEventListener('scroll', () => {
+	console.log(sessionStructureScroller.scrollLeft)
+})
