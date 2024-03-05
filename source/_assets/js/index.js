@@ -58,21 +58,6 @@ document.querySelector('#signup div.overlay').addEventListener('click', () => {
 /* [END] Sign-up Modal Interactions */
 
 
-/* Scroll Indicators
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
-
-const roundStructureWidth = document.querySelector('#round-structure-scroller').offsetWidth
-console.log(roundStructureWidth)
-
-const roundStructureScrollField = document.querySelector('#round-structure-scroller')
-roundStructureScrollField.addEventListener('scroll', e => {
-	let scrollProgress = roundStructureScrollField.scrollLeft
-	let scrollProgressPercent = scrollProgress / roundStructureWidth
-	console.log(scrollProgressPercent)
-})
-
-/* [END] Scroll Indicators */
-
 // switch between community members
 const communityPics = document.querySelectorAll('ul.community li')
 const communityBios = document.querySelectorAll('div.community-bios p')
@@ -93,6 +78,9 @@ communityPics.forEach( i => {
 	})
 })
 
+/* Scroll Indicators
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+// For the overall structure (first)
 const overallStructureScroller = document.querySelector('#overall-structure-scroller')
 overallStructureScroller.addEventListener('scroll', () => {
 	let viewOne = document.querySelector('#overall-structure-scroller div.round-one').offsetWidth
@@ -121,7 +109,15 @@ overallStructureScroller.addEventListener('scroll', () => {
 })
 
 
+
+// For the round structure (last)
 const sessionStructureScroller = document.querySelector('#round-structure-scroller')
 sessionStructureScroller.addEventListener('scroll', () => {
-	console.log(sessionStructureScroller.scrollLeft)
+	
+	let scrollPercent = Math.max(10, Math.round((sessionStructureScroller.scrollLeft / sessionStructureScroller.offsetWidth) * 100))
+	
+	console.log(scrollPercent)
+	
+	document.querySelector('section.round-structure div.canvas div.scroll-indicator span.progress').style.width = `${scrollPercent}%`
 })
+/* [END] Scroll Indicators */
