@@ -36,7 +36,16 @@ module.exports = function(eleventyConfig) {
 			return host + path
 		}
 		return 'Error'
-	})	
+	})
+	
+	/* Limit Contents
+	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+	// Takes in collections content data (md if from post) and returns it as a shortened snippet
+	eleventyConfig.addFilter("excerpt", (post) => {
+		const content = post.replace(/(<([^>]+)>)/gi, "")
+		return content.substr(0, content.lastIndexOf(" ", 200))
+	})
+
 	
 	/* Set input/output
 	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
