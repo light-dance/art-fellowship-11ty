@@ -60,24 +60,25 @@ style: '/css/pages/index.css'
 			<div class="cards">
 				<ul class="left">
 					<li class="card quote">
-						<p>{% include "testimonials/georgina-mills.html" %}</p>
+						<p>{{ community.georginaMills.summary }}</p>
 						<img src="{% asset "images/pic-man-grey.jpg" %}" alt="Person Smiling">
 					</li>
 					<li>
-						<a href="/library-an-ecology-of-practices">
-						<p>add to your <strong>ecology of practices</strong></p>
+						<a href="/library/an-ecology-of-practices">
+						<p>add dialogos to your <strong>ecology of practices</strong></p>
 						</a>
 					</li>
 				</ul>
 				<div class="spacer"></div>
 				<ul class="right">
 					<li>
-						<a href="/library-the-four-p-s">
-						<p>explore <strong>perspectival knowing</strong></p>
+						<a href="/library/the-four-p-s">
+						<p>explore the wisdom in <strong>perspectival knowing</strong></p>
 						</a>
 					</li>
 					<li class="card quote">
-						{% include "testimonials/delia-brett.html" %}
+						<p>{{ community.deliaBrett.summary}}</p>
+						<img src="{% asset "images/community/delia-brett.jpg" %}" alt="Person Smiling">
 					</li>
 				</ul>					
 			</div>
@@ -280,28 +281,22 @@ style: '/css/pages/index.css'
 			<li data-bio="ebenezer">
 				<img src="{% asset "images/pic-man-black.jpg" %}" alt="Ebenezer">
 			</li>
-			<a href="/about"><li class="more">
-				<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right-short" viewBox="0 0 16 16">
-				  <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8"/>
-				</svg>
-				<p>About Us</p>
-			</li></a>
 		</ul>
 		<div class="community-bios">
 			<p data-bio="alexandra" class="active">
 				<strong>Alexandra Zachary</strong> 
 				{% include "testimonials/alexandra-zachary.html" %} 
-				<em>Australia</em></p>
+				<em>&ndash;Australia</em></p>
 			<p data-bio="jonas" class="">
 				<strong>Jonas</strong>
-				<em>Sweeden?</em></p>
+				<em>&ndash;Sweeden?</em></p>
 			<p data-bio="jake" class="">
 				<strong>Jake Go</strong>
 				{% include "testimonials/jake-go.html" %}
-				<em>United States</em></p>
+				<em>&ndash;United States</em></p>
 			<p data-bio="ebenezer" class="">
 				<strong>Ebenezer</strong>
-				<em>England</em></p>
+				<em>&ndash;England</em></p>
 		</div>
 		
 		<h2 class="desktop">Open <em>yourself</em>, your <em>awareness</em>, and your <em>creativity</em>.</h2>
@@ -313,9 +308,17 @@ style: '/css/pages/index.css'
 	</div>
 	
 	<div class="library">
+		
+		<div class="resources">
+			<a href="/cheat-sheet"><h2>Cheat Sheet</h2><p><em>for Practice</em></p></a>
+			<div></div>
+			<a href="/cheat-sheet"><h2>Practice Design & Resources</h2><p><em>for Starting Your Own Practice</em></p></a>
+		</div>
+		
 		{% for post in collections.introductory %}
 			<a href="{{ post.url }}">
 				<h2>{{ post.data.title }}</h2>
+				<p>{{ post.content | excerpt }}</p>
 			</a>
 		{% endfor %}
 	</div>

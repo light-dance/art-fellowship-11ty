@@ -1,5 +1,6 @@
 ---
 title: 'Dialogos'
+date: 2024-01-02
 ---
 
 “No man is an island”&mdash;John Donne. Contemporary cognitive science is proving this to be true. Humans are deeply social creatures, both for survival and wellbeing. Our inner private experience, our thoughts, can be understood as an inner dialogue. We correct misunderstandings and false beliefs through contact with others and we need this interaction to make sense of and act in the world.
