@@ -78,11 +78,60 @@ communityPics.forEach( i => {
 	})
 })
 
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Horizontal Scrolling Behavior == Overall Structure
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+const overallStructureScroller = document.querySelector('#overall-structure-scroller')
+const curPos = () => { return overallStructureScroller.scrollLeft }
+
+const view1 = document.querySelector('#overall-structure-scroller div.round-one')
+const view2 = document.querySelector('#overall-structure-scroller div.week')
+const view3 = document.querySelector('#overall-structure-scroller div.round-two')
+
+// Automatically scroll to next section every 5 seconds
+const scrollAdvanceTimer = 4300
+let autoScrollInterval = setInterval(autoScroll, scrollAdvanceTimer)
+
+function autoScroll () {
+	let scrollToX = 0	
+	if (curPos() > view2.offsetLeft) {
+		scrollToX = view1.offsetLeft
+	}
+	else if (curPos() >= view2.offsetLeft) {
+		scrollToX = view3.offsetLeft
+	}
+	else if (curPos() >= view1.offsetLeft) {
+		scrollToX = view2.offsetLeft
+	}
+	else {
+		console.log('Issue Automatically Scrolling')
+	}
+	overallStructureScroller.scrollTo({
+		left: scrollToX,
+		behavior: "smooth"
+	})
+}
+
+// Click on indicators to scroll
+document.querySelector('#overall-structure-indicator-1').addEventListener('click', () => {
+	overallStructureScroller.scrollTo({ left: view1.offsetLeft, behavior: "smooth" })
+})
+document.querySelector('#overall-structure-indicator-2').addEventListener('click', () => {
+	overallStructureScroller.scrollTo({ left: view2.offsetLeft, behavior: "smooth" })
+})
+document.querySelector('#overall-structure-indicator-3').addEventListener('click', () => {
+	overallStructureScroller.scrollTo({ left: view3.offsetLeft, behavior: "smooth" })
+})
+
+/* [END] Horizontal Scrolling Behavior */
+
 /* Scroll Indicators
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
-// For the overall structure (first)
-const overallStructureScroller = document.querySelector('#overall-structure-scroller')
 overallStructureScroller.addEventListener('scroll', () => {
+	clearInterval(autoScrollInterval)
+	autoScrollInterval = setInterval(autoScroll, scrollAdvanceTimer)
+	
 	let viewOne = document.querySelector('#overall-structure-scroller div.round-one').offsetWidth
 	let viewTwo = document.querySelector('#overall-structure-scroller div.week').offsetWidth
 
@@ -107,6 +156,7 @@ overallStructureScroller.addEventListener('scroll', () => {
 	})
 	document.querySelector(`#overall-structure-indicator-${currentView}`).classList.add('active')	
 })
+
 
 
 
