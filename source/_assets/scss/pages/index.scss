@@ -562,6 +562,19 @@ nav {
 					height: 100%;
 					border-radius: inherit;
 				}
+				p {
+					// position: absolute;
+					width: 100%;
+					text-align: center;
+					bottom: 0;
+					font-weight: 500;
+					color: hsla(0, 0%, 0%, 0.6);
+					opacity: 0;
+					transition: all 250ms;
+				}
+				&:hover {
+					p { opacity: 1; }
+				}
 			}
 			@keyframes autoScroll {
 				from { transform: translateX(0); }

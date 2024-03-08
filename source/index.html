@@ -114,48 +114,56 @@ style: '/css/pages/index.css'
 							<source srcset="{% asset "images/artwork/delia-dance-1.png" %}">
 							<img src="{% asset "images/artwork/delia-dance-1.png" %}">
 						</picture>
+						<p>Delia Brett <em>"Plaything"</em></p>
 					</div>
 					<div class="item">
 						<picture>
 							<source srcset="{% asset "images/artwork/mavis-ngallametta-brush-fire.jpg" %}">
 							<img src="{% asset "images/artwork/mavis-ngallametta-brush-fire.jpg" %}">
 						</picture>
+						<p>Mavis Ngallametta <em>"Brush Fire"</em></p>
 					</div>
 					<div class="item">
 						<picture>
 							<source srcset="{% asset "images/artwork/ulysses-beach.jpg" %}">
 							<img src="{% asset "images/artwork/ulysses-beach.jpg" %}">
 						</picture>
+						<p>Jake Go <em>"Finding Our Way"</em></p>
 					</div>
 					<div class="item">
 						<picture>
 							<source srcset="{% asset "images/artwork/georgina-sculpture.jpg" %}">
 							<img src="{% asset "images/artwork/georgina-sculpture.jpg" %}">
 						</picture>
+						<p>Georgina Mills <em>"Anger"</em></p>
 					</div>
 					<div class="item">
 						<picture>
 							<source srcset="{% asset "images/artwork/ulysses-apple.jpg" %}">
 							<img src="{% asset "images/artwork/ulysses-apple.jpg" %}">
 						</picture>
+						<p>Jake Go</p>
 					</div>
 					<div class="item">
 						<picture>
 							<source srcset="{% asset "images/artwork/delia-dance-2.png" %}">
 							<img src="{% asset "images/artwork/delia-dance-2.png" %}">
 						</picture>
+						<p>Delia Brett <em>"Plaything"</em></p>
 					</div>
 					<div class="item">
 						<picture>
 							<source srcset="{% asset "images/artwork/ebenezer-painting.jpg" %}">
 							<img src="{% asset "images/artwork/ebenezer-painting.jpg" %}">
 						</picture>
+						<p>Ebenezer Kaisha <em>"Painting"</em></p>
 					</div>
 					<div class="item">
 						<picture>
 							<source srcset="{% asset "images/artwork/ulysses-sunrise.png" %}">
 							<img src="{% asset "images/artwork/ulysses-sunrise.png" %}">
 						</picture>
+						<p>Jake Go</p>
 					</div>
 				</div>
 				<div class="scroll-copy">
@@ -164,48 +172,56 @@ style: '/css/pages/index.css'
 							<source srcset="{% asset "images/artwork/delia-dance-1.png" %}">
 							<img src="{% asset "images/artwork/delia-dance-1.png" %}">
 						</picture>
+						<p>Delia Brett <em>"Plaything"</em></p>
 					</div>
 					<div class="item">
 						<picture>
 							<source srcset="{% asset "images/artwork/mavis-ngallametta-brush-fire.jpg" %}">
 							<img src="{% asset "images/artwork/mavis-ngallametta-brush-fire.jpg" %}">
 						</picture>
+						<p>Mavis Ngallametta <em>"Brush Fire"</em></p>
 					</div>
 					<div class="item">
 						<picture>
 							<source srcset="{% asset "images/artwork/ulysses-beach.jpg" %}">
 							<img src="{% asset "images/artwork/ulysses-beach.jpg" %}">
 						</picture>
+						<p>Jake Go <em>"Finding Our Way"</em></p>
 					</div>
 					<div class="item">
 						<picture>
 							<source srcset="{% asset "images/artwork/georgina-sculpture.jpg" %}">
 							<img src="{% asset "images/artwork/georgina-sculpture.jpg" %}">
 						</picture>
+						<p>Georgina Mills <em>"Anger"</em></p>
 					</div>
 					<div class="item">
 						<picture>
 							<source srcset="{% asset "images/artwork/ulysses-apple.jpg" %}">
 							<img src="{% asset "images/artwork/ulysses-apple.jpg" %}">
 						</picture>
+						<p>Jake Go</p>
 					</div>
 					<div class="item">
 						<picture>
 							<source srcset="{% asset "images/artwork/delia-dance-2.png" %}">
 							<img src="{% asset "images/artwork/delia-dance-2.png" %}">
 						</picture>
+						<p>Delia Brett <em>"Plaything"</em></p>
 					</div>
 					<div class="item">
 						<picture>
 							<source srcset="{% asset "images/artwork/ebenezer-painting.jpg" %}">
 							<img src="{% asset "images/artwork/ebenezer-painting.jpg" %}">
 						</picture>
+						<p>Ebenezer Kaisha <em>"Painting"</em></p>
 					</div>
 					<div class="item">
 						<picture>
 							<source srcset="{% asset "images/artwork/ulysses-sunrise.png" %}">
 							<img src="{% asset "images/artwork/ulysses-sunrise.png" %}">
 						</picture>
+						<p>Jake Go</p>
 					</div>
 				</div>
 			</div>				
@@ -273,9 +289,9 @@ style: '/css/pages/index.css'
 		</section>
 		
 		<div class="virtual">
-			<p class="desktop">Currently all practice is facilitated virtually on <img src="{% asset "images/zoom-icon.png" %}" alt="zoom logo">&nbsp;Zoom. <a href="">Want to start a local group?</a></p>
+			<p class="desktop">Currently all practice is facilitated virtually on <img src="{% asset "images/zoom-icon.png" %}" alt="zoom logo">&nbsp;Zoom. <a href="/library/evolve-the-practice/">Want to start a local group?</a></p>
 			<p class="mobile">Practice facilitated on <img src="{% asset "images/zoom-icon.png" %}" alt="zoom logo">&nbsp;Zoom.</p>
-			<p class="mobile"><a href="">Start a local group!</a></p>
+			<p class="mobile"><a href="/library/evolve-the-practice/">Start a local group!</a></p>
 		</div>
 		
 		<section class="intent">
@@ -380,6 +396,12 @@ style: '/css/pages/index.css'
 	{% include "components/Footer.html" %}
 </div>
 
+<!-- Splash Animation -->
+<script>
+	setTimeout( () => {
+		document.querySelector('#splash').classList.add('hide')
+	}, 3900)
+</script>
 
 <!-- Basic JS --> <script src="/js/index.js"></script>
 

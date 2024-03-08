@@ -1,4 +1,6 @@
-// Handle nav button
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Nav Button (expand/collapse)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 document.querySelector('#nav-btn').addEventListener('click', () => {
 	const nav = document.querySelector('nav')
 	if (nav.classList.contains('collapse')) {
@@ -8,12 +10,7 @@ document.querySelector('#nav-btn').addEventListener('click', () => {
 		nav.classList.add('collapse')
 	}
 })
-
-/* Splash Animation
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
-setTimeout( () => {
-	document.querySelector('#splash').classList.add('hide')
-}, 3900)
+/* [END] Nav Button */
 
 
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -58,29 +55,49 @@ document.querySelector('#signup div.overlay').addEventListener('click', () => {
 /* [END] Sign-up Modal Interactions */
 
 
-// switch between community members
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Community Section
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 const communityPics = document.querySelectorAll('ul.community li')
 const communityBios = document.querySelectorAll('div.community-bios p')
 
+let communityAutoScrollInterval = setInterval(communityAutoScroll, 4000)
+
+let profileIndex = 1
+function communityAutoScroll () {
+	profileIndex++
+	if (profileIndex > communityPics.length) {
+		profileIndex = 1
+	}
+	setCommunityActive(communityPics[profileIndex - 1])
+}
+
+function setCommunityActive (profile) {
+	// removes active state from all responses
+	communityPics.forEach( n => {
+		n.classList.remove('active')
+	})
+	communityBios.forEach( n => {
+		n.classList.remove('active')
+	})
+	// adds active state to hover'ed response
+	profile.classList.add('active')
+	let target = profile.dataset.bio
+	document.querySelector(`div.community-bios [data-bio='${target}']`).classList.add('active')
+}
+
 communityPics.forEach( i => {
 	i.addEventListener('mouseover', () => {
-		// removes active state from all responses
-		communityPics.forEach( n => {
-			n.classList.remove('active')
-		})
-		communityBios.forEach( n => {
-			n.classList.remove('active')
-		})
-		// adds active state to hover'ed response
-		i.classList.add('active')
-		let target = i.dataset.bio
-		document.querySelector(`div.community-bios [data-bio='${target}']`).classList.add('active')
+		clearInterval(communityAutoScrollInterval) // stop the auto-scrolling
+		setCommunityActive(i) // show the profile
 	})
 })
+/* [END] Community Section */
 
 
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Horizontal Scrolling Behavior == Overall Structure
+Horizontal Scrolling Behavior ==> Overall Structure
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 const overallStructureScroller = document.querySelector('#overall-structure-scroller')
 const curPos = () => { return overallStructureScroller.scrollLeft }
@@ -124,7 +141,7 @@ document.querySelector('#overall-structure-indicator-3').addEventListener('click
 	overallStructureScroller.scrollTo({ left: view3.offsetLeft, behavior: "smooth" })
 })
 
-/* [END] Horizontal Scrolling Behavior */
+
 
 /* Scroll Indicators
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
@@ -156,6 +173,7 @@ overallStructureScroller.addEventListener('scroll', () => {
 	})
 	document.querySelector(`#overall-structure-indicator-${currentView}`).classList.add('active')	
 })
+/* [END] Horizontal Scrolling Behavior */
 
 
 
