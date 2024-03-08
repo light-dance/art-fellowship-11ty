@@ -586,14 +586,12 @@ nav {
 				);
 				backdrop-filter: blur(1.1rem);
 				-webkit-backdrop-filter: blur(1.1rem);
-				
-				// border: 1rem solid hsla(45, 11%, 39%, 1);
 				box-shadow: 
 					inset 0 0 0 0.2rem hsla(45, 20%, 22%, 1),
-					inset 0 0 0 0.4rem hsla(45, 21%, 51%, 1),
-					inset 0 0 0 0.6rem hsla(45, 36%, 58%, 1),
-					inset 0 0 0 0.8rem hsla(45, 33%, 36%, 1),
-					inset 0 0 0 1rem hsla(45, 11%, 33%, 1);
+					inset 0 0 0 0.4rem hsla(45, 34%, 41%, 1),
+					inset 0 0 0 0.55rem hsla(45, 46%, 50%, 1),
+					inset 0 0 0 0.75rem hsla(45, 33%, 34%, 1),
+					inset 0 0 0 0.9rem hsla(45, 19%, 26%, 1);
 				border: 0.2rem solid hsla(45, 21%, 34%, 1);
 				border-radius: 0.2rem;
 				p {
@@ -1214,12 +1212,6 @@ div.engage {
 		margin-bottom: 2.9rem;
 		@include selection(hsl(201, 100%, 44%), hsl(201, 88%, 88%));
 		
-		// font-family: 'Source Serif Display';
-		// font-weight: 700;
-		// font-size: clamp(3rem, 6vw, 4.4rem);
-		// line-height: 1.18;
-		// letter-spacing: -0.013em;
-		
 		@include screen-md {
 			padding-bottom: 1.2rem;
 			font-weight: 600;
@@ -1306,12 +1298,12 @@ div.engage {
 	}
 	div.community-bios {
 		width: 100%;
-		height: 12rem;
+		height: 14rem;
 		p {
 			display: none;
 			width: 24rem;
 			margin: auto;
-			max-height: 9rem;
+			max-height: 10rem;
 			overflow-y: scroll;
 			padding: 1rem 1rem;
 			background: hsla(0, 0%, 100%, 0.8);

@@ -285,18 +285,20 @@ style: '/css/pages/index.css'
 		<div class="community-bios">
 			<p data-bio="alexandra" class="active">
 				<strong>Alexandra Zachary</strong> 
-				{% include "testimonials/alexandra-zachary.html" %} 
-				<em>&ndash;Australia</em></p>
+				{{ community.alexandraZachary.summary }} 
+				<em>&ndash;{{ community.alexandraZachary.location }}</em></p>
 			<p data-bio="jonas" class="">
-				<strong>Jonas</strong>
-				<em>&ndash;Sweeden?</em></p>
+				<strong>Jonas Søevik</strong>
+				{{ community.jonasSoevik.summary }}
+				<em>&ndash;{{ community.jonasSoevik.location }}</em></p>
 			<p data-bio="jake" class="">
 				<strong>Jake Go</strong>
-				{% include "testimonials/jake-go.html" %}
-				<em>&ndash;United States</em></p>
+				{{ community.jakeGo.summary }}
+				<em>&ndash;{{ community.jakeGo.location }}</em></p>
 			<p data-bio="ebenezer" class="">
-				<strong>Ebenezer</strong>
-				<em>&ndash;England</em></p>
+				<strong>Ebenezer Kaisha</strong>
+				{{ community.ebenezerKaisha.summary }}
+				<em>&ndash;{{ community.ebenezerKaisha.location }}</em></p>
 		</div>
 		
 		<h2 class="desktop">Open <em>yourself</em>, your <em>awareness</em>, and your <em>creativity</em>.</h2>
