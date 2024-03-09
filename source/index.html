@@ -107,6 +107,13 @@ style: '/css/pages/index.css'
 					</picture>
 				</div>
 			</div>
+			<div class="arrow">
+				<picture aria-hidden="true">
+					<source srcset="{% asset "images/down-arrow.svg" %}">
+					<source srcset="{% asset "images/down-arrow.webp" %}">
+					<img src="{% asset "images/down-arrow.png" %}" alt="" aria-hidden="true">
+				</picture>
+			</div>
 			<div class="scroll" aria-hidden="true">
 				<div class="scroll-copy">
 					<div class="item">
@@ -344,7 +351,7 @@ style: '/css/pages/index.css'
 				<img src="{% asset "images/pic-man-grey.jpg" %}" alt="Jonas">
 			</li>
 			<li data-bio="jake">
-				<img src="{% asset "images/pic-woman-pink.jpg" %}" alt="Jake">
+				<img src="{% asset "images/community/jake-go.jpg" %}" alt="Jake">
 			</li>
 			<li data-bio="ebenezer">
 				<img src="{% asset "images/pic-man-black.jpg" %}" alt="Ebenezer">
@@ -378,7 +385,6 @@ style: '/css/pages/index.css'
 	</div>
 	
 	<div class="library">
-		
 		<div class="resources">
 			<a href="/cheat-sheet"><h2>Cheat Sheet</h2><p><em>for Practice</em></p></a>
 			<div></div>

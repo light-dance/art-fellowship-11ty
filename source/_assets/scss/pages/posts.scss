@@ -5,8 +5,7 @@ html, body {
 main {
 	max-width: 57ch;
 	margin: auto;
-	padding-top: 1.9rem;
-	padding-bottom: clamp(12rem, 20vh, 20rem);
+	padding: 1.9rem 0.7rem clamp(9rem, 20vh, 15rem);
 }
 
 a#home-link {
