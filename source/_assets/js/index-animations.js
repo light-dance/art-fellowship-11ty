@@ -146,14 +146,26 @@ roundStructureScroller.addEventListener('scroll', () => {
 	document.querySelectorAll('section.round-structure div.explain-text p').forEach( i => {
 		i.classList.remove('active')
 	})
+	document.querySelectorAll('#round-structure-scroller div.labels p').forEach( i => {
+		i.classList.remove('active')
+	})
 	if (position >= view3) {
 		document.querySelector('#round-details-3').classList.add('active')
+		document.querySelectorAll('#round-structure-scroller div.labels p.section-3').forEach( i => {
+			i.classList.add('active')
+		})
 	}
 	else if (position >= view2) {
 		document.querySelector('#round-details-2').classList.add('active')
+		document.querySelectorAll('#round-structure-scroller div.labels p.section-2').forEach( i => {
+			i.classList.add('active')
+		})
 	}
 	else {
 		document.querySelector('#round-details-1').classList.add('active')
+		document.querySelectorAll('#round-structure-scroller div.labels p.section-1').forEach( i => {
+			i.classList.add('active')
+		})
 	}
 	
 	// look for each section's first element

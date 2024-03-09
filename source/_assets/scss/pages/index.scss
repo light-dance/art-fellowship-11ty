@@ -23,7 +23,7 @@ body.modal-open {
 	overflow: hidden;
 }
 
-$splash-animation-length: 3.7s;
+$splash-animation-length: 3.5s;
 
 #splash {
 	position: fixed;
@@ -154,6 +154,21 @@ $splash-animation-length: 3.7s;
 			transform: translateY(0rem);
 			filter: blur(0);
 		}
+	}
+}
+#hero div.headline h2 {
+	opacity: 0;
+	transform: translateY(-1.5rem);
+	animation: drop forwards 550ms calc($splash-animation-length + 430ms) ease-in-out;
+}
+@keyframes drop {
+	from {
+		transform: translateY(-1.5rem);
+		opacity: 0;
+	}
+	to {
+		transform: translateY(0);
+		opacity: 1;
 	}
 }
 
@@ -428,11 +443,14 @@ nav {
 							transform: translate(-30%, 30%);
 						}
 					}
-					&:hover {
-						border: 2px solid hsla(0, 0%, 100%, 0.6);
-						box-shadow: 0 2px 6px 2px hsla(0, 0%, 0%, 0.06);
-						transform: rotate(0) scale(1.1) !important;
-					}
+				}
+			}
+			
+			@media (min-width: 60rem) {
+				ul li:hover {
+					border: 2px solid hsla(0, 0%, 100%, 0.6);
+					box-shadow: 0 2px 6px 2px hsla(0, 0%, 0%, 0.06);
+					transform: rotate(0) scale(1.1) !important;
 				}
 			}
 			
@@ -563,14 +581,13 @@ nav {
 					border-radius: inherit;
 				}
 				p {
-					// position: absolute;
 					width: 100%;
 					text-align: center;
 					bottom: 0;
 					font-weight: 500;
 					color: hsla(0, 0%, 0%, 0.6);
 					opacity: 0;
-					transition: all 250ms;
+					transition: all 350ms;
 				}
 				&:hover {
 					p { opacity: 1; }
@@ -1106,6 +1123,13 @@ article.problem-statement {
 			--tray-border-width: 0.6rem;
 			--label-padding: 0.3rem;
 			--p-height: 5rem;
+			
+			@include screen-md {
+				--tray-height: 3.6rem;
+				--tray-border-width: 0.5rem;
+				--p-height: 3.7rem;
+			}
+			
 			.btn {
 				position: absolute;
 				height: 100%;
@@ -1146,7 +1170,24 @@ article.problem-statement {
 					letter-spacing: -0.009em;
 					color: hsla(0, 0%, 17%, 0.9);
 					white-space: nowrap;
+					transition: all 300ms;
 					&::after {
+						content: "";
+						position: absolute;
+						bottom: calc( -1 * var(--tray-height) + var(--tray-border-width) - var(--label-padding) );
+						height: calc(var(--tray-height) - ( var(--tray-border-width) * 2));
+						left: 0;
+						width: 100%;
+						background: linear-gradient(to bottom, 
+							hsl(0, 0%, 97%) 0%, 
+							hsl(200, 48%, 92%) 62%, 
+							hsl(201, 44%, 85%) 100%
+						);
+						border-radius: 10rem;
+						box-shadow: 0 2px 6px 1px hsla(0, 0%, 0%, 0.02);
+						transition: all 300ms;
+					}
+					&.active::after {
 						content: "";
 						position: absolute;
 						bottom: calc( -1 * var(--tray-height) + var(--tray-border-width) - var(--label-padding) );
@@ -1202,14 +1243,12 @@ article.problem-statement {
 				
 				display: flex;
 				flex-direction: column;
-				// gap: 1.7rem;
 				
 				p {
-					opacity: 1;
+					opacity: 0;
 					height: 0;
 					overflow-y: hidden;
-					transition: all 300ms;
-					transition-delay: 200ms;
+					transition: all 400ms;
 					&.active {
 						opacity: 1;
 						height: auto;
@@ -1234,22 +1273,27 @@ article.problem-statement {
 			}
 		}
 		@include screen-md {
-			padding: 2.7rem 0rem 4rem;
+			padding: 2.7rem 0rem 2rem;
 			> * {
 				padding: 0 1.4rem;
+			}
+			div.canvas div.btn {
+				display: none;
+				pointer-events: none;
 			}
 			div.canvas div.timeline div.wrapper {
 				padding: 0 1.4rem;
 			}
 			div.canvas div.timeline p {
-				font-size: 1.1rem;
+				font-size: 1rem;
 			}
 			div.canvas div.explain-text {
-				padding-top: 0.8rem;
+				padding-top: 0rem;
 				padding-left: 1.4rem;
 				padding-right: 1.4rem;
 				font-size: 1.6rem;
 			}
+			
 		}
 	}
 }
