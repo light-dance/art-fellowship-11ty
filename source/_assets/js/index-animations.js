@@ -106,3 +106,74 @@ gsap.fromTo(article.chars,
 	}
 }
 )
+
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Horizontal Scrolling Behavior ==> Round Structure
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+const roundStructureScroller = document.querySelector('#round-structure-scroller')
+const roundSrollPos = () => { return roundStructureScroller.scrollLeft }
+const roundStructureViewSize = () => { return document.querySelector('section.round-structure').offsetWidth }
+
+function setIndicatorPercent () {
+	let left = roundStructureScroller.scrollLeft
+	let view = roundStructureViewSize()
+	let width = document.querySelector('#round-structure-scroller div.wrapper').offsetWidth
+	
+	let scrollPercent = Math.round( ( ( left + view ) / width ) * 100 )
+	
+	document.querySelector('section.round-structure div.canvas div.scroll-indicator span.progress').style.width = `${scrollPercent}%`
+	
+	// console.log(`Left: ${left} View: ${view} Width: ${width} Perc: ${scrollPercent}`)
+}
+setIndicatorPercent()
+
+roundStructureScroller.addEventListener('scroll', () => {
+	let left = roundStructureScroller.scrollLeft
+	let view = roundStructureViewSize()
+	let width = document.querySelector('#round-structure-scroller div.wrapper').offsetWidth
+	
+	setIndicatorPercent()
+	
+	const view1 = document.querySelector('#round-structure-scroller p.section-1').offsetLeft
+	const view2 = document.querySelector('#round-structure-scroller p.section-2').offsetLeft
+	const view3 = document.querySelector('#round-structure-scroller p.section-3').offsetLeft
+	
+	// console.log(`Left: ${left} View: ${view} 1:${view1} 2:${view2} 3:${view3}`)
+	
+	let position = left + (view * 0.4)
+	
+	document.querySelectorAll('section.round-structure div.explain-text p').forEach( i => {
+		i.classList.remove('active')
+	})
+	if (position >= view3) {
+		document.querySelector('#round-details-3').classList.add('active')
+	}
+	else if (position >= view2) {
+		document.querySelector('#round-details-2').classList.add('active')
+	}
+	else {
+		document.querySelector('#round-details-1').classList.add('active')
+	}
+	
+	// look for each section's first element
+	// look at it in comparison to scroll position
+	// apply class to current explain text to show/hide
+})
+onresize = () => {
+	setIndicatorPercent()
+}
+
+document.querySelector('section.round-structure div.forward.btn').addEventListener('click', () => {
+	roundStructureScroller.scrollTo({
+		left: roundStructureScroller.scrollLeft + (document.querySelector('#round-structure-scroller div.wrapper').offsetWidth * .3),
+		behavior: "smooth"
+	})
+})
+document.querySelector('section.round-structure div.back.btn').addEventListener('click', () => {
+	roundStructureScroller.scrollTo({
+		left: roundStructureScroller.scrollLeft - (document.querySelector('#round-structure-scroller div.wrapper').offsetWidth * .3),
+		behavior: "smooth"
+	})
+})
+/* [END] Round Structure Scrolling */

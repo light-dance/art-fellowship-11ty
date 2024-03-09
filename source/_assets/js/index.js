@@ -100,7 +100,7 @@ communityPics.forEach( i => {
 Horizontal Scrolling Behavior ==> Overall Structure
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 const overallStructureScroller = document.querySelector('#overall-structure-scroller')
-const curPos = () => { return overallStructureScroller.scrollLeft }
+const overallSrollPos = () => { return overallStructureScroller.scrollLeft }
 
 const view1 = document.querySelector('#overall-structure-scroller div.round-one')
 const view2 = document.querySelector('#overall-structure-scroller div.week')
@@ -112,13 +112,13 @@ let autoScrollInterval = setInterval(autoScroll, scrollAdvanceTimer)
 
 function autoScroll () {
 	let scrollToX = 0	
-	if (curPos() > view2.offsetLeft) {
+	if (overallSrollPos() > view2.offsetLeft) {
 		scrollToX = view1.offsetLeft
 	}
-	else if (curPos() >= view2.offsetLeft) {
+	else if (overallSrollPos() >= view2.offsetLeft) {
 		scrollToX = view3.offsetLeft
 	}
-	else if (curPos() >= view1.offsetLeft) {
+	else if (overallSrollPos() >= view1.offsetLeft) {
 		scrollToX = view2.offsetLeft
 	}
 	else {
@@ -141,10 +141,7 @@ document.querySelector('#overall-structure-indicator-3').addEventListener('click
 	overallStructureScroller.scrollTo({ left: view3.offsetLeft, behavior: "smooth" })
 })
 
-
-
-/* Scroll Indicators
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+// Scroll Indicators
 overallStructureScroller.addEventListener('scroll', () => {
 	clearInterval(autoScrollInterval)
 	autoScrollInterval = setInterval(autoScroll, scrollAdvanceTimer)
@@ -173,19 +170,6 @@ overallStructureScroller.addEventListener('scroll', () => {
 	})
 	document.querySelector(`#overall-structure-indicator-${currentView}`).classList.add('active')	
 })
-/* [END] Horizontal Scrolling Behavior */
+/* [END] Overall Structure Scrolling */
 
 
-
-
-// For the round structure (last)
-const sessionStructureScroller = document.querySelector('#round-structure-scroller')
-sessionStructureScroller.addEventListener('scroll', () => {
-	
-	let scrollPercent = Math.max(10, Math.round((sessionStructureScroller.scrollLeft / sessionStructureScroller.offsetWidth) * 100))
-	
-	console.log(scrollPercent)
-	
-	document.querySelector('section.round-structure div.canvas div.scroll-indicator span.progress').style.width = `${scrollPercent}%`
-})
-/* [END] Scroll Indicators */

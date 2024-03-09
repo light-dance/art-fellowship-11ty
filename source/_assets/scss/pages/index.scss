@@ -1106,6 +1106,15 @@ article.problem-statement {
 			--tray-border-width: 0.6rem;
 			--label-padding: 0.3rem;
 			--p-height: 5rem;
+			.btn {
+				position: absolute;
+				height: 100%;
+				width: clamp(7rem, 5%, 15rem);
+				top: 0;
+				z-index: 5;
+			}
+			.back { left: 0; }
+			.forward { right: 0; }
 			div.timeline {
 				overflow-x: scroll;
 				padding: 0 0 2rem;
@@ -1193,7 +1202,19 @@ article.problem-statement {
 				
 				display: flex;
 				flex-direction: column;
-				gap: 1.7rem;
+				// gap: 1.7rem;
+				
+				p {
+					opacity: 1;
+					height: 0;
+					overflow-y: hidden;
+					transition: all 300ms;
+					transition-delay: 200ms;
+					&.active {
+						opacity: 1;
+						height: auto;
+					}
+				}
 			}
 			div.scroll-indicator {
 				width: 6rem;
