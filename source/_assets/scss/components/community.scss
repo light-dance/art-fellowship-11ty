@@ -1,0 +1,34 @@
+#community {
+	position: fixed;
+	bottom: 0;
+	z-index: 30;
+	width: 100%;
+	height: 100lvh;
+	padding: 0 2rem;
+	> * { 
+		position: relative;
+		z-index: 3;
+	}
+	div.bg {
+		position: absolute;
+		z-index: 1;
+		width: 100%;
+		height: 100%;
+		top: 0;
+		left: 0;
+	}
+	div.blur {
+		background: hsla(0, 0%, 0%, 0.09);
+		backdrop-filter: blur(0.5rem);
+		-webkit-backdrop-filter: blur(0.5rem);
+	}
+	div.wrapper {
+		margin: auto;
+		width: 100%;
+		max-width: 40rem;
+		height: 90vh;
+		background: hsl(0, 0%, 100%);
+		border-radius: 2rem 2rem 0 0;
+		margin-top: 2rem;
+	}
+}

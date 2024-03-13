@@ -1,6 +1,7 @@
 @use '../abstracts' as a;
 @use '../utilities' as *;
 @use '../components' as *;
+@use '../components/community' as community;
 
 :root {
 	--background: hsl(48, 26%, 96%);

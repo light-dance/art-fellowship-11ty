@@ -7,7 +7,9 @@ style: '/css/pages/index.css'
 
 {% include "components/Signup.html" %}
 
-<div id="splash" class="">
+{% include "components/Community.html" %}
+
+<div id="splash" class="hide">
 	<h1>Expanding Awareness Together</h1>
 	<div class="bg primary">
 		<div class="bg"></div>
@@ -61,7 +63,7 @@ style: '/css/pages/index.css'
 				<ul class="left">
 					<li class="card quote">
 						<p>{{ community.georginaMills.summary }}</p>
-						<img src="{% asset "images/pic-man-grey.jpg" %}" alt="Person Smiling">
+						<img src="{% asset "images/community/georgina-mills.jpg" %}" alt="Person Smiling">
 					</li>
 					<li>
 						<a href="/library/ecology-of-practices/">
@@ -347,16 +349,16 @@ style: '/css/pages/index.css'
 		<h3>A Community of ❤️</h3>
 		<ul class="community">
 			<li class="active" data-bio="alexandra">
-				<img src="{% asset "images/profile-photos/alexandra-zachary.jpg" %}" alt="Alexandra Zachary">
+				<img src="{% asset "images/community/alexandra-zachary.jpg" %}" alt="Alexandra Zachary">
 			</li>
 			<li data-bio="jonas">
-				<img src="{% asset "images/pic-man-grey.jpg" %}" alt="Jonas">
+				<img src="{% asset "images/community/jonas-soevik.jpg" %}" alt="Jonas">
 			</li>
 			<li data-bio="jake">
 				<img src="{% asset "images/community/jake-go.jpg" %}" alt="Jake">
 			</li>
 			<li data-bio="ebenezer">
-				<img src="{% asset "images/pic-man-black.jpg" %}" alt="Ebenezer">
+				<img src="{% asset "images/community/ebenezer-kaisha.jpg" %}" alt="Ebenezer">
 			</li>
 		</ul>
 		<div class="community-bios">
