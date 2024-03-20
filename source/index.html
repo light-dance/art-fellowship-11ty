@@ -9,7 +9,7 @@ style: '/css/pages/index.css'
 
 {% include "components/Community.html" %}
 
-<div id="splash" class="hide">
+<div id="splash" class="">
 	<h1>Expanding Awareness Together</h1>
 	<div class="bg primary">
 		<div class="bg"></div>
@@ -40,7 +40,7 @@ style: '/css/pages/index.css'
 				</picture>
 			</div>
 			
-			<a href="https://artfellowship.space" id="logo" class="animate">
+			<a href="https://artfellowship.space" id="logo" class="">
 				<picture>
 					<source srcset="{% asset "images/logo.svg" %}">
 					<source srcset="{% asset "images/logo.webp" %}">
@@ -53,7 +53,7 @@ style: '/css/pages/index.css'
 		
 		<div class="headline">
 			<h1>Expanding Awareness Together</h1>
-			<h2>Relate and Renew Through Art</h2>
+			<h2 id="heading-emphasis" class="">Relate and Renew Through Art</h2>
 		</div>
 		
 		<div class="small-spacer"></div>
@@ -409,9 +409,27 @@ style: '/css/pages/index.css'
 
 <!-- Splash Animation -->
 <script>
-	setTimeout( () => {
-		document.querySelector('#splash').classList.add('hide')
-	}, 3900)
+	if ( !decodeURIComponent(document.cookie).includes('crumb') ) {
+		document.cookie = 'crumb'
+		
+		document.querySelector('#splash').classList.add('animate')
+		document.querySelector('#logo').classList.add('animate')
+		document.querySelector('#heading-emphasis').classList.add('animate')
+		
+		setTimeout( () => {
+			document.querySelector('#splash').classList.add('hide')
+		}, 3900)
+		
+		if ( window.navigator.userAgent.toLowerCase().includes('chrome') && 'scrollRestoration' in history) {
+			// DISABLES scroll restoration in Chrome based browsers
+			history.scrollRestoration = 'manual';
+		}
+	}
+	else if ( window.navigator.userAgent.toLowerCase().includes('chrome') && 'scrollRestoration' in history ) {
+		// ENABLES scroll restoration in Chrome based browsers
+		history.scrollRestoration = 'auto';
+	}
+	
 </script>
 
 <!-- Basic JS --> <script src="/js/index.js"></script>

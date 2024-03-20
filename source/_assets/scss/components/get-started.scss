@@ -33,11 +33,10 @@
 			width: 5vw;
 			height: 5vh;
 			background: hsla(0, 0%, 10%, 0.40);
-			backdrop-filter: blur(0rem);
-			-webkit-backdrop-filter: blur(0rem);
+			backdrop-filter: blur(0.9rem); // Cannot animate in Chrome
+			-webkit-backdrop-filter: blur(0); // Can animate in Safari
 			border-radius: 3rem;
 			margin-bottom: 5rem;
-			filter: blur(1.5rem);
 		}
 	}
 	

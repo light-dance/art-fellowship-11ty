@@ -27,6 +27,7 @@ body.modal-open {
 $splash-animation-length: 3.5s;
 
 #splash {
+	display: none;
 	position: fixed;
 	top: 0;
 	left: 0;
@@ -45,7 +46,6 @@ $splash-animation-length: 3.5s;
 		line-height: 1.18;
 		letter-spacing: -0.013em;
 		z-index: 4;
-		animation: splash-text-in forwards 800ms 2.9s ease-in-out;
 	}
 	.bg {
 		position: absolute; 
@@ -70,7 +70,6 @@ $splash-animation-length: 3.5s;
 				hsl(209, 100%, 78%) 100%
 			);
 			filter: blur(2rem);
-			animation: splash-in forwards 3.7s 150ms ease-in-out;
 		}
 		z-index: 2;
 	}
@@ -81,13 +80,26 @@ $splash-animation-length: 3.5s;
 			hsl(263, 32%, 94%) 100%
 		);
 		z-index: 1;
-		animation: splash-in-secondary forwards 1s 2.6s ease-in-out;
 	}
 	.blur {
 		z-index: 3;
 		backdrop-filter: blur(3rem);
 		-webkit-backdrop-filter: blur(3rem);
-		animation: splash-in-blur forwards 1.1s 3.2s ease-in-out;
+	}
+	&.animate {
+		display: block;
+		.blur {
+			animation: splash-in-blur forwards 1.1s 3.2s ease-in-out;
+		}
+		.secondary {
+			animation: splash-in-secondary forwards 1s 2.6s ease-in-out;
+		}
+		.primary div {
+			animation: splash-in forwards 3.7s 150ms ease-in-out;
+		}
+		h1 {
+			animation: splash-text-in forwards 800ms 2.9s ease-in-out;
+		}
 	}
 	@keyframes splash-in {
 		0% {
@@ -142,7 +154,7 @@ $splash-animation-length: 3.5s;
 		}
 	}
 }
-#hero .title a.animate {
+#logo.animate {
 	transform: translateY(2.5rem);
 	filter: blur(0.9rem);
 	animation: logo-splash-animation forwards 700ms 3.3s ease-out;
@@ -157,7 +169,7 @@ $splash-animation-length: 3.5s;
 		}
 	}
 }
-#hero div.headline h2 {
+#heading-emphasis.animate {
 	opacity: 0;
 	transform: translateY(-1.5rem);
 	animation: drop forwards 550ms calc($splash-animation-length + 430ms) ease-in-out;
